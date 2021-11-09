@@ -13,6 +13,11 @@
 		9E192011273B168700B276EC /* question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E192010273B168700B276EC /* question.swift */; };
 		9E192013273B16A000B276EC /* messagerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E192012273B16A000B276EC /* messagerie.swift */; };
 		9E192015273B16AA00B276EC /* event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E192014273B16AA00B276EC /* event.swift */; };
+		9E192017273B1C0F00B276EC /* accountconfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E192016273B1C0F00B276EC /* accountconfigViewController.swift */; };
+		9E192019273B1FCD00B276EC /* chnagephotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E192018273B1FCD00B276EC /* chnagephotoViewController.swift */; };
+		9E19201B273B289B00B276EC /* languageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E19201A273B289B00B276EC /* languageViewController.swift */; };
+		9E19201D273B2F0F00B276EC /* newquestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E19201C273B2F0F00B276EC /* newquestionViewController.swift */; };
+		9E19201F273B30E800B276EC /* newmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E19201E273B30E800B276EC /* newmailViewController.swift */; };
 		9E2F05D9273A705A00813E57 /* confirmationmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F05D8273A705A00813E57 /* confirmationmailViewController.swift */; };
 		9E2F05DB273A795200813E57 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F05DA273A795200813E57 /* homeViewController.swift */; };
 		9E570C042739512700CBC622 /* OnBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E570C032739512700CBC622 /* OnBoardViewController.swift */; };
@@ -67,6 +72,11 @@
 		9E192010273B168700B276EC /* question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = question.swift; sourceTree = "<group>"; };
 		9E192012273B16A000B276EC /* messagerie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messagerie.swift; sourceTree = "<group>"; };
 		9E192014273B16AA00B276EC /* event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = event.swift; sourceTree = "<group>"; };
+		9E192016273B1C0F00B276EC /* accountconfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accountconfigViewController.swift; sourceTree = "<group>"; };
+		9E192018273B1FCD00B276EC /* chnagephotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chnagephotoViewController.swift; sourceTree = "<group>"; };
+		9E19201A273B289B00B276EC /* languageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = languageViewController.swift; sourceTree = "<group>"; };
+		9E19201C273B2F0F00B276EC /* newquestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newquestionViewController.swift; sourceTree = "<group>"; };
+		9E19201E273B30E800B276EC /* newmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newmailViewController.swift; sourceTree = "<group>"; };
 		9E2F05D8273A705A00813E57 /* confirmationmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = confirmationmailViewController.swift; sourceTree = "<group>"; };
 		9E2F05DA273A795200813E57 /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
 		9E570C032739512700CBC622 /* OnBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +178,11 @@
 				9EB184F9273ADFF600BA2E1B /* donation3ViewController.swift */,
 				E12F8D1B273804D8001E9F8D /* ViewController.swift */,
 				9EB184ED273AC70200BA2E1B /* chercheViewController.swift */,
+				9E192016273B1C0F00B276EC /* accountconfigViewController.swift */,
+				9E192018273B1FCD00B276EC /* chnagephotoViewController.swift */,
+				9E19201A273B289B00B276EC /* languageViewController.swift */,
+				9E19201C273B2F0F00B276EC /* newquestionViewController.swift */,
+				9E19201E273B30E800B276EC /* newmailViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -375,20 +390,25 @@
 				9EB184F4273AC74500BA2E1B /* settingViewController.swift in Sources */,
 				9E19200F273B167900B276EC /* reponse.swift in Sources */,
 				9E192011273B168700B276EC /* question.swift in Sources */,
+				9E19201B273B289B00B276EC /* languageViewController.swift in Sources */,
 				9E570C062739614500CBC622 /* welcomeViewController.swift in Sources */,
 				9E5D0C5B273894E1001C3AD0 /* LaunchViewController.swift in Sources */,
 				9E2F05D9273A705A00813E57 /* confirmationmailViewController.swift in Sources */,
 				9EB184F0273AC72200BA2E1B /* mailViewController.swift in Sources */,
 				9EB184EE273AC70200BA2E1B /* chercheViewController.swift in Sources */,
+				9E192019273B1FCD00B276EC /* chnagephotoViewController.swift in Sources */,
 				E12F8D18273804D8001E9F8D /* AppDelegate.swift in Sources */,
+				9E19201F273B30E800B276EC /* newmailViewController.swift in Sources */,
 				9E570C0C27396D1800CBC622 /* securitycodeViewController.swift in Sources */,
 				E12F8D22273804D8001E9F8D /* doctor.xcdatamodeld in Sources */,
 				E12F8D1A273804D8001E9F8D /* SceneDelegate.swift in Sources */,
 				9E5D0C5F27389508001C3AD0 /* Launch3ViewController.swift in Sources */,
+				9E192017273B1C0F00B276EC /* accountconfigViewController.swift in Sources */,
 				9E192013273B16A000B276EC /* messagerie.swift in Sources */,
 				9EB184F8273ADFE900BA2E1B /* donation2ViewController.swift in Sources */,
 				9E570C0A273965E800CBC622 /* resetpasswordViewController.swift in Sources */,
 				9E19200B273B116300B276EC /* Parser.swift in Sources */,
+				9E19201D273B2F0F00B276EC /* newquestionViewController.swift in Sources */,
 				9E192015273B16AA00B276EC /* event.swift in Sources */,
 				9E192008273B0FF800B276EC /* user.swift in Sources */,
 				9E2F05DB273A795200813E57 /* homeViewController.swift in Sources */,
