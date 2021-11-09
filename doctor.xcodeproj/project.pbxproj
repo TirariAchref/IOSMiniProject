@@ -7,9 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E192008273B0FF800B276EC /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E192007273B0FF800B276EC /* user.swift */; };
+		9E19200B273B116300B276EC /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E19200A273B116300B276EC /* Parser.swift */; };
+		9E19200F273B167900B276EC /* reponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E19200E273B167900B276EC /* reponse.swift */; };
+		9E192011273B168700B276EC /* question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E192010273B168700B276EC /* question.swift */; };
+		9E192013273B16A000B276EC /* messagerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E192012273B16A000B276EC /* messagerie.swift */; };
+		9E192015273B16AA00B276EC /* event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E192014273B16AA00B276EC /* event.swift */; };
+		9E2F05D9273A705A00813E57 /* confirmationmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F05D8273A705A00813E57 /* confirmationmailViewController.swift */; };
+		9E2F05DB273A795200813E57 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F05DA273A795200813E57 /* homeViewController.swift */; };
+		9E570C042739512700CBC622 /* OnBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E570C032739512700CBC622 /* OnBoardViewController.swift */; };
+		9E570C062739614500CBC622 /* welcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E570C052739614500CBC622 /* welcomeViewController.swift */; };
+		9E570C08273965C900CBC622 /* findaccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E570C07273965C900CBC622 /* findaccountViewController.swift */; };
+		9E570C0A273965E800CBC622 /* resetpasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E570C09273965E800CBC622 /* resetpasswordViewController.swift */; };
+		9E570C0C27396D1800CBC622 /* securitycodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E570C0B27396D1800CBC622 /* securitycodeViewController.swift */; };
+		9E570C0E27396E6700CBC622 /* confirmresetpasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E570C0D27396E6700CBC622 /* confirmresetpasswordViewController.swift */; };
 		9E5D0C5B273894E1001C3AD0 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5D0C5A273894E1001C3AD0 /* LaunchViewController.swift */; };
 		9E5D0C5D273894FA001C3AD0 /* Launch2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5D0C5C273894FA001C3AD0 /* Launch2ViewController.swift */; };
 		9E5D0C5F27389508001C3AD0 /* Launch3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5D0C5E27389508001C3AD0 /* Launch3ViewController.swift */; };
+		9EB184EE273AC70200BA2E1B /* chercheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184ED273AC70200BA2E1B /* chercheViewController.swift */; };
+		9EB184F0273AC72200BA2E1B /* mailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184EF273AC72200BA2E1B /* mailViewController.swift */; };
+		9EB184F2273AC73700BA2E1B /* notificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184F1273AC73700BA2E1B /* notificationViewController.swift */; };
+		9EB184F4273AC74500BA2E1B /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184F3273AC74500BA2E1B /* settingViewController.swift */; };
+		9EB184F6273ADFDC00BA2E1B /* donation1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184F5273ADFDC00BA2E1B /* donation1ViewController.swift */; };
+		9EB184F8273ADFE900BA2E1B /* donation2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184F7273ADFE900BA2E1B /* donation2ViewController.swift */; };
+		9EB184FA273ADFF600BA2E1B /* donation3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184F9273ADFF600BA2E1B /* donation3ViewController.swift */; };
 		E12F8D18273804D8001E9F8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F8D17273804D8001E9F8D /* AppDelegate.swift */; };
 		E12F8D1A273804D8001E9F8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F8D19273804D8001E9F8D /* SceneDelegate.swift */; };
 		E12F8D1C273804D8001E9F8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F8D1B273804D8001E9F8D /* ViewController.swift */; };
@@ -40,9 +61,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E192007273B0FF800B276EC /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+		9E19200A273B116300B276EC /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		9E19200E273B167900B276EC /* reponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reponse.swift; sourceTree = "<group>"; };
+		9E192010273B168700B276EC /* question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = question.swift; sourceTree = "<group>"; };
+		9E192012273B16A000B276EC /* messagerie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messagerie.swift; sourceTree = "<group>"; };
+		9E192014273B16AA00B276EC /* event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = event.swift; sourceTree = "<group>"; };
+		9E2F05D8273A705A00813E57 /* confirmationmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = confirmationmailViewController.swift; sourceTree = "<group>"; };
+		9E2F05DA273A795200813E57 /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
+		9E570C032739512700CBC622 /* OnBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardViewController.swift; sourceTree = "<group>"; };
+		9E570C052739614500CBC622 /* welcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welcomeViewController.swift; sourceTree = "<group>"; };
+		9E570C07273965C900CBC622 /* findaccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findaccountViewController.swift; sourceTree = "<group>"; };
+		9E570C09273965E800CBC622 /* resetpasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resetpasswordViewController.swift; sourceTree = "<group>"; };
+		9E570C0B27396D1800CBC622 /* securitycodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = securitycodeViewController.swift; sourceTree = "<group>"; };
+		9E570C0D27396E6700CBC622 /* confirmresetpasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = confirmresetpasswordViewController.swift; sourceTree = "<group>"; };
 		9E5D0C5A273894E1001C3AD0 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		9E5D0C5C273894FA001C3AD0 /* Launch2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch2ViewController.swift; sourceTree = "<group>"; };
 		9E5D0C5E27389508001C3AD0 /* Launch3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch3ViewController.swift; sourceTree = "<group>"; };
+		9EB184ED273AC70200BA2E1B /* chercheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chercheViewController.swift; sourceTree = "<group>"; };
+		9EB184EF273AC72200BA2E1B /* mailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mailViewController.swift; sourceTree = "<group>"; };
+		9EB184F1273AC73700BA2E1B /* notificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationViewController.swift; sourceTree = "<group>"; };
+		9EB184F3273AC74500BA2E1B /* settingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
+		9EB184F5273ADFDC00BA2E1B /* donation1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = donation1ViewController.swift; sourceTree = "<group>"; };
+		9EB184F7273ADFE900BA2E1B /* donation2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = donation2ViewController.swift; sourceTree = "<group>"; };
+		9EB184F9273ADFF600BA2E1B /* donation3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = donation3ViewController.swift; sourceTree = "<group>"; };
 		E12F8D14273804D8001E9F8D /* doctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = doctor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12F8D17273804D8001E9F8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E12F8D19273804D8001E9F8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +126,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E192006273B0EFE00B276EC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9E192007273B0FF800B276EC /* user.swift */,
+				9E19200E273B167900B276EC /* reponse.swift */,
+				9E192010273B168700B276EC /* question.swift */,
+				9E192012273B16A000B276EC /* messagerie.swift */,
+				9E192014273B16AA00B276EC /* event.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9E192009273B114800B276EC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E19200A273B116300B276EC /* Parser.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9E19200C273B145F00B276EC /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				9E5D0C5A273894E1001C3AD0 /* LaunchViewController.swift */,
+				9E5D0C5C273894FA001C3AD0 /* Launch2ViewController.swift */,
+				9E5D0C5E27389508001C3AD0 /* Launch3ViewController.swift */,
+				9E570C032739512700CBC622 /* OnBoardViewController.swift */,
+				9E570C052739614500CBC622 /* welcomeViewController.swift */,
+				9E570C07273965C900CBC622 /* findaccountViewController.swift */,
+				9E570C09273965E800CBC622 /* resetpasswordViewController.swift */,
+				9E570C0B27396D1800CBC622 /* securitycodeViewController.swift */,
+				9E570C0D27396E6700CBC622 /* confirmresetpasswordViewController.swift */,
+				9E2F05D8273A705A00813E57 /* confirmationmailViewController.swift */,
+				9E2F05DA273A795200813E57 /* homeViewController.swift */,
+				9EB184EF273AC72200BA2E1B /* mailViewController.swift */,
+				9EB184F1273AC73700BA2E1B /* notificationViewController.swift */,
+				9EB184F3273AC74500BA2E1B /* settingViewController.swift */,
+				9EB184F5273ADFDC00BA2E1B /* donation1ViewController.swift */,
+				9EB184F7273ADFE900BA2E1B /* donation2ViewController.swift */,
+				9EB184F9273ADFF600BA2E1B /* donation3ViewController.swift */,
+				E12F8D1B273804D8001E9F8D /* ViewController.swift */,
+				9EB184ED273AC70200BA2E1B /* chercheViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		9E19200D273B15FD00B276EC /* view */ = {
+			isa = PBXGroup;
+			children = (
+				E12F8D1D273804D8001E9F8D /* Main.storyboard */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		E12F8D0B273804D8001E9F8D = {
 			isa = PBXGroup;
 			children = (
@@ -107,17 +203,16 @@
 		E12F8D16273804D8001E9F8D /* doctor */ = {
 			isa = PBXGroup;
 			children = (
+				9E19200D273B15FD00B276EC /* view */,
+				9E19200C273B145F00B276EC /* controller */,
+				9E192009273B114800B276EC /* ViewModel */,
+				9E192006273B0EFE00B276EC /* Model */,
 				E12F8D17273804D8001E9F8D /* AppDelegate.swift */,
 				E12F8D19273804D8001E9F8D /* SceneDelegate.swift */,
-				E12F8D1B273804D8001E9F8D /* ViewController.swift */,
-				E12F8D1D273804D8001E9F8D /* Main.storyboard */,
 				E12F8D23273804D9001E9F8D /* Assets.xcassets */,
 				E12F8D25273804D9001E9F8D /* LaunchScreen.storyboard */,
 				E12F8D28273804D9001E9F8D /* Info.plist */,
 				E12F8D20273804D8001E9F8D /* doctor.xcdatamodeld */,
-				9E5D0C5A273894E1001C3AD0 /* LaunchViewController.swift */,
-				9E5D0C5C273894FA001C3AD0 /* Launch2ViewController.swift */,
-				9E5D0C5E27389508001C3AD0 /* Launch3ViewController.swift */,
 			);
 			path = doctor;
 			sourceTree = "<group>";
@@ -272,11 +367,32 @@
 			files = (
 				9E5D0C5D273894FA001C3AD0 /* Launch2ViewController.swift in Sources */,
 				E12F8D1C273804D8001E9F8D /* ViewController.swift in Sources */,
+				9EB184F2273AC73700BA2E1B /* notificationViewController.swift in Sources */,
+				9E570C042739512700CBC622 /* OnBoardViewController.swift in Sources */,
+				9EB184F6273ADFDC00BA2E1B /* donation1ViewController.swift in Sources */,
+				9E570C0E27396E6700CBC622 /* confirmresetpasswordViewController.swift in Sources */,
+				9EB184FA273ADFF600BA2E1B /* donation3ViewController.swift in Sources */,
+				9EB184F4273AC74500BA2E1B /* settingViewController.swift in Sources */,
+				9E19200F273B167900B276EC /* reponse.swift in Sources */,
+				9E192011273B168700B276EC /* question.swift in Sources */,
+				9E570C062739614500CBC622 /* welcomeViewController.swift in Sources */,
 				9E5D0C5B273894E1001C3AD0 /* LaunchViewController.swift in Sources */,
+				9E2F05D9273A705A00813E57 /* confirmationmailViewController.swift in Sources */,
+				9EB184F0273AC72200BA2E1B /* mailViewController.swift in Sources */,
+				9EB184EE273AC70200BA2E1B /* chercheViewController.swift in Sources */,
 				E12F8D18273804D8001E9F8D /* AppDelegate.swift in Sources */,
+				9E570C0C27396D1800CBC622 /* securitycodeViewController.swift in Sources */,
 				E12F8D22273804D8001E9F8D /* doctor.xcdatamodeld in Sources */,
 				E12F8D1A273804D8001E9F8D /* SceneDelegate.swift in Sources */,
 				9E5D0C5F27389508001C3AD0 /* Launch3ViewController.swift in Sources */,
+				9E192013273B16A000B276EC /* messagerie.swift in Sources */,
+				9EB184F8273ADFE900BA2E1B /* donation2ViewController.swift in Sources */,
+				9E570C0A273965E800CBC622 /* resetpasswordViewController.swift in Sources */,
+				9E19200B273B116300B276EC /* Parser.swift in Sources */,
+				9E192015273B16AA00B276EC /* event.swift in Sources */,
+				9E192008273B0FF800B276EC /* user.swift in Sources */,
+				9E2F05DB273A795200813E57 /* homeViewController.swift in Sources */,
+				9E570C08273965C900CBC622 /* findaccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
