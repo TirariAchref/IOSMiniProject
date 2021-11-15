@@ -9,6 +9,10 @@ import UIKit
 
 class newmailViewController: UIViewController {
 
+    @IBOutlet weak var submit: UIButton!
+    @IBOutlet weak var message: UILabel!
+    @IBOutlet weak var subject: UITextField!
+    @IBOutlet weak var to: UITextField!
     @IBOutlet weak var profilepicture: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()

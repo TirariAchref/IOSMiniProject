@@ -9,6 +9,11 @@ import UIKit
 
 class confirmresetpasswordViewController: UIViewController {
 
+    @IBAction func `continue`(_ sender: Any) {
+    }
+    
+    @IBOutlet weak var confpassword: UITextField!
+    @IBOutlet weak var password: UITextField!
     @IBOutlet weak var image: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()

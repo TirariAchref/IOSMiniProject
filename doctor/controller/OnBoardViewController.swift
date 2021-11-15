@@ -9,13 +9,22 @@ import UIKit
 
 class OnBoardViewController: UIViewController {
 
+    @IBOutlet weak var professional: UIImageView!
+    @IBOutlet weak var user: UIImageView!
+    @IBOutlet weak var number: UITextField!
+    @IBOutlet weak var conpassword: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var name: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func register(_ sender: UIButton) {
+    }
+    
     /*
     // MARK: - Navigation
 

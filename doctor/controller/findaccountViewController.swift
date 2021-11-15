@@ -9,6 +9,10 @@ import UIKit
 
 class findaccountViewController: UIViewController {
 
+    @IBAction func send(_ sender: Any) {
+    }
+    @IBOutlet weak var search: UIButton!
+    @IBOutlet weak var find: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 

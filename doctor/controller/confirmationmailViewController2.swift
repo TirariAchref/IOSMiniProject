@@ -1,29 +1,19 @@
 //
-//  securitycodeViewController.swift
+//  confirmationmailViewController2.swift
 //  doctor
 //
-//  Created by achref on 8/11/2021.
+//  Created by achref on 14/11/2021.
 //
 
 import UIKit
 
-class securitycodeViewController: UIViewController {
+class confirmationmailViewController2: UIViewController {
 
-    @IBOutlet weak var image: UIImageView!
-    
-    @IBAction func `continue`(_ sender: Any) {
-    }
-    
-    
+    @IBOutlet weak var `continue`: UIButton!
     @IBOutlet weak var code: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        image.layer.borderWidth = 1
-        image.layer.masksToBounds = false
-        image.layer.borderColor = UIColor.black.cgColor
-        image.layer.cornerRadius = image.frame.height/2
-        image.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
     

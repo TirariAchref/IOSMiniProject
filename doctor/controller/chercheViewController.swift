@@ -69,7 +69,8 @@ class chercheViewController: UIViewController,UITableViewDelegate,UITableViewDat
         // Do any additional setup after loading the view.
     }
     
-
+    @IBOutlet weak var search: UISearchBar!
+    
     /*
     // MARK: - Navigation
 

@@ -8,7 +8,13 @@
 import UIKit
 
 class accountconfigViewController: UIViewController {
-
+    @IBOutlet weak var number: UITextField!
+    @IBAction func update(_ sender: Any) {
+    }
+    
+    @IBOutlet weak var conpassword: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var name: UITextField!
     @IBOutlet weak var profileimage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()

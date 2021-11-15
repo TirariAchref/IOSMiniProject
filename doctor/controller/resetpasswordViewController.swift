@@ -9,6 +9,10 @@ import UIKit
 
 class resetpasswordViewController: UIViewController {
 
+    @IBAction func `continue`(_ sender: UIButton) {
+    }
+    @IBOutlet weak var number: UIImageView!
+    @IBOutlet weak var email: UIImageView!
     @IBOutlet weak var imageacchount: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()

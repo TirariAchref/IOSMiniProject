@@ -9,6 +9,10 @@ import UIKit
 
 class donation2ViewController: UIViewController {
 
+    @IBAction func donate(_ sender: Any) {
+    }
+    @IBOutlet weak var card: UITextField!
+    @IBOutlet weak var money: UITextField!
     @IBOutlet weak var profileimage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()

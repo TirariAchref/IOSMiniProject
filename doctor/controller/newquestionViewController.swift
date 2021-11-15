@@ -9,6 +9,8 @@ import UIKit
 
 class newquestionViewController: UIViewController {
 
+    @IBOutlet weak var question: UILabel!
+    @IBOutlet weak var subject: UITextField!
     @IBOutlet weak var profilepicture: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +22,9 @@ class newquestionViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func submit(_ sender: UIButton) {
+    }
+    
     /*
     // MARK: - Navigation
 

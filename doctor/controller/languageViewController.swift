@@ -9,6 +9,10 @@ import UIKit
 
 class languageViewController: UIViewController {
 
+    @IBAction func update(_ sender: Any) {
+    }
+    @IBOutlet weak var arabic: UIImageView!
+    @IBOutlet weak var englisg: UIImageView!
     @IBOutlet weak var profileimage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()

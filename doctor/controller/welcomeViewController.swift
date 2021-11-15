@@ -9,6 +9,9 @@ import UIKit
 
 class welcomeViewController: UIViewController {
 
+    @IBOutlet weak var login: UIButton!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var email: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 

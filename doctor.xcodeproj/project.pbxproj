@@ -36,6 +36,7 @@
 		9EB184F6273ADFDC00BA2E1B /* donation1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184F5273ADFDC00BA2E1B /* donation1ViewController.swift */; };
 		9EB184F8273ADFE900BA2E1B /* donation2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184F7273ADFE900BA2E1B /* donation2ViewController.swift */; };
 		9EB184FA273ADFF600BA2E1B /* donation3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184F9273ADFF600BA2E1B /* donation3ViewController.swift */; };
+		9ED275B427419959003DB378 /* confirmationmailViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED275B327419959003DB378 /* confirmationmailViewController2.swift */; };
 		E12F8D18273804D8001E9F8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F8D17273804D8001E9F8D /* AppDelegate.swift */; };
 		E12F8D1A273804D8001E9F8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F8D19273804D8001E9F8D /* SceneDelegate.swift */; };
 		E12F8D1C273804D8001E9F8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F8D1B273804D8001E9F8D /* ViewController.swift */; };
@@ -95,6 +96,7 @@
 		9EB184F5273ADFDC00BA2E1B /* donation1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = donation1ViewController.swift; sourceTree = "<group>"; };
 		9EB184F7273ADFE900BA2E1B /* donation2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = donation2ViewController.swift; sourceTree = "<group>"; };
 		9EB184F9273ADFF600BA2E1B /* donation3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = donation3ViewController.swift; sourceTree = "<group>"; };
+		9ED275B327419959003DB378 /* confirmationmailViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = confirmationmailViewController2.swift; sourceTree = "<group>"; };
 		E12F8D14273804D8001E9F8D /* doctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = doctor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12F8D17273804D8001E9F8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E12F8D19273804D8001E9F8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				9E19201A273B289B00B276EC /* languageViewController.swift */,
 				9E19201C273B2F0F00B276EC /* newquestionViewController.swift */,
 				9E19201E273B30E800B276EC /* newmailViewController.swift */,
+				9ED275B327419959003DB378 /* confirmationmailViewController2.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				9E19201F273B30E800B276EC /* newmailViewController.swift in Sources */,
 				9E570C0C27396D1800CBC622 /* securitycodeViewController.swift in Sources */,
 				E12F8D22273804D8001E9F8D /* doctor.xcdatamodeld in Sources */,
+				9ED275B427419959003DB378 /* confirmationmailViewController2.swift in Sources */,
 				E12F8D1A273804D8001E9F8D /* SceneDelegate.swift in Sources */,
 				9E5D0C5F27389508001C3AD0 /* Launch3ViewController.swift in Sources */,
 				9E192017273B1C0F00B276EC /* accountconfigViewController.swift in Sources */,

@@ -9,6 +9,8 @@ import UIKit
 
 class confirmationmailViewController: UIViewController {
 
+    @IBOutlet weak var `continue`: UIButton!
+    @IBOutlet weak var code: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 

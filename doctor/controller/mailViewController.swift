@@ -71,6 +71,7 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     }
     
 
+    @IBOutlet weak var search: UISearchBar!
     /*
     // MARK: - Navigation
 
