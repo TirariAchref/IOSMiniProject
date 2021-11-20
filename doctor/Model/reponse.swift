@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Reponse{
+struct Reponse : Decodable{
     
     let idReponse : Int
     let Description : String

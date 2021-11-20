@@ -51,6 +51,7 @@
                                     <color key="baseBackgroundColor" red="0.59215686270000001" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="start:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k5I-ae-zpT"/>
                                     <segue destination="yQt-mr-5g6" kind="presentation" modalPresentationStyle="fullScreen" id="Km4-Qd-oFA"/>
                                 </connections>
                             </button>
@@ -125,6 +126,7 @@
                                     <color key="baseBackgroundColor" red="0.59215686270000001" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="start:" destination="WFE-A5-meo" eventType="touchUpInside" id="61l-LX-XXu"/>
                                     <segue destination="2Iq-Xn-DPf" kind="presentation" modalPresentationStyle="fullScreen" id="qSS-TR-0CV"/>
                                 </connections>
                             </button>
@@ -211,6 +213,7 @@
                                     <color key="baseBackgroundColor" red="0.59215686270000001" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="start:" destination="yQt-mr-5g6" eventType="touchUpInside" id="jvQ-qd-cce"/>
                                     <segue destination="WFE-A5-meo" kind="presentation" modalPresentationStyle="fullScreen" id="B5r-jQ-oSm"/>
                                 </connections>
                             </button>
@@ -4525,13 +4528,13 @@
         <segue reference="YmC-Re-HYb"/>
         <segue reference="sB4-NM-7rz"/>
         <segue reference="WIm-TF-g2T"/>
-        <segue reference="Mj1-uf-Jg0"/>
-        <segue reference="v0L-ZQ-Kuo"/>
+        <segue reference="ngc-0j-T0p"/>
+        <segue reference="FwJ-Bz-EmS"/>
         <segue reference="Isa-0T-gHh"/>
         <segue reference="bh7-KW-uX0"/>
         <segue reference="ntc-9o-YZr"/>
-        <segue reference="LvZ-FK-1uE"/>
-        <segue reference="z2H-eQ-2aq"/>
+        <segue reference="88j-fE-cEr"/>
+        <segue reference="qSS-TR-0CV"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="accueil" width="512" height="512"/>

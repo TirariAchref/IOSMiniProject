@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct messagerie {
+struct messagerie : Decodable{
     let idMessagerie : Int
     let Message : String
     let Object : String

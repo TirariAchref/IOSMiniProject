@@ -9,6 +9,8 @@ import UIKit
 
 class Launch3ViewController: UIViewController {
 
+    @IBAction func start(_ sender: UIButton) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

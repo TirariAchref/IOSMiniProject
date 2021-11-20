@@ -8,47 +8,28 @@
 import Foundation
 
 
-enum categorieClient 
-{
-    case admin,client,medecin
+struct UsersData : Decodable{
+    let users : [User]?
+    private  enum CodingKeys: String, CodingKey {
+     
+          case users = "results"
+       }
 }
 
-
-struct User  {
-    let id :    Int
-    let nom : String
-    let prenom :String
-    let email : String
-    let password : String
-    let phone : String
-    let categorielient : categorieClient
-    let questions : Array<Question>
-    let reponses : Array<Reponse>
-    let messageries : Array<messagerie>
+struct User : Decodable {
+    let _id :   String?
+    let nom : String?
+    let prenom :String?
+    let email : String?
+    let password : String?
+    let phone : String?
+    let categorieclient : String?
+    
+  private  enum CodingKeys: String, CodingKey {
    
+        case _id, email,nom,prenom,password,phone,categorieclient
+     }
     
-    init(id : Int,
-     nom : String,
-     prenom :String,
-     email : String,
-     password : String,
-     phone : String,
-     categorielient : categorieClient,
-         questions : Array<Question>,
-    reponses : Array<Reponse>,
-         messageries : Array<messagerie>
-       
-    ){  self.id = id
-        self.nom = nom
-        self.prenom = prenom
-        self.email = email
-        self.password = password
-        self.phone = phone
-        self.categorielient = categorielient
-        self.questions = questions
-        self.reponses = reponses
-        self.messageries = messageries
-    
-
-    }
+   
+ 
 }

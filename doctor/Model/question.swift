@@ -7,36 +7,22 @@
 
 import Foundation
 
-enum categorieQuestion
-{
-    case maladiescardiovasculaires,
-         cancers,
-         problemesrespiratoires,
-         systemenerveuxetcerveau,
-         problemesintimes,
-         maladiesdepeau,
-         troublesdigestifs,
-         osetarticulations,
-         grandesmaladies,
-         groquesetdependaces,
-         autre
-}
 
 
 
-struct Question{
+struct Question : Decodable{
     
     let idQuestion: Int
     let Description : String
     let DateCreation : Date
-    let categoriequestion : categorieQuestion
+    let categoriequestion : String
     let user : User
     let reponses : Array<Reponse>
     
     init( idQuestion: Int,
           Description : String,
           DateCreation : Date,
-          categoriequestion : categorieQuestion,
+          categoriequestion : String,
           user : User,
           reponses : Array<Reponse>)
     {
