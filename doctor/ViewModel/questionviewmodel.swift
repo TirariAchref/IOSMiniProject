@@ -7,13 +7,13 @@
 
 import Foundation
 
-class userVM {
+class questionVM {
   
 
-    func getallusers(Allusers : [User])  {
-        var Allusers = [User]()
+    func getallquestions()  {
+       
         
-        let jsonUrlString = "http://localhost:3000/allusers"
+        let jsonUrlString = "http://localhost:3000/allquestions"
             guard let url = URL(string: jsonUrlString) else
             { return }
 
@@ -23,9 +23,9 @@ class userVM {
 
                 do {
 
-                    let users = try JSONDecoder().decode([User].self, from: data)
-                    Allusers = users
-                    Allusers.forEach { user in print(user.email!) }
+                    let questions = try JSONDecoder().decode([Question].self, from: data)
+                 
+                    questions.forEach { question in print(question.description!) }
                     
          
                 } catch let jsonErr {
@@ -37,17 +37,14 @@ class userVM {
     
     
    
-    func createuser(){
-            var request = URLRequest(url: URL(string: "http://localhost:3000/createuser")!)
+    func createquestion(){
+            var request = URLRequest(url: URL(string: "http://localhost:3000/createquestion")!)
             request.httpMethod = "post"
             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             print("its working")
-            let postString =    "nom=jamel&" +
-            "prenom=tirari&" +
-            "email=tirari@abc.vom&" +
-            "password=123&" +
-            "phone=53534543&" +
-            "categorieclient=USER&"
+            let postString =
+           "description=create&" +
+           "datecreation=2020-12-12T08:00:00.000Z&"
             request.httpBody = postString.data(using: .utf8)
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data, error == nil else {                                                 // check for fundamental networking error
@@ -75,17 +72,14 @@ class userVM {
         }
     
     
-     func updateuser(){
-         var request = URLRequest(url: URL(string: "http://localhost:3000/updateuser/61990bd652857e1d5d6e83e9")!)
+     func updatequestion(){
+         var request = URLRequest(url: URL(string: "http://localhost:3000/updatequestion/61997ead612d99bb5c619913")!)
              request.httpMethod = "put"
              request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
              print("its working")
-             let postString =    "nom=tirari&" +
-             "prenom=tirari&" +
-             "email=tirari@abc.vom&" +
-             "password=tirari&" +
-             "phone=tirari&" +
-             "categorieclient=tirari&"
+         let postString =
+        "description=update&" +
+        "datecreation=2020-12-12T08:00:00.000Z&"
              request.httpBody = postString.data(using: .utf8)
              let task = URLSession.shared.dataTask(with: request) { data, response, error in
                  guard let data = data, error == nil else {                                                 // check for fundamental networking error
@@ -112,17 +106,14 @@ class userVM {
              task.resume()
          }
     
-    func deleteuser(){
-        var request = URLRequest(url: URL(string: "http://localhost:3000/deleteuser/61990bd652857e1d5d6e83e9")!)
+    func deletequestion(){
+        var request = URLRequest(url: URL(string: "http://localhost:3000/deletequestion/61997ead612d99bb5c619913")!)
             request.httpMethod = "delete"
             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             print("its working")
-            let postString =    "nom=tirari&" +
-            "prenom=tirari&" +
-            "email=tirari@abc.vom&" +
-            "password=tirari&" +
-            "phone=tirari&" +
-            "categorieclient=tirari&"
+        let postString =
+       "description=update&" +
+       "datecreation=2020-12-12T08:00:00.000Z&"
             request.httpBody = postString.data(using: .utf8)
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data, error == nil else {                                                 // check for fundamental networking error

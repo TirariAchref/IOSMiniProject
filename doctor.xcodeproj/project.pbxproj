@@ -19,6 +19,9 @@
 		9E19201F273B30E800B276EC /* newmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E19201E273B30E800B276EC /* newmailViewController.swift */; };
 		9E2F05D9273A705A00813E57 /* confirmationmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F05D8273A705A00813E57 /* confirmationmailViewController.swift */; };
 		9E2F05DB273A795200813E57 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F05DA273A795200813E57 /* homeViewController.swift */; };
+		9E4089982749B144000648F9 /* reponseviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4089972749B144000648F9 /* reponseviewmodel.swift */; };
+		9E40899A2749B3E6000648F9 /* questionviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4089992749B3E6000648F9 /* questionviewmodel.swift */; };
+		9E40899C2749B6AA000648F9 /* messagerieviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E40899B2749B6AA000648F9 /* messagerieviewmodel.swift */; };
 		9E512E99274807C8002ACA31 /* userviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E512E98274807C8002ACA31 /* userviewmodel.swift */; };
 		9E570C042739512700CBC622 /* OnBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E570C032739512700CBC622 /* OnBoardViewController.swift */; };
 		9E570C062739614500CBC622 /* welcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E570C052739614500CBC622 /* welcomeViewController.swift */; };
@@ -29,6 +32,7 @@
 		9E5D0C5B273894E1001C3AD0 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5D0C5A273894E1001C3AD0 /* LaunchViewController.swift */; };
 		9E5D0C5D273894FA001C3AD0 /* Launch2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5D0C5C273894FA001C3AD0 /* Launch2ViewController.swift */; };
 		9E5D0C5F27389508001C3AD0 /* Launch3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5D0C5E27389508001C3AD0 /* Launch3ViewController.swift */; };
+		9E63EF182749BA6F00C80EC5 /* eventviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63EF172749BA6F00C80EC5 /* eventviewmodel.swift */; };
 		9EB184EE273AC70200BA2E1B /* chercheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184ED273AC70200BA2E1B /* chercheViewController.swift */; };
 		9EB184F0273AC72200BA2E1B /* mailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184EF273AC72200BA2E1B /* mailViewController.swift */; };
 		9EB184F2273AC73700BA2E1B /* notificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184F1273AC73700BA2E1B /* notificationViewController.swift */; };
@@ -79,6 +83,9 @@
 		9E19201E273B30E800B276EC /* newmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newmailViewController.swift; sourceTree = "<group>"; };
 		9E2F05D8273A705A00813E57 /* confirmationmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = confirmationmailViewController.swift; sourceTree = "<group>"; };
 		9E2F05DA273A795200813E57 /* homeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
+		9E4089972749B144000648F9 /* reponseviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reponseviewmodel.swift; sourceTree = "<group>"; };
+		9E4089992749B3E6000648F9 /* questionviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = questionviewmodel.swift; sourceTree = "<group>"; };
+		9E40899B2749B6AA000648F9 /* messagerieviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messagerieviewmodel.swift; sourceTree = "<group>"; };
 		9E512E98274807C8002ACA31 /* userviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userviewmodel.swift; sourceTree = "<group>"; };
 		9E570C032739512700CBC622 /* OnBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardViewController.swift; sourceTree = "<group>"; };
 		9E570C052739614500CBC622 /* welcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welcomeViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +96,7 @@
 		9E5D0C5A273894E1001C3AD0 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		9E5D0C5C273894FA001C3AD0 /* Launch2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch2ViewController.swift; sourceTree = "<group>"; };
 		9E5D0C5E27389508001C3AD0 /* Launch3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch3ViewController.swift; sourceTree = "<group>"; };
+		9E63EF172749BA6F00C80EC5 /* eventviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventviewmodel.swift; sourceTree = "<group>"; };
 		9EB184ED273AC70200BA2E1B /* chercheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chercheViewController.swift; sourceTree = "<group>"; };
 		9EB184EF273AC72200BA2E1B /* mailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mailViewController.swift; sourceTree = "<group>"; };
 		9EB184F1273AC73700BA2E1B /* notificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +162,10 @@
 			isa = PBXGroup;
 			children = (
 				9E512E98274807C8002ACA31 /* userviewmodel.swift */,
+				9E4089972749B144000648F9 /* reponseviewmodel.swift */,
+				9E4089992749B3E6000648F9 /* questionviewmodel.swift */,
+				9E40899B2749B6AA000648F9 /* messagerieviewmodel.swift */,
+				9E63EF172749BA6F00C80EC5 /* eventviewmodel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -391,10 +403,12 @@
 				9E570C0E27396E6700CBC622 /* confirmresetpasswordViewController.swift in Sources */,
 				9EB184FA273ADFF600BA2E1B /* donation3ViewController.swift in Sources */,
 				9EB184F4273AC74500BA2E1B /* settingViewController.swift in Sources */,
+				9E40899C2749B6AA000648F9 /* messagerieviewmodel.swift in Sources */,
 				9E19200F273B167900B276EC /* reponse.swift in Sources */,
 				9E512E99274807C8002ACA31 /* userviewmodel.swift in Sources */,
 				9E192011273B168700B276EC /* question.swift in Sources */,
 				9E19201B273B289B00B276EC /* languageViewController.swift in Sources */,
+				9E63EF182749BA6F00C80EC5 /* eventviewmodel.swift in Sources */,
 				9E570C062739614500CBC622 /* welcomeViewController.swift in Sources */,
 				9E5D0C5B273894E1001C3AD0 /* LaunchViewController.swift in Sources */,
 				9E2F05D9273A705A00813E57 /* confirmationmailViewController.swift in Sources */,
@@ -413,6 +427,8 @@
 				9EB184F8273ADFE900BA2E1B /* donation2ViewController.swift in Sources */,
 				9E570C0A273965E800CBC622 /* resetpasswordViewController.swift in Sources */,
 				9E19201D273B2F0F00B276EC /* newquestionViewController.swift in Sources */,
+				9E40899A2749B3E6000648F9 /* questionviewmodel.swift in Sources */,
+				9E4089982749B144000648F9 /* reponseviewmodel.swift in Sources */,
 				9E192015273B16AA00B276EC /* event.swift in Sources */,
 				9E192008273B0FF800B276EC /* user.swift in Sources */,
 				9E2F05DB273A795200813E57 /* homeViewController.swift in Sources */,

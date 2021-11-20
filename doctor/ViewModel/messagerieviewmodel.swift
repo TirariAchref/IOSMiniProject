@@ -7,13 +7,13 @@
 
 import Foundation
 
-class userVM {
+class messagerieVM {
   
 
-    func getallusers(Allusers : [User])  {
-        var Allusers = [User]()
+    func getallmessageries()  {
+       
         
-        let jsonUrlString = "http://localhost:3000/allusers"
+        let jsonUrlString = "http://localhost:3000/allmessagerie"
             guard let url = URL(string: jsonUrlString) else
             { return }
 
@@ -23,9 +23,9 @@ class userVM {
 
                 do {
 
-                    let users = try JSONDecoder().decode([User].self, from: data)
-                    Allusers = users
-                    Allusers.forEach { user in print(user.email!) }
+                    let messageries = try JSONDecoder().decode([Messagerie].self, from: data)
+                 
+                    messageries.forEach { messagerie in print(messagerie.object!) }
                     
          
                 } catch let jsonErr {
@@ -37,17 +37,17 @@ class userVM {
     
     
    
-    func createuser(){
-            var request = URLRequest(url: URL(string: "http://localhost:3000/createuser")!)
+    func createmessagerie(){
+            var request = URLRequest(url: URL(string: "http://localhost:3000/createmessagerie")!)
             request.httpMethod = "post"
             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             print("its working")
-            let postString =    "nom=jamel&" +
-            "prenom=tirari&" +
-            "email=tirari@abc.vom&" +
-            "password=123&" +
-            "phone=53534543&" +
-            "categorieclient=USER&"
+            let postString =
+           "message=create&" +
+           "object=create&" +
+           "datecreation=2020-12-12T08:00:00.000Z&" +
+           "from=String&"
+         
             request.httpBody = postString.data(using: .utf8)
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data, error == nil else {                                                 // check for fundamental networking error
@@ -75,17 +75,16 @@ class userVM {
         }
     
     
-     func updateuser(){
-         var request = URLRequest(url: URL(string: "http://localhost:3000/updateuser/61990bd652857e1d5d6e83e9")!)
+     func updatemessagerie(){
+         var request = URLRequest(url: URL(string: "http://localhost:3000/updatemessagerie/61998178612d99bb5c61991c")!)
              request.httpMethod = "put"
              request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
              print("its working")
-             let postString =    "nom=tirari&" +
-             "prenom=tirari&" +
-             "email=tirari@abc.vom&" +
-             "password=tirari&" +
-             "phone=tirari&" +
-             "categorieclient=tirari&"
+         let postString =
+        "message=update&" +
+        "object=update&" +
+        "datecreation=2020-12-12T08:00:00.000Z&" +
+        "from=String&"
              request.httpBody = postString.data(using: .utf8)
              let task = URLSession.shared.dataTask(with: request) { data, response, error in
                  guard let data = data, error == nil else {                                                 // check for fundamental networking error
@@ -112,17 +111,16 @@ class userVM {
              task.resume()
          }
     
-    func deleteuser(){
-        var request = URLRequest(url: URL(string: "http://localhost:3000/deleteuser/61990bd652857e1d5d6e83e9")!)
+    func deletemessagerie(){
+        var request = URLRequest(url: URL(string: "http://localhost:3000/deletemessagerie/61998178612d99bb5c61991c")!)
             request.httpMethod = "delete"
             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             print("its working")
-            let postString =    "nom=tirari&" +
-            "prenom=tirari&" +
-            "email=tirari@abc.vom&" +
-            "password=tirari&" +
-            "phone=tirari&" +
-            "categorieclient=tirari&"
+        let postString =
+       "message=create&" +
+       "object=create&" +
+       "datecreation=2020-12-12T08:00:00.000Z&" +
+       "from=String&"
             request.httpBody = postString.data(using: .utf8)
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data, error == nil else {                                                 // check for fundamental networking error

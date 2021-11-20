@@ -8,29 +8,16 @@
 import Foundation
 
 
-struct event : Decodable {
-    let idevent : Int
-    let name : String
-    let description : String
-    let money : Float
-    let moneyreached : Float
-    let datefin : Date
-    let user : User
-    init(idevent : Int,
-          name : String,
-          description : String,
-          money : Float,
-          moneyreached : Float,
-          datefin : Date,
-          user : User)
-    {
-        self.idevent = idevent
-        self.name = name
-        self.description = description
-        self.money = money
-        self.moneyreached = moneyreached
-        self.datefin = datefin
-        self.user = user
-        
-    }
+struct Event : Decodable {
+    let _id : String?
+    let name : String?
+    let description : String?
+    let money : String?
+    let moneyreached : String?
+    let datefin : String?
+  
+    private  enum CodingKeys: String, CodingKey {
+     
+          case _id, name,description,money,moneyreached,datefin
+       }
 }
