@@ -21,3 +21,16 @@ Admin can starting donation events for a disease .
 Our final objective is to improve access to care by providing you
 with simple and intuitive tools so that everyone can become an 
 actor in their health and well-being.
+/**********Tokken************/
+
+we used the notion of JWT at login level
+which provides a Token and a single session for the user
+
+we changed the login and password
+
+we also consult the user's data and made changes
+/*******Api Facebook*//////////
+integration of the facebook Login API at the level of our project:
+1.a user can connect with his facebook
+2.if he connects the application known as personal data (email + name)
+3.if the user logs out, the session is closed
