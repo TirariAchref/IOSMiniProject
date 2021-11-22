@@ -8,8 +8,15 @@
 import UIKit
 
 class accountconfigViewController: UIViewController {
+    var userviewmodel = userVM()
+    var user : User?
     @IBOutlet weak var number: UITextField!
     @IBAction func update(_ sender: Any) {
+        
+        userviewmodel.updateuser(id: (userviewmodel.userToken?._id)!, nom: name.text!, prenom: name.text!, email: (userviewmodel.userToken?.email)!
+                                 , password: (userviewmodel.userToken?.password)!, phone: number.text!, categorieclient: (userviewmodel.userToken?.categorieclient)!)
+        
+        
     }
     
     @IBOutlet weak var conpassword: UITextField!
@@ -24,17 +31,21 @@ class accountconfigViewController: UIViewController {
         profileimage.layer.cornerRadius = profileimage.frame.height/2
         profileimage.clipsToBounds = true
         // Do any additional setup after loading the view.
+        name.text = userviewmodel.userToken?.nom
+        number.text = userviewmodel.userToken?.phone
+     
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "setting"{
+            let destination = segue.destination as! settingViewController
+            destination.userviewmodel = userviewmodel
+     
+            
+        }
     }
-    */
+
+  
 
 }

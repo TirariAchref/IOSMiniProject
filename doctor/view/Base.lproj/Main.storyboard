@@ -51,7 +51,7 @@
                                     <color key="baseBackgroundColor" red="0.59215686270000001" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="start:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k5I-ae-zpT"/>
+                                    <action selector="getstarted:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v4g-vI-kMm"/>
                                     <segue destination="yQt-mr-5g6" kind="presentation" modalPresentationStyle="fullScreen" id="Km4-Qd-oFA"/>
                                 </connections>
                             </button>
@@ -127,7 +127,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="start:" destination="WFE-A5-meo" eventType="touchUpInside" id="61l-LX-XXu"/>
-                                    <segue destination="2Iq-Xn-DPf" kind="presentation" modalPresentationStyle="fullScreen" id="qSS-TR-0CV"/>
+                                    <segue destination="2Iq-Xn-DPf" kind="presentation" identifier="nom" modalPresentationStyle="fullScreen" id="qSS-TR-0CV"/>
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="6y6-Qc-Ksl">
@@ -479,6 +479,7 @@
                                     <color key="baseBackgroundColor" red="0.59215686270000001" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="login:" destination="fVm-AS-F1D" eventType="touchUpInside" id="cHk-Za-Fyu"/>
                                     <segue destination="LD4-eF-TFq" kind="presentation" modalPresentationStyle="fullScreen" id="1oH-ft-JYa"/>
                                 </connections>
                             </button>
@@ -490,7 +491,7 @@
                                     <color key="baseForegroundColor" red="0.043137254899999998" green="0.50980392159999999" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="SDd-Hq-zZY" kind="presentation" modalPresentationStyle="fullScreen" id="87A-ms-zc8"/>
+                                    <segue destination="SDd-Hq-zZY" kind="presentation" identifier="password" modalPresentationStyle="fullScreen" id="87A-ms-zc8"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fleche-gauche" translatesAutoresizingMaskIntoConstraints="NO" id="wH0-uQ-KCf">
@@ -625,7 +626,8 @@
                                     <color key="baseBackgroundColor" red="0.59215686270000001" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="w1t-Gj-SYV" kind="presentation" modalPresentationStyle="fullScreen" id="BZS-DS-b7H"/>
+                                    <action selector="searchmail:" destination="SDd-Hq-zZY" eventType="touchUpInside" id="ZMK-bQ-2fs"/>
+                                    <segue destination="w1t-Gj-SYV" kind="presentation" identifier="password" modalPresentationStyle="fullScreen" id="BZS-DS-b7H"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -767,7 +769,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="send:" destination="g0i-Js-d7v" eventType="touchUpInside" id="hbQ-nW-c1u"/>
-                                    <segue destination="T4U-yk-48p" kind="presentation" modalPresentationStyle="fullScreen" id="8S5-Jj-0Ug"/>
+                                    <segue destination="T4U-yk-48p" kind="presentation" identifier="password" modalPresentationStyle="fullScreen" id="8S5-Jj-0Ug"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -921,7 +923,7 @@
                                 <connections>
                                     <action selector="continue:" destination="T4U-yk-48p" eventType="touchUpInside" id="jFL-CR-550"/>
                                     <action selector="continue:" destination="4Mb-yL-oJg" eventType="touchUpInside" id="swL-h0-ccq"/>
-                                    <segue destination="4Mb-yL-oJg" kind="presentation" modalPresentationStyle="fullScreen" id="BRN-5C-UBQ"/>
+                                    <segue destination="4Mb-yL-oJg" kind="presentation" identifier="password" modalPresentationStyle="fullScreen" id="BRN-5C-UBQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1702,7 +1704,7 @@
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="7xu-qr-9LX" kind="presentation" modalPresentationStyle="fullScreen" id="wNB-Vh-SDs"/>
+                                    <segue destination="7xu-qr-9LX" kind="presentation" identifier="config" modalPresentationStyle="fullScreen" id="wNB-Vh-SDs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcG-9T-pR0">
@@ -1740,6 +1742,7 @@
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="deconnixion:" destination="D11-Cb-bqj" eventType="touchUpInside" id="UQW-8G-DPc"/>
                                     <segue destination="fVm-AS-F1D" kind="presentation" modalPresentationStyle="fullScreen" id="8yH-nv-o6F"/>
                                 </connections>
                             </button>
@@ -3556,7 +3559,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
-                                    <segue destination="D11-Cb-bqj" kind="presentation" modalPresentationStyle="fullScreen" id="Vz1-Uk-NPE"/>
+                                    <segue destination="D11-Cb-bqj" kind="presentation" identifier="setting" modalPresentationStyle="fullScreen" id="Vz1-Uk-NPE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Gq-XW-7CO">
@@ -4523,18 +4526,18 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wSO-Ms-m1y"/>
-        <segue reference="glv-lU-scw"/>
-        <segue reference="YmC-Re-HYb"/>
-        <segue reference="sB4-NM-7rz"/>
-        <segue reference="WIm-TF-g2T"/>
-        <segue reference="ngc-0j-T0p"/>
-        <segue reference="FwJ-Bz-EmS"/>
+        <segue reference="jI7-De-1GB"/>
+        <segue reference="cPN-Sg-CmF"/>
+        <segue reference="fLy-wl-Yz1"/>
+        <segue reference="bHQ-Ju-3dh"/>
+        <segue reference="Vz1-Uk-NPE"/>
+        <segue reference="1oH-ft-JYa"/>
+        <segue reference="v0L-ZQ-Kuo"/>
         <segue reference="Isa-0T-gHh"/>
-        <segue reference="bh7-KW-uX0"/>
-        <segue reference="ntc-9o-YZr"/>
-        <segue reference="88j-fE-cEr"/>
-        <segue reference="qSS-TR-0CV"/>
+        <segue reference="BZS-DS-b7H"/>
+        <segue reference="87A-ms-zc8"/>
+        <segue reference="LvZ-FK-1uE"/>
+        <segue reference="z2H-eQ-2aq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="accueil" width="512" height="512"/>

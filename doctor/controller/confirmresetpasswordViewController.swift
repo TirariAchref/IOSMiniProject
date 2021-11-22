@@ -8,8 +8,12 @@
 import UIKit
 
 class confirmresetpasswordViewController: UIViewController {
-
+    var userviewmodel = userVM()
     @IBAction func `continue`(_ sender: Any) {
+        userviewmodel.updateuser(id: (userviewmodel.userByemail?._id)!, nom: (userviewmodel.userByemail?.nom)!,
+                                 prenom: (userviewmodel.userByemail?.prenom)!, email: (userviewmodel.userByemail?.email)!
+                                 , password: password.text!, phone: (userviewmodel.userByemail?.phone)!, categorieclient: (userviewmodel.userByemail?.categorieclient)!)
+        
     }
     
     @IBOutlet weak var confpassword: UITextField!

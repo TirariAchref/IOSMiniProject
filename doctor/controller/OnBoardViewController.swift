@@ -9,6 +9,9 @@ import UIKit
 
 class OnBoardViewController: UIViewController {
 
+   
+    var nom : String?
+     var userviewmodelm = userVM()
     @IBOutlet weak var professional: UIImageView!
     @IBOutlet weak var user: UIImageView!
     @IBOutlet weak var number: UITextField!
@@ -18,21 +21,14 @@ class OnBoardViewController: UIViewController {
     @IBOutlet weak var name: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+     
     }
     
     @IBAction func register(_ sender: UIButton) {
+        userviewmodelm.createuser(nom: name.text!, prenom: name.text!, email: email.text!, password: password.text!, phone: number.text!, categorieclient: "CLIENT")
+        
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
 
 }

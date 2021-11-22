@@ -8,8 +8,10 @@
 import UIKit
 
 class resetpasswordViewController: UIViewController {
+    var userviewmodel = userVM()
 
     @IBAction func `continue`(_ sender: UIButton) {
+        
     }
     @IBOutlet weak var number: UIImageView!
     @IBOutlet weak var email: UIImageView!
@@ -23,17 +25,15 @@ class resetpasswordViewController: UIViewController {
         imageacchount.layer.cornerRadius = imageacchount.frame.height/2
         imageacchount.clipsToBounds = true
         // Do any additional setup after loading the view.
+        
+      
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        if segue.identifier == "password"{
+            let destination = segue.destination as! securitycodeViewController
+            destination.userviewmodel = userviewmodel
+     
+            
+        }    }
 
 }

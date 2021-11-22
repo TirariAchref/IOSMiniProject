@@ -28,17 +28,20 @@ class LaunchViewController: UIViewController {
         // alluser.forEach { user in print(user.email!) }
         
        // userviewmodel.createuser()
-            //userviewmodel.updateuser()
+    //        //userviewmodel.updateuser()
       //  userviewmodel.deleteuser()
-        eventviewmodel.deleteevent()
+ //     userviewmodel.getallusers()
+       // userviewmodel.createtoken(email: "achref@gmail.com", password: "123")
+      
     }
-    @IBAction func unwindtoLaunch1(segue:
-                                   UIStoryboardSegue){
+
+    
+    @IBAction func getstarted(_ sender: Any) {
+      //  userviewmodel.userdata.forEach { user in print(user.email!) }
+     //   print(userviewmodel.tokenString!)
         
-        print("back")
     }
     
-
     
 
 }

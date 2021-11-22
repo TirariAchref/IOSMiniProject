@@ -9,6 +9,7 @@ import UIKit
 
 class securitycodeViewController: UIViewController {
 
+    var userviewmodel = userVM()
     @IBOutlet weak var image: UIImageView!
     
     @IBAction func `continue`(_ sender: Any) {
@@ -28,14 +29,12 @@ class securitycodeViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        if segue.identifier == "password"{
+            let destination = segue.destination as! confirmresetpasswordViewController
+            destination.userviewmodel = userviewmodel
+     
+            
+        }    }
 
 }

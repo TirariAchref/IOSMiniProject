@@ -9,23 +9,25 @@ import UIKit
 
 class Launch3ViewController: UIViewController {
 
+    var userviewmodel = userVM()
     @IBAction func start(_ sender: UIButton) {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+     //   userviewmodel.getallusers()
+       // userviewmodel.createtoken(email: "achref@gmail.com", password: "123")
 
-        // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ /*   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        userviewmodel.getuserfromtoken(token: userviewmodel.tokenString!)
+        
+        if segue.identifier == "nom" {
+            let destination = segue.destination as! OnBoardViewController
+            destination.nom = userviewmodel.userdata[1].nom
+        }
+    }*/
 
 }

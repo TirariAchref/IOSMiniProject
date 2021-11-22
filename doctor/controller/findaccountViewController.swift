@@ -9,8 +9,14 @@ import UIKit
 
 class findaccountViewController: UIViewController {
 
-    @IBAction func send(_ sender: Any) {
+    var userviewmodel  = userVM()
+    
+    @IBAction func searchmail(_ sender: Any) {
+        userviewmodel.getbyemail(email: find.text!)
+        print(find.text!)
+        
     }
+    
     @IBOutlet weak var search: UIButton!
     @IBOutlet weak var find: UITextField!
     override func viewDidLoad() {
@@ -19,15 +25,14 @@ class findaccountViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "password"{
+            let destination = segue.destination as! resetpasswordViewController
+            destination.userviewmodel = userviewmodel
+     
+            
+        }
     }
-    */
 
+  
 }
