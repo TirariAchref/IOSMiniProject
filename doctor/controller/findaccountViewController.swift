@@ -34,5 +34,8 @@ class findaccountViewController: UIViewController {
         }
     }
 
-  
+    @IBAction func sear(_ sender: Any) {
+        performSegue(withIdentifier: "password", sender: sender)
+    }
+    
 }

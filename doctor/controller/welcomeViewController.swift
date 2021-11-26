@@ -19,10 +19,17 @@ class welcomeViewController: UIViewController {
         
     }
     
-
+    @IBAction func signup(_ sender: Any) {
+        performSegue(withIdentifier: "signup", sender: sender)
+    }
+    
     @IBAction func login(_ sender: Any) {
         userviewmodel.createtoken(email: email.text!, password: password.text!)
+        performSegue(withIdentifier: "login", sender: sender)
     }
    
     
+    @IBAction func forgetpass(_ sender: Any) {
+        performSegue(withIdentifier: "find", sender: sender)
+    }
 }

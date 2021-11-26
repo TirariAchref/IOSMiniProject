@@ -26,9 +26,13 @@ class OnBoardViewController: UIViewController {
     
     @IBAction func register(_ sender: UIButton) {
         userviewmodelm.createuser(nom: name.text!, prenom: name.text!, email: email.text!, password: password.text!, phone: number.text!, categorieclient: "CLIENT")
+        performSegue(withIdentifier: "register", sender: sender)
         
     }
     
  
-
+    @IBAction func sign(_ sender: Any) {
+        performSegue(withIdentifier: "signin", sender: sender)
+    }
+    
 }

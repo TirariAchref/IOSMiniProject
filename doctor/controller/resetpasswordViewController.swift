@@ -10,9 +10,7 @@ import UIKit
 class resetpasswordViewController: UIViewController {
     var userviewmodel = userVM()
 
-    @IBAction func `continue`(_ sender: UIButton) {
-        
-    }
+  
     @IBOutlet weak var number: UIImageView!
     @IBOutlet weak var email: UIImageView!
     @IBOutlet weak var imageacchount: UIImageView!
@@ -27,6 +25,9 @@ class resetpasswordViewController: UIViewController {
         // Do any additional setup after loading the view.
         
       
+    }
+    @IBAction func send(_ sender: Any) {
+        performSegue(withIdentifier: "password", sender: sender)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "password"{

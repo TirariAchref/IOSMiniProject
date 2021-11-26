@@ -10,6 +10,8 @@ import UIKit
 class Launch2ViewController: UIViewController {
 
     @IBAction func start(_ sender: UIButton) {
+        performSegue(withIdentifier: "pass", sender: sender)
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -22,15 +22,10 @@ class accountconfigViewController: UIViewController {
     @IBOutlet weak var conpassword: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var name: UITextField!
-    @IBOutlet weak var profileimage: UIImageView!
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileimage.layer.borderWidth = 1
-        profileimage.layer.masksToBounds = false
-        profileimage.layer.borderColor = UIColor.black.cgColor
-        profileimage.layer.cornerRadius = profileimage.frame.height/2
-        profileimage.clipsToBounds = true
-        // Do any additional setup after loading the view.
+       
         name.text = userviewmodel.userToken?.nom
         number.text = userviewmodel.userToken?.phone
      

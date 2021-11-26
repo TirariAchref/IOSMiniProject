@@ -11,15 +11,10 @@ class newquestionViewController: UIViewController {
 
     @IBOutlet weak var question: UILabel!
     @IBOutlet weak var subject: UITextField!
-    @IBOutlet weak var profilepicture: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        profilepicture.layer.borderWidth = 1
-        profilepicture.layer.masksToBounds = false
-        profilepicture.layer.borderColor = UIColor.black.cgColor
-        profilepicture.layer.cornerRadius = profilepicture.frame.height/2
-        profilepicture.clipsToBounds = true
-        // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func submit(_ sender: UIButton) {

@@ -13,7 +13,7 @@ class confirmresetpasswordViewController: UIViewController {
         userviewmodel.updateuser(id: (userviewmodel.userByemail?._id)!, nom: (userviewmodel.userByemail?.nom)!,
                                  prenom: (userviewmodel.userByemail?.prenom)!, email: (userviewmodel.userByemail?.email)!
                                  , password: password.text!, phone: (userviewmodel.userByemail?.phone)!, categorieclient: (userviewmodel.userByemail?.categorieclient)!)
-        
+        performSegue(withIdentifier: "change", sender: sender)
     }
     
     @IBOutlet weak var confpassword: UITextField!

@@ -18,14 +18,12 @@ class LaunchViewController: UIViewController {
     var messagerieviewmodel = messagerieVM()
     var eventviewmodel = eventVM()
     
-    @IBAction func start(_ sender: UIButton) {
-    }
-  
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         //get all user
-       //userviewmodel.getallusers(Allusers: alluser)
-        // alluser.forEach { user in print(user.email!) }
+       userviewmodel.getallusers()
+       
         
        // userviewmodel.createuser()
     //        //userviewmodel.updateuser()
@@ -37,8 +35,8 @@ class LaunchViewController: UIViewController {
 
     
     @IBAction func getstarted(_ sender: Any) {
-      //  userviewmodel.userdata.forEach { user in print(user.email!) }
-     //   print(userviewmodel.tokenString!)
+       userviewmodel.userdata.forEach { user in print(user.email!) }
+    performSegue(withIdentifier: "pass", sender: sender)
         
     }
     

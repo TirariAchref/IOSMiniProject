@@ -11,19 +11,17 @@ class settingViewController: UIViewController{
     var userviewmodel = userVM()
 
     @IBOutlet weak var grandimage: UIImageView!
-    @IBOutlet weak var profileimage: UIImageView!
-   
+ 
+    
+    
+    
     @IBAction func deconnixion(_ sender: Any) {
         print(userviewmodel.isAuthenticated)
         userviewmodel.signout()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileimage.layer.borderWidth = 1
-        profileimage.layer.masksToBounds = false
-        profileimage.layer.borderColor = UIColor.black.cgColor
-        profileimage.layer.cornerRadius = profileimage.frame.height/2
-        profileimage.clipsToBounds = true
+       
         
         grandimage.layer.borderWidth = 1
         grandimage.layer.masksToBounds = false
@@ -31,7 +29,7 @@ class settingViewController: UIViewController{
         grandimage.layer.cornerRadius = grandimage.frame.height/2
         grandimage.clipsToBounds = true
         // Do any additional setup after loading the view.
-        userviewmodel.createtoken(email: "achref@gmail.com", password: "12345")
+        userviewmodel.createtoken(email: "eya@gmail.com", password: "yea")
     }
     
 
@@ -42,5 +40,24 @@ class settingViewController: UIViewController{
      
             
         }
+    }
+    
+    // action
+    
+    @IBAction func deconnexion(_ sender: Any) {
+        performSegue(withIdentifier: "deconnexion", sender: sender)
+    }
+    
+    @IBAction func changephoto(_ sender: Any) {
+        performSegue(withIdentifier: "photo", sender: sender)
+    }
+    
+    
+    @IBAction func config(_ sender: Any) {
+        performSegue(withIdentifier: "config", sender: sender)
+    }
+    
+    @IBAction func language(_ sender: Any) {
+        performSegue(withIdentifier: "language", sender: sender)
     }
 }

@@ -10,14 +10,10 @@ import UIKit
 class chnagephotoViewController: UIViewController {
 
     @IBOutlet weak var grandimage: UIImageView!
-    @IBOutlet weak var profilepicture: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        profilepicture.layer.borderWidth = 1
-        profilepicture.layer.masksToBounds = false
-        profilepicture.layer.borderColor = UIColor.black.cgColor
-        profilepicture.layer.cornerRadius = profilepicture.frame.height/2
-        profilepicture.clipsToBounds = true
+      
         
         
         

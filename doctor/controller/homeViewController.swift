@@ -19,6 +19,7 @@ extension UIColor {
 class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var profilpicture: UIImageView!
+    
     var data = ["samir","achref","ahmed"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,6 +81,16 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     }
     
 
- 
-
+ //action
+    
+    
+    @IBAction func donate(_ sender: Any) {
+        performSegue(withIdentifier: "donateSegue", sender: sender)
+    }
+    
+    
+    @IBAction func addquestion(_ sender: Any) {
+        performSegue(withIdentifier: "newQuestion", sender: sender)
+    }
+    
 }

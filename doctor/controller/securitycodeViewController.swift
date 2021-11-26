@@ -13,6 +13,7 @@ class securitycodeViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     
     @IBAction func `continue`(_ sender: Any) {
+        performSegue(withIdentifier: "password", sender: sender)
     }
     
     

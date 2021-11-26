@@ -9,6 +9,7 @@ import UIKit
 
 class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
 
+   
     @IBOutlet weak var profileimage: UIImageView!
     
     var data = ["samir","achref","ahmed"]
@@ -72,14 +73,14 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     
 
     @IBOutlet weak var search: UISearchBar!
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+   //action
+    
+    @IBAction func donate(_ sender: Any) {
+        performSegue(withIdentifier: "donateSegue", sender: sender)
     }
-    */
-
+    
+    @IBAction func newMessage(_ sender: Any) {
+        performSegue(withIdentifier: "newMessege", sender: sender)
+    }
+    
 }
