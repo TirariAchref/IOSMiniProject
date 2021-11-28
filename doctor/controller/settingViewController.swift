@@ -8,7 +8,7 @@
 import UIKit
 
 class settingViewController: UIViewController{
-    var userviewmodel = userVM()
+    var userviewmodelm = userVM()
 
     @IBOutlet weak var grandimage: UIImageView!
  
@@ -16,8 +16,8 @@ class settingViewController: UIViewController{
     
     
     @IBAction func deconnixion(_ sender: Any) {
-        print(userviewmodel.isAuthenticated)
-        userviewmodel.signout()
+        print(userviewmodelm.isAuthenticated)
+        userviewmodelm.signout()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,14 +29,14 @@ class settingViewController: UIViewController{
         grandimage.layer.cornerRadius = grandimage.frame.height/2
         grandimage.clipsToBounds = true
         // Do any additional setup after loading the view.
-        userviewmodel.createtoken(email: "eya@gmail.com", password: "yea")
-    }
+        grandimage.image = UIImage(named: (userviewmodelm.userToken?.imageUrl)!)
+           }
     
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "config"{
             let destination = segue.destination as! accountconfigViewController
-            destination.userviewmodel = userviewmodel
+            destination.userviewmodelm = userviewmodelm
      
             
         }

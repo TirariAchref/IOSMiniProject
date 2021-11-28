@@ -9,7 +9,9 @@ import UIKit
 
 class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
 
-   
+   //var
+    var userviewmodelm = userVM()
+    
     @IBOutlet weak var profileimage: UIImageView!
     
     var data = ["samir","achref","ahmed"]
@@ -69,6 +71,7 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         profileimage.layer.cornerRadius = profileimage.frame.height/2
         profileimage.clipsToBounds = true
         // Do any additional setup after loading the view.
+        profileimage.image = UIImage(named: (userviewmodelm.userToken?.imageUrl)!)
     }
     
 

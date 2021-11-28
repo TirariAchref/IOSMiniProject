@@ -24,10 +24,11 @@ struct User : Decodable {
     let password : String?
     let phone : String?
     let categorieclient : String?
+    let imageUrl : String?
     
   private  enum CodingKeys: String, CodingKey {
    
-        case _id, email,nom,prenom,password,phone,categorieclient
+        case _id, email,nom,prenom,password,phone,categorieclient,imageUrl
      }
     
    

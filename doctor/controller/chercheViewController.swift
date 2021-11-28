@@ -9,6 +9,9 @@ import UIKit
 
 class chercheViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
+    //var
+    var userviewmodelm = userVM()
+    
     @IBOutlet weak var profileimage: UIImageView!
     
     
@@ -69,6 +72,7 @@ class chercheViewController: UIViewController,UITableViewDelegate,UITableViewDat
         profileimage.layer.cornerRadius = profileimage.frame.height/2
         profileimage.clipsToBounds = true
         // Do any additional setup after loading the view.
+        profileimage.image = UIImage(named: (userviewmodelm.userToken?.imageUrl)!)
     }
     
     @IBOutlet weak var search: UISearchBar!

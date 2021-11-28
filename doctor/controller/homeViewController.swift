@@ -17,7 +17,7 @@ extension UIColor {
     }
 }
 class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource {
-
+    var userviewmodelm = userVM()
     @IBOutlet weak var profilpicture: UIImageView!
     
     var data = ["samir","achref","ahmed"]
@@ -78,8 +78,15 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         profilpicture.layer.cornerRadius = profilpicture.frame.height/2
         profilpicture.clipsToBounds = true
         // Do any additional setup after loading the view.
+     sleep(1)
+        print("///////////////////////")
+          print(userviewmodelm.tokenString!)
+          profilpicture.image = UIImage(named: (userviewmodelm.userToken?.imageUrl)!)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+     
+    }
 
  //action
     

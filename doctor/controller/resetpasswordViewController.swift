@@ -9,13 +9,15 @@ import UIKit
 
 class resetpasswordViewController: UIViewController {
     var userviewmodel = userVM()
-
-  
-    @IBOutlet weak var number: UIImageView!
-    @IBOutlet weak var email: UIImageView!
+    
+    
+    @IBOutlet weak var username: UILabel!
     @IBOutlet weak var imageacchount: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        sleep(1)
+        username.text = (userviewmodel.userByemail?.nom)!
+        imageacchount.image = UIImage(named: (userviewmodel.userByemail?.imageUrl)!)
 
         imageacchount.layer.borderWidth = 1
         imageacchount.layer.masksToBounds = false

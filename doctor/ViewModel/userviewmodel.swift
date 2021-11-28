@@ -16,9 +16,10 @@ class userVM {
   
     var userdata = [User]()
     var tokenString : String?
-
+    var useronhold: User?
     var userToken : User?
     var userByemail : User?
+    var regestirUser : User?
     @Published var isAuthenticated : Bool = false
     func getallusers(){
        
@@ -138,12 +139,12 @@ class userVM {
                
            }
    
-    func createuser(nom : String,prenom:String,email:String,password:String,phone:String,categorieclient:String){
+    func createuser(nom : String,prenom:String,email:String,password:String,phone:String,categorieclient:String,imageUrl:String){
             var request = URLRequest(url: URL(string: "http://localhost:3000/createuser")!)
             request.httpMethod = "post"
             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             print("its working")
-            let postString = "nom="+nom+"&"+"prenom="+prenom+"&"+"email="+email+"&"+"password="+password+"&"+"phone="+phone+"&"+"categorieclient="+categorieclient+"&"
+            let postString = "nom="+nom+"&"+"prenom="+prenom+"&"+"email="+email+"&"+"password="+password+"&"+"phone="+phone+"&"+"categorieclient="+categorieclient+"&"+"imageUrl="+imageUrl+"&"
             request.httpBody = postString.data(using: .utf8)
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data, error == nil else {                                                 // check for fundamental networking error
@@ -151,19 +152,23 @@ class userVM {
                     return
                 }
 
-                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
-                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                    print("response = \(String(describing: response))")
-                }
 
-                let responseString = String(data: data, encoding: .utf8)
-                print("responseString = \(String(describing: responseString))")
+                do {
 
-                if(responseString?.contains("true"))!{
-                    print("status = true")
-                }
-                else{
-                    print("Status = false")
+                    let Allusers = try JSONDecoder().decode(User.self, from: data)
+                   
+                   
+                    DispatchQueue.main.async {
+                        self.regestirUser = Allusers
+                    }
+                    print("name = " + Allusers.nom!)
+                    print("email = " + Allusers.email!)
+                    print("phone = " + Allusers.phone!)
+                    print("imageurl = " + Allusers.imageUrl!)
+                   
+         
+                } catch let jsonErr {
+                    print("Error serializing json:", jsonErr)
                 }
             }
 
@@ -268,4 +273,68 @@ class userVM {
 
        
     }
+    
+    func sendmail(email:String,code:String){
+         var request = URLRequest(url: URL(string: "http://localhost:3000/sendmail")!)
+             request.httpMethod = "post"
+             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+             print("its working")
+         let postString = "email="+email+"&"+"code="+code+"&"
+             request.httpBody = postString.data(using: .utf8)
+             let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                 guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                     print("error=\(String(describing: error?.localizedDescription))")
+                     return
+                 }
+
+                 if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                     print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                     print("response = \(String(describing: response))")
+                 }
+
+                 let responseString = String(data: data, encoding: .utf8)
+                 print("responseString = \(String(describing: responseString))")
+
+                 if(responseString?.contains("true"))!{
+                     print("status = true")
+                 }
+                 else{
+                     print("Status = false")
+                 }
+             }
+
+             task.resume()
+         }
+    func sendsms(code:String){
+         var request = URLRequest(url: URL(string: "http://localhost:3000/sendsms")!)
+             request.httpMethod = "post"
+             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+             print("its working")
+         let postString = "code="+code+"&"
+             request.httpBody = postString.data(using: .utf8)
+             let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                 guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                     print("error=\(String(describing: error?.localizedDescription))")
+                     return
+                 }
+
+                 if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                     print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                     print("response = \(String(describing: response))")
+                 }
+
+                 let responseString = String(data: data, encoding: .utf8)
+                 print("responseString = \(String(describing: responseString))")
+
+                 if(responseString?.contains("true"))!{
+                     print("status = true")
+                 }
+                 else{
+                     print("Status = false")
+                 }
+             }
+
+             task.resume()
+         }
+    
 }
