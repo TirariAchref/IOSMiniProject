@@ -18,9 +18,10 @@ extension UIColor {
 }
 class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     var userviewmodelm = userVM()
+    var questionviewmodel = questionVM()
     @IBOutlet weak var profilpicture: UIImageView!
     
-    var data = ["samir","achref","ahmed"]
+    var data = [Question]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
            
@@ -46,9 +47,10 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
            imageView.layer.borderColor = UIColor.black.cgColor
            imageView.layer.cornerRadius = imageView.frame.height/2
            imageView.clipsToBounds = true
-           label.text = data[indexPath.row]
-           text.text = "hello hello hello put a question here hello hello hello put a question here hello hello hello put a question here hello hello hello put a question herehello hello hello put a question here"
-           imageView.image = UIImage(named: data[indexPath.row])
+           label.text = data[indexPath.row].subject
+           text.text = data[indexPath.row].description
+           
+           imageView.image = UIImage(named: "profile")
            
            
            
@@ -59,7 +61,10 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
        
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            
-           
+           if segue.identifier == "newQuestion"{
+               let destination = segue.destination as! newquestionViewController
+               destination.userviewmodelm = userviewmodelm
+           }
        }
        
        
@@ -82,12 +87,15 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         print("///////////////////////")
           print(userviewmodelm.tokenString!)
           profilpicture.image = UIImage(named: (userviewmodelm.userToken?.imageUrl)!)
-    }
     
-    override func viewDidAppear(_ animated: Bool) {
-     
+        questionviewmodel.getallquestions()
+        sleep(1)
+        data = questionviewmodel.listquestion
+        
     }
-
+   
+    
+  
  //action
     
     
@@ -99,5 +107,7 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     @IBAction func addquestion(_ sender: Any) {
         performSegue(withIdentifier: "newQuestion", sender: sender)
     }
+    
+    
     
 }

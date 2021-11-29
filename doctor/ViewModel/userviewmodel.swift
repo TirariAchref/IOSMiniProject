@@ -19,6 +19,7 @@ class userVM {
     var useronhold: User?
     var userToken : User?
     var userByemail : User?
+    var userByid : User?
     var regestirUser : User?
     @Published var isAuthenticated : Bool = false
     func getallusers(){
@@ -263,6 +264,35 @@ class userVM {
                     Allusers.forEach { user in self.userByemail = user }
                 
                     
+         
+                } catch let jsonErr {
+                    print("Error serializing json:", jsonErr)
+                }
+
+            }.resume()
+      
+
+       
+    }
+    
+    
+    func getbyId(id : String){
+       
+        
+        let jsonUrlString = "http://localhost:3000/getuser/"+id
+            guard let url = URL(string: jsonUrlString) else
+            { return }
+
+            URLSession.shared.dataTask(with: url) { (data, response, err) in
+
+                guard let data =  data else{ return }
+
+                do {
+
+                    let Allusers = try JSONDecoder().decode([User].self, from: data)
+                   
+                    Allusers.forEach { user in self.userByid = user }
+         
          
                 } catch let jsonErr {
                     print("Error serializing json:", jsonErr)

@@ -972,7 +972,6 @@
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
                                     <action selector="addquestion:" destination="LD4-eF-TFq" eventType="touchUpInside" id="nAG-Bx-0zF"/>
-                                    <segue destination="NBq-qu-tEc" kind="show" identifier="newQuestion" id="MYl-yo-jqp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mw-ZK-RVf">
@@ -999,6 +998,7 @@
                     <connections>
                         <outlet property="profilpicture" destination="uh8-da-baF" id="RT0-4M-dFR"/>
                         <segue destination="5h8-W7-hhf" kind="presentation" identifier="donateSegue" id="tLt-lE-bI9"/>
+                        <segue destination="NBq-qu-tEc" kind="show" identifier="newQuestion" id="1Cl-W9-jYK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OAH-82-6BS" sceneMemberID="firstResponder"/>
@@ -1456,7 +1456,7 @@
             <objects>
                 <viewController id="5h8-W7-hhf" customClass="donation1ViewController" customModule="doctor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qhv-16-ucc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="red" translatesAutoresizingMaskIntoConstraints="NO" id="ws4-Gc-4Dr">
@@ -1521,7 +1521,7 @@
             <objects>
                 <viewController id="mwL-lj-bhI" customClass="donation2ViewController" customModule="doctor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JD1-i9-dgP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbt-tY-MSe">
@@ -1571,7 +1571,7 @@
             <objects>
                 <viewController id="udV-6m-pfO" customClass="donation3ViewController" customModule="doctor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lqB-T7-qUQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thank You Achref" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yol-ZC-OE4">
@@ -1812,14 +1812,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OgW-mc-Rca">
-                                <rect key="frame" x="38" y="356" width="338" height="307"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSX-21-qRL">
                                 <rect key="frame" x="44" y="704" width="327" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1833,13 +1825,21 @@
                                     <action selector="submit:" destination="NBq-qu-tEc" eventType="touchUpInside" id="Xvu-LW-F4c"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cI3-xu-bFL">
+                                <rect key="frame" x="29" y="318" width="342" height="322"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aXb-xB-XN6"/>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.98039215686274506" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="pyu-ba-xfN"/>
                     <connections>
-                        <outlet property="question" destination="OgW-mc-Rca" id="6J1-aT-JT1"/>
+                        <outlet property="question" destination="cI3-xu-bFL" id="Qdd-pe-o6A"/>
                         <outlet property="subject" destination="GFg-Xc-YcU" id="GiO-mK-iXu"/>
                     </connections>
                 </viewController>
@@ -2062,7 +2062,7 @@
         <segue reference="It6-vB-EDw"/>
         <segue reference="O96-wv-T7U"/>
         <segue reference="e7Q-EM-WZo"/>
-        <segue reference="P6l-Vg-Dje"/>
+        <segue reference="tLt-lE-bI9"/>
         <segue reference="8lZ-Ra-wml"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -2085,6 +2085,9 @@
         <image name="undraw_doctors_hwty" width="1167.6099853515625" height="862.8699951171875"/>
         <image name="undraw_medical_care_movn" width="888" height="618.10601806640625"/>
         <image name="undraw_medicine_b-1-ol" width="1105.0400390625" height="782.739990234375"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

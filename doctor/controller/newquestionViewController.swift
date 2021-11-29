@@ -9,7 +9,11 @@ import UIKit
 
 class newquestionViewController: UIViewController {
 
-    @IBOutlet weak var question: UILabel!
+    var userviewmodelm = userVM()
+    var questionviewmodel = questionVM()
+
+    
+    @IBOutlet weak var question: UITextView!
     @IBOutlet weak var subject: UITextField!
     
     override func viewDidLoad() {
@@ -18,16 +22,9 @@ class newquestionViewController: UIViewController {
     }
     
     @IBAction func submit(_ sender: UIButton) {
+        questionviewmodel.createquestion(description: question.text!, subject: subject.text!, idClient: (userviewmodelm.userToken?._id)!)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }

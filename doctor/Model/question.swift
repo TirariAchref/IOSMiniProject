@@ -12,12 +12,12 @@ import Foundation
 struct Question : Decodable{
     
     let _id : String?
+    let subject : String?
     let description : String?
-    let datecreation : String?
-    
+    let idClient : String?
     private  enum CodingKeys: String, CodingKey {
      
-          case _id, description,datecreation
+          case _id, subject,description,idClient
        }
       
    
