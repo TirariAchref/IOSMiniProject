@@ -26,7 +26,6 @@ class facebookViewController: UIViewController, LoginButtonDelegate {
         
         request.start { connection, result, error in                                         //resultat token
             print("\(result)")
-            
         }
         
         
@@ -56,18 +55,12 @@ class facebookViewController: UIViewController, LoginButtonDelegate {
               
               request.start { connection, result, error in
                   print("\(result)")
-                  
-                  
-                  
+              
               }
-            
         
     }
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
         return
         
     }
-    
-    
-    
 }

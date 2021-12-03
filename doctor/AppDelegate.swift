@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import FBSDKCoreKit
+import GoogleMaps
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ApplicationDelegate.shared.application(
             application,
             didFinishLaunchingWithOptions: launchOptions)
+
+        GMSServices.provideAPIKey("AIzaSyCs49rj1v2mUXV7BJ0PrOcFTovVmozvdLg")
 
         return true
     }
