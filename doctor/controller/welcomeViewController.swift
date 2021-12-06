@@ -24,10 +24,24 @@ class welcomeViewController: UIViewController {
     }
     
     @IBAction func login(_ sender: Any) {
-        userviewmodel.createtoken(email: email.text!, password: password.text!)
-        sleep(1)
-        self.insertToken(token: userviewmodel.tokenString!)
-        performSegue(withIdentifier: "login", sender: sender)
+        if(email.text == ""){
+            prompt(title: "warning", message: "email is empty")
+        }else  if(password.text == ""){
+            prompt(title: "warning", message: "password is empty")
+        }else{
+        
+                 userviewmodel.createtoken(email: email.text!, password: password.text!)
+                sleep(1)
+            if((userviewmodel.tokenString) != nil){
+                self.insertToken(token: userviewmodel.tokenString!)
+                performSegue(withIdentifier: "login", sender: sender)
+            }else{
+                prompt(title: "warning", message: "Email or Mot de passe incorrect")
+            }
+             
+          
+       
+        }
     }
    
     
@@ -65,4 +79,14 @@ class welcomeViewController: UIViewController {
            
         }
     }
+    func prompt(title: String, message: String) {
+           
+           let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+           
+           let action = UIAlertAction(title: "Got it", style: .default, handler: nil)
+           
+           alert.addAction(action)
+           self.present(alert, animated: true, completion: nil)
+           
+       }
 }

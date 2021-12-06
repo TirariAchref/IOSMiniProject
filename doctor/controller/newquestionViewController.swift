@@ -22,8 +22,15 @@ class newquestionViewController: UIViewController {
     }
     
     @IBAction func submit(_ sender: UIButton) {
-        questionviewmodel.createquestion(description: question.text!, subject: subject.text!, idClient: (userviewmodelm.userToken?._id)!)
-        prompt(title: "Succes", message: "Question added successfully")
+        if(subject.text == ""){
+            prompt(title: "warning", message: "Subject is empty")
+        }else  if(question.text == ""){
+            prompt(title: "warning", message: "Question is empty")
+        }else {
+            questionviewmodel.createquestion(description: question.text!, subject: subject.text!, idClient: (userviewmodelm.userToken?._id)!)
+            prompt(title: "Succes", message: "Question added successfully")
+        }
+        
     }
     
     func prompt(title: String, message: String) {

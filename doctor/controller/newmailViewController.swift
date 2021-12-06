@@ -24,8 +24,17 @@ class newmailViewController: UIViewController {
     
 
     @IBAction func submit(_ sender: Any) {
-        messagerieviewmodel.createmessagerie(message: message.text!, object: subject.text!, from: (userviewmodelm.userToken?.email)!, to: to.text!)
-        prompt(title: "Succes", message: "Question added successfully")
+        if(subject.text == ""){
+            prompt(title: "warning", message: "Subject is empty")
+        }else  if(to.text == ""){
+            prompt(title: "warning", message: "To is empty")
+        }else  if(message.text == ""){
+            prompt(title: "warning", message: "Message is empty")
+        }else {
+            messagerieviewmodel.createmessagerie(message: message.text!, object: subject.text!, from: (userviewmodelm.userToken?.email)!, to: to.text!)
+            prompt(title: "Succes", message: "Mail added successfully")
+        }
+       
     }
     func prompt(title: String, message: String) {
            

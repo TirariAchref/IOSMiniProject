@@ -35,8 +35,12 @@ class confirmationmailViewController2: UIViewController {
         if code.text == String(randomInt){
             userviewmodelm.createuser(nom: name!, prenom: name!, email: email!, password: password!, phone: phone!, categorieclient: "CLIENT",imageUrl: "profile")
             sleep(1)
-            userviewmodelm.createtoken(email: email!, password: password!)
-            sleep(1)
+        
+                 userviewmodelm.createtoken(email: email!, password: password!)
+                sleep(1)
+            
+            
+          
             self.insertToken(token: userviewmodelm.tokenString!)
             performSegue(withIdentifier: "login", sender: sender)
         }else{
