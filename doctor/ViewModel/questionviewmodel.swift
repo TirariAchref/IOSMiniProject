@@ -26,7 +26,7 @@ class questionVM {
                     let questions = try JSONDecoder().decode([Question].self, from: data)
                  
                     questions.forEach { question in self.listquestion.append(question) }
-                    print("helooooooooo")
+                    
                     
          
                 } catch let jsonErr {
