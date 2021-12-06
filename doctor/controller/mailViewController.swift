@@ -7,16 +7,21 @@
 
 import UIKit
 
-class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
+class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate{
 
-   
+   //var
+    var userviewmodelm = userVM()
+    var messagerieviewmodel = messagerieVM()
     @IBOutlet weak var profileimage: UIImageView!
     
-    var data = ["samir","achref","ahmed"]
-    
+ 
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+    var data = [Messagerie]()
+    var filteredData = [Messagerie]()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
            
-           return data.count //6 elements
+           return filteredData.count //6 elements
        }
        
        
@@ -38,9 +43,9 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
            imageView.layer.borderColor = UIColor.black.cgColor
            imageView.layer.cornerRadius = imageView.frame.height/2
            imageView.clipsToBounds = true
-           label.text = "FROM :"+data[indexPath.row]
-           text.text = "hello hello hello put a question here hello hello hello put a question here hello hello hello put a question here hello hello hello put a question herehello hello hello put a question here"
-           imageView.image = UIImage(named: data[indexPath.row])
+           label.text = "From: "+filteredData[indexPath.row].from!
+           text.text = filteredData[indexPath.row].message
+           imageView.image = UIImage(named: "profile")
            
            
            
@@ -48,19 +53,28 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
            
        }
        
-       
-       override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           
-           
-       }
+     
        
        
        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
            
-           let movie = data[indexPath.row]
+           let movie = filteredData[indexPath.row]
            performSegue(withIdentifier: "mSegue", sender: movie)
            
        }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // When there is no text, filteredData is the same as the original data
+        // When user has entered text into the search box
+        // Use the filter method to iterate over all items in the data array
+        // For each item, return true if the item should be included and false if the
+        // item should NOT be included
+        filteredData = searchText.isEmpty ? data : data.filter({(dataString: Messagerie) -> Bool in
+            // If dataItem matches the searchText, return true to include it
+            return dataString.from!.range(of: searchText, options: .caseInsensitive) != nil
+        })
+
+        tableView.reloadData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         profileimage.layer.borderWidth = 1
@@ -69,10 +83,16 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         profileimage.layer.cornerRadius = profileimage.frame.height/2
         profileimage.clipsToBounds = true
         // Do any additional setup after loading the view.
+        profileimage.image = UIImage(named: (userviewmodelm.userToken?.imageUrl)!)
+        messagerieviewmodel.getallmessageries()
+        sleep(1)
+        data = messagerieviewmodel.listmessagerie
+        data.forEach{ msg in if(msg.from == userviewmodelm.userToken?.email || msg.to == userviewmodelm.userToken?.email ){self.filteredData.append(msg)} }
+     data = filteredData
     }
     
 
-    @IBOutlet weak var search: UISearchBar!
+    
    //action
     
     @IBAction func donate(_ sender: Any) {
@@ -83,4 +103,12 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         performSegue(withIdentifier: "newMessege", sender: sender)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "newMessege"{
+            let destination = segue.destination as! newmailViewController
+            destination.userviewmodelm = userviewmodelm
+            
+        }
+        
+    }
 }

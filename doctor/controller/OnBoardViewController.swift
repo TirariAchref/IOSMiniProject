@@ -25,7 +25,9 @@ class OnBoardViewController: UIViewController {
     }
     
     @IBAction func register(_ sender: UIButton) {
-        userviewmodelm.createuser(nom: name.text!, prenom: name.text!, email: email.text!, password: password.text!, phone: number.text!, categorieclient: "CLIENT")
+       
+        
+   
         performSegue(withIdentifier: "register", sender: sender)
         
     }
@@ -33,6 +35,18 @@ class OnBoardViewController: UIViewController {
  
     @IBAction func sign(_ sender: Any) {
         performSegue(withIdentifier: "signin", sender: sender)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "register" {
+            let destination = segue.destination as! confirmationmailViewController
+            destination.userviewmodelm = userviewmodelm
+            destination.email = email.text
+            destination.name = name.text
+            destination.password = password.text
+            destination.phone = number.text
+        
+            
+        }
     }
     
 }

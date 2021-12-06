@@ -12,10 +12,11 @@ struct Reponse : Decodable{
     
     let _id : String?
     let description : String?
-    let datecreation : String?
+    let idUser : String?
+    let idQuestion : String?
     private  enum CodingKeys: String, CodingKey {
      
-          case _id, description,datecreation
+          case _id, description,idUser,idQuestion
        }
       
    

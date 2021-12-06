@@ -8,13 +8,13 @@
 import UIKit
 
 class accountconfigViewController: UIViewController {
-    var userviewmodel = userVM()
+    var userviewmodelm = userVM()
     var user : User?
     @IBOutlet weak var number: UITextField!
     @IBAction func update(_ sender: Any) {
         
-        userviewmodel.updateuser(id: (userviewmodel.userToken?._id)!, nom: name.text!, prenom: name.text!, email: (userviewmodel.userToken?.email)!
-                                 , password: (userviewmodel.userToken?.password)!, phone: number.text!, categorieclient: (userviewmodel.userToken?.categorieclient)!)
+        userviewmodelm.updateuser(id: (userviewmodelm.userToken?._id)!, nom: name.text!, prenom: name.text!, email: (userviewmodelm.userToken?.email)!
+                                  , password: (password.text)!, phone: number.text!, categorieclient: (userviewmodelm.userToken?.categorieclient)!)
         
         
     }
@@ -26,20 +26,14 @@ class accountconfigViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        name.text = userviewmodel.userToken?.nom
-        number.text = userviewmodel.userToken?.phone
-     
+        name.text = userviewmodelm.userToken?.nom
+        number.text = userviewmodelm.userToken?.phone
+        
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "setting"{
-            let destination = segue.destination as! settingViewController
-            destination.userviewmodel = userviewmodel
-     
-            
-        }
-    }
+   
+    
 
   
 
