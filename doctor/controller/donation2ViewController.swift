@@ -8,7 +8,7 @@
 import UIKit
 
 class donation2ViewController: UIViewController {
-
+    var userviewmodelm = userVM()
     @IBAction func donate(_ sender: Any) {
         performSegue(withIdentifier: "pass", sender: sender)
     }
@@ -20,7 +20,13 @@ class donation2ViewController: UIViewController {
     
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "pass"{
+            let destination = segue.destination as! donation3ViewController
+            destination.userviewmodelm = userviewmodelm
+        }
+    }
   
 
 }

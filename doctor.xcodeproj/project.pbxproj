@@ -34,7 +34,6 @@
 		9E5D0C5F27389508001C3AD0 /* Launch3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5D0C5E27389508001C3AD0 /* Launch3ViewController.swift */; };
 		9E63EF182749BA6F00C80EC5 /* eventviewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E63EF172749BA6F00C80EC5 /* eventviewmodel.swift */; };
 		9EA6B63F2753E60A0018F32F /* tabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA6B63E2753E60A0018F32F /* tabbarViewController.swift */; };
-		9EB184EE273AC70200BA2E1B /* chercheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184ED273AC70200BA2E1B /* chercheViewController.swift */; };
 		9EB184F0273AC72200BA2E1B /* mailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184EF273AC72200BA2E1B /* mailViewController.swift */; };
 		9EB184F2273AC73700BA2E1B /* notificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184F1273AC73700BA2E1B /* notificationViewController.swift */; };
 		9EB184F4273AC74500BA2E1B /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184F3273AC74500BA2E1B /* settingViewController.swift */; };
@@ -99,7 +98,6 @@
 		9E5D0C5E27389508001C3AD0 /* Launch3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch3ViewController.swift; sourceTree = "<group>"; };
 		9E63EF172749BA6F00C80EC5 /* eventviewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventviewmodel.swift; sourceTree = "<group>"; };
 		9EA6B63E2753E60A0018F32F /* tabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabbarViewController.swift; sourceTree = "<group>"; };
-		9EB184ED273AC70200BA2E1B /* chercheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chercheViewController.swift; sourceTree = "<group>"; };
 		9EB184EF273AC72200BA2E1B /* mailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mailViewController.swift; sourceTree = "<group>"; };
 		9EB184F1273AC73700BA2E1B /* notificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationViewController.swift; sourceTree = "<group>"; };
 		9EB184F3273AC74500BA2E1B /* settingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
@@ -193,7 +191,6 @@
 				9EB184F7273ADFE900BA2E1B /* donation2ViewController.swift */,
 				9EB184F9273ADFF600BA2E1B /* donation3ViewController.swift */,
 				E12F8D1B273804D8001E9F8D /* ViewController.swift */,
-				9EB184ED273AC70200BA2E1B /* chercheViewController.swift */,
 				9E192016273B1C0F00B276EC /* accountconfigViewController.swift */,
 				9E192018273B1FCD00B276EC /* chnagephotoViewController.swift */,
 				9E19201A273B289B00B276EC /* languageViewController.swift */,
@@ -416,7 +413,6 @@
 				9E5D0C5B273894E1001C3AD0 /* LaunchViewController.swift in Sources */,
 				9E2F05D9273A705A00813E57 /* confirmationmailViewController.swift in Sources */,
 				9EB184F0273AC72200BA2E1B /* mailViewController.swift in Sources */,
-				9EB184EE273AC70200BA2E1B /* chercheViewController.swift in Sources */,
 				9E192019273B1FCD00B276EC /* chnagephotoViewController.swift in Sources */,
 				E12F8D18273804D8001E9F8D /* AppDelegate.swift in Sources */,
 				9E19201F273B30E800B276EC /* newmailViewController.swift in Sources */,
