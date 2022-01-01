@@ -12,7 +12,9 @@ extension String {
     }
 }
 class OnBoardViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate{
-    
+    var emailfb : String?
+    var namefb : String?
+    var fb = false
     @IBOutlet weak var txtTitle: UITextField!
     let songNames = ["user","doctor"]
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
@@ -52,6 +54,11 @@ class OnBoardViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
     override func viewDidLoad() {
         super.viewDidLoad()
         txtTitle.text = "user"
+       
+        if(fb == true){
+            name.text = namefb
+            email.text = emailfb
+        }
     }
     
     @IBAction func register(_ sender: UIButton) {
@@ -85,6 +92,11 @@ class OnBoardViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
     }
     
  
+    @IBAction func facebook(_ sender: Any) {
+        performSegue(withIdentifier: "facebook", sender: sender)
+ 
+    }
+    
     @IBAction func sign(_ sender: Any) {
         performSegue(withIdentifier: "signin", sender: sender)
     }
