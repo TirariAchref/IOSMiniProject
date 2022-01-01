@@ -14,7 +14,7 @@ class confirmationmailViewController: UIViewController {
     var name : String?
     var password : String?
     var phone : String?
-  
+    var role : String?
 
     @IBOutlet weak var code: UITextField!
     override func viewDidLoad() {
@@ -51,6 +51,7 @@ class confirmationmailViewController: UIViewController {
             destination.name = name
             destination.password = password
             destination.phone = phone
+            destination.role =  role
             
         }
     }

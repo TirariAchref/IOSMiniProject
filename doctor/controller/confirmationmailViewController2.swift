@@ -14,7 +14,7 @@ class confirmationmailViewController2: UIViewController {
     var name : String?
     var password : String?
     var phone : String?
-
+    var role : String?
     @IBOutlet weak var `continue`: UIButton!
     @IBOutlet weak var code: UITextField!
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class confirmationmailViewController2: UIViewController {
 
     @IBAction func cont(_ sender: Any) {
         if code.text == String(randomInt){
-            userviewmodelm.createuser(nom: name!, prenom: name!, email: email!, password: password!, phone: phone!, categorieclient: "CLIENT",imageUrl: "profile")
+            userviewmodelm.createuser(nom: name!, prenom: name!, email: email!, password: password!, phone: phone!, categorieclient: role! ,imageUrl: "profile")
             sleep(1)
         
                  userviewmodelm.createtoken(email: email!, password: password!)
