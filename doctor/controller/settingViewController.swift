@@ -39,11 +39,19 @@ class settingViewController: UIViewController{
             destination.userviewmodelm = userviewmodelm
      
             
+        }else    if segue.identifier == "QR"{
+            let destination = segue.destination as! QrViewController
+            destination.userviewmodelm = userviewmodelm
+     
+            
         }
     }
     
     // action
     
+    @IBAction func qrcode(_ sender: Any) {
+        performSegue(withIdentifier: "QR", sender: sender)
+    }
     @IBAction func deconnexion(_ sender: Any) {
         performSegue(withIdentifier: "deconnexion", sender: sender)
     }
@@ -57,7 +65,5 @@ class settingViewController: UIViewController{
         performSegue(withIdentifier: "config", sender: sender)
     }
     
-    @IBAction func language(_ sender: Any) {
-        performSegue(withIdentifier: "language", sender: sender)
-    }
+   
 }

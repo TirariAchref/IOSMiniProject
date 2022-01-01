@@ -14,7 +14,6 @@
 		9E192015273B16AA00B276EC /* event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E192014273B16AA00B276EC /* event.swift */; };
 		9E192017273B1C0F00B276EC /* accountconfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E192016273B1C0F00B276EC /* accountconfigViewController.swift */; };
 		9E192019273B1FCD00B276EC /* chnagephotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E192018273B1FCD00B276EC /* chnagephotoViewController.swift */; };
-		9E19201B273B289B00B276EC /* languageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E19201A273B289B00B276EC /* languageViewController.swift */; };
 		9E19201D273B2F0F00B276EC /* newquestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E19201C273B2F0F00B276EC /* newquestionViewController.swift */; };
 		9E19201F273B30E800B276EC /* newmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E19201E273B30E800B276EC /* newmailViewController.swift */; };
 		9E2F05D9273A705A00813E57 /* confirmationmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2F05D8273A705A00813E57 /* confirmationmailViewController.swift */; };
@@ -41,6 +40,7 @@
 		9EB184F8273ADFE900BA2E1B /* donation2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184F7273ADFE900BA2E1B /* donation2ViewController.swift */; };
 		9EB184FA273ADFF600BA2E1B /* donation3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184F9273ADFF600BA2E1B /* donation3ViewController.swift */; };
 		9ED275B427419959003DB378 /* confirmationmailViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED275B327419959003DB378 /* confirmationmailViewController2.swift */; };
+		CE36CA63278095140060AA9D /* QrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36CA62278095140060AA9D /* QrViewController.swift */; };
 		E12F8D18273804D8001E9F8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F8D17273804D8001E9F8D /* AppDelegate.swift */; };
 		E12F8D1A273804D8001E9F8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F8D19273804D8001E9F8D /* SceneDelegate.swift */; };
 		E12F8D1C273804D8001E9F8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F8D1B273804D8001E9F8D /* ViewController.swift */; };
@@ -78,7 +78,6 @@
 		9E192014273B16AA00B276EC /* event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = event.swift; sourceTree = "<group>"; };
 		9E192016273B1C0F00B276EC /* accountconfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accountconfigViewController.swift; sourceTree = "<group>"; };
 		9E192018273B1FCD00B276EC /* chnagephotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chnagephotoViewController.swift; sourceTree = "<group>"; };
-		9E19201A273B289B00B276EC /* languageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = languageViewController.swift; sourceTree = "<group>"; };
 		9E19201C273B2F0F00B276EC /* newquestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newquestionViewController.swift; sourceTree = "<group>"; };
 		9E19201E273B30E800B276EC /* newmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newmailViewController.swift; sourceTree = "<group>"; };
 		9E2F05D8273A705A00813E57 /* confirmationmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = confirmationmailViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +104,7 @@
 		9EB184F7273ADFE900BA2E1B /* donation2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = donation2ViewController.swift; sourceTree = "<group>"; };
 		9EB184F9273ADFF600BA2E1B /* donation3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = donation3ViewController.swift; sourceTree = "<group>"; };
 		9ED275B327419959003DB378 /* confirmationmailViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = confirmationmailViewController2.swift; sourceTree = "<group>"; };
+		CE36CA62278095140060AA9D /* QrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrViewController.swift; sourceTree = "<group>"; };
 		E12F8D14273804D8001E9F8D /* doctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = doctor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12F8D17273804D8001E9F8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E12F8D19273804D8001E9F8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -193,11 +193,11 @@
 				E12F8D1B273804D8001E9F8D /* ViewController.swift */,
 				9E192016273B1C0F00B276EC /* accountconfigViewController.swift */,
 				9E192018273B1FCD00B276EC /* chnagephotoViewController.swift */,
-				9E19201A273B289B00B276EC /* languageViewController.swift */,
 				9E19201C273B2F0F00B276EC /* newquestionViewController.swift */,
 				9E19201E273B30E800B276EC /* newmailViewController.swift */,
 				9ED275B327419959003DB378 /* confirmationmailViewController2.swift */,
 				9EA6B63E2753E60A0018F32F /* tabbarViewController.swift */,
+				CE36CA62278095140060AA9D /* QrViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -402,12 +402,12 @@
 				9EB184F6273ADFDC00BA2E1B /* donation1ViewController.swift in Sources */,
 				9E570C0E27396E6700CBC622 /* confirmresetpasswordViewController.swift in Sources */,
 				9EB184FA273ADFF600BA2E1B /* donation3ViewController.swift in Sources */,
+				CE36CA63278095140060AA9D /* QrViewController.swift in Sources */,
 				9EB184F4273AC74500BA2E1B /* settingViewController.swift in Sources */,
 				9E40899C2749B6AA000648F9 /* messagerieviewmodel.swift in Sources */,
 				9E19200F273B167900B276EC /* reponse.swift in Sources */,
 				9E512E99274807C8002ACA31 /* userviewmodel.swift in Sources */,
 				9E192011273B168700B276EC /* question.swift in Sources */,
-				9E19201B273B289B00B276EC /* languageViewController.swift in Sources */,
 				9E63EF182749BA6F00C80EC5 /* eventviewmodel.swift in Sources */,
 				9E570C062739614500CBC622 /* welcomeViewController.swift in Sources */,
 				9E5D0C5B273894E1001C3AD0 /* LaunchViewController.swift in Sources */,
