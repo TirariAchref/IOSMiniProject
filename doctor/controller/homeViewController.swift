@@ -20,7 +20,7 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     var userviewmodelm = userVM()
     var questionviewmodel = questionVM()
     @IBOutlet weak var profilpicture: UIImageView!
-    
+    var movie : Question?
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     var data = [Question]()
@@ -50,8 +50,8 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
            imageView.layer.borderColor = UIColor.black.cgColor
            imageView.layer.cornerRadius = imageView.frame.height/2
            imageView.clipsToBounds = true
-           label.text = data[indexPath.row].subject
-           text.text = data[indexPath.row].description
+           label.text = filteredData[indexPath.row].subject
+           text.text = filteredData[indexPath.row].description
            
            imageView.image = UIImage(named: "profile")
            
@@ -67,13 +67,17 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
            if segue.identifier == "newQuestion"{
                let destination = segue.destination as! newquestionViewController
                destination.userviewmodelm = userviewmodelm
+           }else       if segue.identifier == "mSegue"{
+               let destination = segue.destination as! quesViewController
+               destination.userviewmodelm = userviewmodelm
+               destination.question = movie
            }
        }
        
        
        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-           let movie = filteredData[indexPath.row]
-           performSegue(withIdentifier: "mSegue", sender: movie)
+            movie = filteredData[indexPath.row]
+           performSegue(withIdentifier: "mSegue", sender: nil)
            
        }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -110,8 +114,7 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
    
     
   
- //action
-    
+
    
     
     @IBAction func addquestion(_ sender: Any) {
