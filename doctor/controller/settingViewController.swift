@@ -44,6 +44,11 @@ class settingViewController: UIViewController{
             destination.userviewmodelm = userviewmodelm
      
             
+        }else    if segue.identifier == "map"{
+            let destination = segue.destination as! mapkitViewController
+            destination.userviewmodelm = userviewmodelm
+     
+            
         }
     }
     
@@ -65,5 +70,8 @@ class settingViewController: UIViewController{
         performSegue(withIdentifier: "config", sender: sender)
     }
     
-   
+    @IBAction func googlemap(_ sender: Any) {
+        performSegue(withIdentifier: "map", sender: sender)
+    }
+    
 }

@@ -1,20 +1,45 @@
 PODS:
+  - Braintree (4.22.0):
+    - Braintree/Card (= 4.22.0)
+    - Braintree/Core (= 4.22.0)
+    - Braintree/PayPal (= 4.22.0)
+    - Braintree/UI (= 4.22.0)
+  - Braintree/Card (4.22.0):
+    - Braintree/Core
+  - Braintree/Core (4.22.0)
+  - Braintree/PayPal (4.22.0):
+    - Braintree/Core
+    - Braintree/PayPalOneTouch
+  - Braintree/PayPalDataCollector (4.22.0):
+    - Braintree/Core
+    - Braintree/PayPalUtils
+  - Braintree/PayPalOneTouch (4.22.0):
+    - Braintree/Core
+    - Braintree/PayPalDataCollector
+    - Braintree/PayPalUtils
+  - Braintree/PayPalUtils (4.22.0)
+  - Braintree/UI (4.22.0):
+    - Braintree/Card
+    - Braintree/Core
   - Cosmos (23.0.0)
   - TinyConstraints (4.0.2)
 
 DEPENDENCIES:
+  - Braintree (~> 4.22.0)
   - Cosmos
   - TinyConstraints
 
 SPEC REPOS:
   trunk:
+    - Braintree
     - Cosmos
     - TinyConstraints
 
 SPEC CHECKSUMS:
+  Braintree: e814ec196208d3e961c488cf4071de043f399cf9
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   TinyConstraints: 7b7ccc0c485bb3bb47082138ff28bc33cd49897f
 
-PODFILE CHECKSUM: 0bffd551d2e09f683bcae86d4b1383a4298b46bb
+PODFILE CHECKSUM: c2a4c55ec5f1bf12639195b95aa7bfd79d0d0f06
 
 COCOAPODS: 1.11.2
