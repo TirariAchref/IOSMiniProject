@@ -16,16 +16,20 @@ extension UIColor {
         )
     }
 }
-class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource {
+class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource , UISearchBarDelegate{
     var userviewmodelm = userVM()
     var questionviewmodel = questionVM()
+    private let refreshControl = UIRefreshControl()
     @IBOutlet weak var profilpicture: UIImageView!
-    
+    var movie : Question?
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     var data = [Question]()
+    var filteredData = [Question]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
            
-           return data.count //6 elements
+        return filteredData.count//6 elements
        }
        
        
@@ -47,8 +51,8 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
            imageView.layer.borderColor = UIColor.black.cgColor
            imageView.layer.cornerRadius = imageView.frame.height/2
            imageView.clipsToBounds = true
-           label.text = data[indexPath.row].subject
-           text.text = data[indexPath.row].description
+           label.text = filteredData[indexPath.row].subject
+           text.text = filteredData[indexPath.row].description
            
            imageView.image = UIImage(named: "profile")
            
@@ -64,17 +68,32 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
            if segue.identifier == "newQuestion"{
                let destination = segue.destination as! newquestionViewController
                destination.userviewmodelm = userviewmodelm
+           }else       if segue.identifier == "mSegue"{
+               let destination = segue.destination as! quesViewController
+               destination.userviewmodelm = userviewmodelm
+               destination.question = movie
            }
        }
        
        
        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-           
-           let movie = data[indexPath.row]
-           performSegue(withIdentifier: "mSegue", sender: movie)
+            movie = filteredData[indexPath.row]
+           performSegue(withIdentifier: "mSegue", sender: nil)
            
        }
-       
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // When there is no text, filteredData is the same as the original data
+        // When user has entered text into the search box
+        // Use the filter method to iterate over all items in the data array
+        // For each item, return true if the item should be included and false if the
+        // item should NOT be included
+        filteredData = searchText.isEmpty ? data : data.filter({(dataString: Question) -> Bool in
+            // If dataItem matches the searchText, return true to include it
+            return dataString.subject!.range(of: searchText, options: .caseInsensitive) != nil
+        })
+
+        tableView.reloadData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         profilpicture.layer.borderWidth = 1
@@ -87,22 +106,47 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         print("///////////////////////")
           print(userviewmodelm.tokenString!)
           profilpicture.image = UIImage(named: (userviewmodelm.userToken?.imageUrl)!)
+        
+            questionviewmodel.getallquestions()
+            sleep(1)
+            data = questionviewmodel.listquestion
+         filteredData = data
+        filteredData.reverse()
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
+     
+        refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching Weather Data ...")
+    }
+   
+    @objc private func refreshWeatherData(_ sender: Any) {
+        // Fetch Weather Data
+        fetchWeatherData()
+    }
     
+    private func fetchWeatherData() {
+        filteredData.removeAll()
+        data.removeAll()
+        tableView.reloadData()
         questionviewmodel.getallquestions()
         sleep(1)
         data = questionviewmodel.listquestion
+     filteredData = data
+    filteredData.reverse()
+       
+        tableView.reloadData()
+                self.refreshControl.endRefreshing()
+                
+            
         
     }
-   
-    
   
- //action
-    
-    
-    @IBAction func donate(_ sender: Any) {
-        performSegue(withIdentifier: "donateSegue", sender: sender)
-    }
-    
+
+   
     
     @IBAction func addquestion(_ sender: Any) {
         performSegue(withIdentifier: "newQuestion", sender: sender)

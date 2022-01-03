@@ -22,6 +22,7 @@ class questionVM {
                 guard let data =  data else{ return }
 
                 do {
+                    self.listquestion.removeAll()
 
                     let questions = try JSONDecoder().decode([Question].self, from: data)
                  

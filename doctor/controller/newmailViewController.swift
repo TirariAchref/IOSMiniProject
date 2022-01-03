@@ -11,6 +11,8 @@ class newmailViewController: UIViewController {
 
     var userviewmodelm = userVM()
     var messagerieviewmodel = messagerieVM()
+    var bool = false
+    var mail : Messagerie?
     @IBOutlet weak var submit: UIButton!
    
     @IBOutlet weak var subject: UITextField!
@@ -19,13 +21,25 @@ class newmailViewController: UIViewController {
     @IBOutlet weak var message: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if(bool == true){
+            to.text = mail?.from
+        }
        
     }
     
 
     @IBAction func submit(_ sender: Any) {
-        messagerieviewmodel.createmessagerie(message: message.text!, object: subject.text!, from: (userviewmodelm.userToken?.email)!, to: to.text!)
-        prompt(title: "Succes", message: "Question added successfully")
+        if(subject.text == ""){
+            prompt(title: "warning", message: "Subject is empty")
+        }else  if(to.text == ""){
+            prompt(title: "warning", message: "To is empty")
+        }else  if(message.text == ""){
+            prompt(title: "warning", message: "Message is empty")
+        }else {
+            messagerieviewmodel.createmessagerie(message: message.text!, object: subject.text!, from: (userviewmodelm.userToken?.email)!, to: to.text!)
+            prompt(title: "Succes", message: "Mail added successfully")
+        }
+       
     }
     func prompt(title: String, message: String) {
            

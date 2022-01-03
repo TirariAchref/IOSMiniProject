@@ -18,12 +18,12 @@ class tabbarViewController: UITabBarController {
         vc.userviewmodelm = userviewmodelm
        
         
-        let navController1 = self.viewControllers![1] as! UINavigationController
-        let vc1 = navController1.topViewController as! chercheViewController
+        let navController1 = self.viewControllers![2] as! UINavigationController
+        let vc1 = navController1.topViewController as! donation1ViewController
         vc1.userviewmodelm = userviewmodelm
        
         
-        let navController2 = self.viewControllers![2] as! UINavigationController
+        let navController2 = self.viewControllers![1] as! UINavigationController
         let vc2 = navController2.topViewController as! mailViewController
         vc2.userviewmodelm = userviewmodelm
        

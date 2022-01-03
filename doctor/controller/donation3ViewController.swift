@@ -9,13 +9,19 @@ import UIKit
 
 class donation3ViewController: UIViewController {
 
-  
+    var userviewmodelm = userVM()
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "home"{
+            let destination = segue.destination as! tabbarViewController
+            destination.userviewmodelm = userviewmodelm
+        }
+    }
     
     @IBAction func home(_ sender: Any) {
         performSegue(withIdentifier: "home", sender: sender)
