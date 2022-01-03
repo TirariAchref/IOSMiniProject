@@ -17,7 +17,7 @@ class donation1ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "pass"{
-            let destination = segue.destination as! donation2ViewController
+            let destination = segue.destination as! PayViewController
             destination.userviewmodelm = userviewmodelm
         }
     }

@@ -6,18 +6,29 @@
 //
 
 import UIKit
+import Braintree
+
+
 
 class donation2ViewController: UIViewController {
+    
+    
+    
+    
+    
+    
     var userviewmodelm = userVM()
-    @IBAction func donate(_ sender: Any) {
-        performSegue(withIdentifier: "pass", sender: sender)
-    }
+   
+    
+   
+    
     @IBOutlet weak var card: UITextField!
     @IBOutlet weak var money: UITextField!
    
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -27,6 +38,10 @@ class donation2ViewController: UIViewController {
             destination.userviewmodelm = userviewmodelm
         }
     }
-  
-
+    
+    
+    @IBAction func donate(_ sender: Any) {
+        
+        
+      }
 }
