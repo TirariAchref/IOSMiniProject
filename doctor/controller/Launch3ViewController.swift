@@ -8,17 +8,14 @@
 import UIKit
 
 class Launch3ViewController: UIViewController {
-
+    
     var userviewmodel = userVM()
     @IBAction func start(_ sender: UIButton) {
         performSegue(withIdentifier: "pass", sender: sender)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-     //   userviewmodel.getallusers()
-       // userviewmodel.createtoken(email: "achref@gmail.com", password: "123")
-
+ 
     }
     
 

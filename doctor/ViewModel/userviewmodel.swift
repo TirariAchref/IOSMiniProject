@@ -16,9 +16,11 @@ class userVM {
   
     var userdata = [User]()
     var tokenString : String?
-
+    var useronhold: User?
     var userToken : User?
     var userByemail : User?
+    var userByid : User?
+    var regestirUser : User?
     @Published var isAuthenticated : Bool = false
     func getallusers(){
        
@@ -84,7 +86,7 @@ class userVM {
        
     }
     
-    func createtoken(email:String,password:String){
+    func createtoken(email:String,password:String) {
         let defaults = UserDefaults.standard
             var request = URLRequest(url: URL(string: "http://localhost:3000/loginClient")!)
             request.httpMethod = "post"
@@ -107,15 +109,18 @@ class userVM {
                
 
                 let json = responseString!.toJSON() as? [String:AnyObject]
-               
+                let tt = json!["token"] as? String
                 self.tokenString = json!["token"] as? String
                 defaults.setValue(self.tokenString, forKey: "jsonwebtoken")
                 DispatchQueue.main.async {
                     self.isAuthenticated = true
                     print(self.isAuthenticated)
                 }
-             
-                self.getuserfromtoken(token:(json!["token"] as? String)!)
+                if((tt) != nil){
+                    self.getuserfromtoken(token:(json!["token"] as? String)!)
+                }
+               
+               
                 if(responseString?.contains("true"))!{
                     print("status = true")
                 }
@@ -138,12 +143,12 @@ class userVM {
                
            }
    
-    func createuser(nom : String,prenom:String,email:String,password:String,phone:String,categorieclient:String){
+    func createuser(nom : String,prenom:String,email:String,password:String,phone:String,categorieclient:String,imageUrl:String){
             var request = URLRequest(url: URL(string: "http://localhost:3000/createuser")!)
             request.httpMethod = "post"
             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             print("its working")
-            let postString = "nom="+nom+"&"+"prenom="+prenom+"&"+"email="+email+"&"+"password="+password+"&"+"phone="+phone+"&"+"categorieclient="+categorieclient+"&"
+            let postString = "nom="+nom+"&"+"prenom="+prenom+"&"+"email="+email+"&"+"password="+password+"&"+"phone="+phone+"&"+"categorieclient="+categorieclient+"&"+"imageUrl="+imageUrl+"&"
             request.httpBody = postString.data(using: .utf8)
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data, error == nil else {                                                 // check for fundamental networking error
@@ -151,19 +156,23 @@ class userVM {
                     return
                 }
 
-                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
-                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                    print("response = \(String(describing: response))")
-                }
 
-                let responseString = String(data: data, encoding: .utf8)
-                print("responseString = \(String(describing: responseString))")
+                do {
 
-                if(responseString?.contains("true"))!{
-                    print("status = true")
-                }
-                else{
-                    print("Status = false")
+                    let Allusers = try JSONDecoder().decode(User.self, from: data)
+                   
+                   
+                    DispatchQueue.main.async {
+                        self.regestirUser = Allusers
+                    }
+                    print("name = " + Allusers.nom!)
+                    print("email = " + Allusers.email!)
+                    print("phone = " + Allusers.phone!)
+                    print("imageurl = " + Allusers.imageUrl!)
+                   
+         
+                } catch let jsonErr {
+                    print("Error serializing json:", jsonErr)
                 }
             }
 
@@ -177,6 +186,37 @@ class userVM {
              request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
              print("its working")
          let postString = "nom="+nom+"&"+"prenom="+prenom+"&"+"email="+email+"&"+"password="+password+"&"+"phone="+phone+"&"+"categorieclient="+categorieclient+"&"
+             request.httpBody = postString.data(using: .utf8)
+             let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                 guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                     print("error=\(String(describing: error?.localizedDescription))")
+                     return
+                 }
+
+                 if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                     print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                     print("response = \(String(describing: response))")
+                 }
+
+                 let responseString = String(data: data, encoding: .utf8)
+                 print("responseString = \(String(describing: responseString))")
+
+                 if(responseString?.contains("true"))!{
+                     print("status = true")
+                 }
+                 else{
+                     print("Status = false")
+                 }
+             }
+
+             task.resume()
+         }
+    func updateuserpass(id:String,nom : String,prenom:String,email:String,phone:String,categorieclient:String){
+         var request = URLRequest(url: URL(string: "http://localhost:3000/updateuserpass/"+id)!)
+             request.httpMethod = "put"
+             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+             print("its working")
+         let postString = "nom="+nom+"&"+"prenom="+prenom+"&"+"email="+email+"&"+"phone="+phone+"&"+"categorieclient="+categorieclient+"&"
              request.httpBody = postString.data(using: .utf8)
              let task = URLSession.shared.dataTask(with: request) { data, response, error in
                  guard let data = data, error == nil else {                                                 // check for fundamental networking error
@@ -268,4 +308,97 @@ class userVM {
 
        
     }
+    
+    
+    func getbyId(id : String){
+       
+        
+        let jsonUrlString = "http://localhost:3000/getuser/"+id
+            guard let url = URL(string: jsonUrlString) else
+            { return }
+
+            URLSession.shared.dataTask(with: url) { (data, response, err) in
+
+                guard let data =  data else{ return }
+
+                do {
+
+                    let Allusers = try JSONDecoder().decode([User].self, from: data)
+                   
+                    Allusers.forEach { user in self.userByid = user }
+         
+         
+                } catch let jsonErr {
+                    print("Error serializing json:", jsonErr)
+                }
+
+            }.resume()
+      
+
+       
+    }
+    
+    func sendmail(email:String,code:String){
+         var request = URLRequest(url: URL(string: "http://localhost:3000/sendmail")!)
+             request.httpMethod = "post"
+             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+             print("its working")
+         let postString = "email="+email+"&"+"code="+code+"&"
+             request.httpBody = postString.data(using: .utf8)
+             let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                 guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                     print("error=\(String(describing: error?.localizedDescription))")
+                     return
+                 }
+
+                 if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                     print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                     print("response = \(String(describing: response))")
+                 }
+
+                 let responseString = String(data: data, encoding: .utf8)
+                 print("responseString = \(String(describing: responseString))")
+
+                 if(responseString?.contains("true"))!{
+                     print("status = true")
+                 }
+                 else{
+                     print("Status = false")
+                 }
+             }
+
+             task.resume()
+         }
+    func sendsms(code:String){
+         var request = URLRequest(url: URL(string: "http://localhost:3000/sendsms")!)
+             request.httpMethod = "post"
+             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+             print("its working")
+         let postString = "code="+code+"&"
+             request.httpBody = postString.data(using: .utf8)
+             let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                 guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                     print("error=\(String(describing: error?.localizedDescription))")
+                     return
+                 }
+
+                 if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                     print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                     print("response = \(String(describing: response))")
+                 }
+
+                 let responseString = String(data: data, encoding: .utf8)
+                 print("responseString = \(String(describing: responseString))")
+
+                 if(responseString?.contains("true"))!{
+                     print("status = true")
+                 }
+                 else{
+                     print("Status = false")
+                 }
+             }
+
+             task.resume()
+         }
+    
 }

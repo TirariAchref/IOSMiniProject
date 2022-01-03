@@ -1,22 +1,28 @@
 //
-//  languageViewController.swift
+//  navViewController.swift
 //  doctor
 //
-//  Created by achref on 9/11/2021.
+//  Created by User on 01.01.2022.
 //
 
 import UIKit
 
-class languageViewController: UIViewController {
+class navViewController: UINavigationController {
 
-    @IBAction func update(_ sender: Any) {
-    }
-    @IBOutlet weak var arabic: UIImageView!
-    @IBOutlet weak var englisg: UIImageView!
-
+    var email : String?
+    var name : String?
+    var fb = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        let vc = self.topViewController as! OnBoardViewController
       
+        
+             if(fb == true){
+                 vc.emailfb = email
+                 vc.namefb = name
+                 vc.fb = fb
+             }
+
     }
     
 

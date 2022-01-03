@@ -9,7 +9,11 @@ import UIKit
 
 class newquestionViewController: UIViewController {
 
-    @IBOutlet weak var question: UILabel!
+    var userviewmodelm = userVM()
+    var questionviewmodel = questionVM()
+
+    
+    @IBOutlet weak var question: UITextView!
     @IBOutlet weak var subject: UITextField!
     
     override func viewDidLoad() {
@@ -18,16 +22,26 @@ class newquestionViewController: UIViewController {
     }
     
     @IBAction func submit(_ sender: UIButton) {
+        if(subject.text == ""){
+            prompt(title: "warning", message: "Subject is empty")
+        }else  if(question.text == ""){
+            prompt(title: "warning", message: "Question is empty")
+        }else {
+            questionviewmodel.createquestion(description: question.text!, subject: subject.text!, idClient: (userviewmodelm.userToken?._id)!)
+            prompt(title: "Succes", message: "Question added successfully")
+        }
+        
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    func prompt(title: String, message: String) {
+           
+           let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+           
+           let action = UIAlertAction(title: "Got it", style: .default, handler: nil)
+           
+           alert.addAction(action)
+           self.present(alert, animated: true, completion: nil)
+           
+       }
 
 }

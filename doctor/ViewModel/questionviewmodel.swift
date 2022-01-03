@@ -8,7 +8,7 @@
 import Foundation
 
 class questionVM {
-  
+  var listquestion = [Question]()
 
     func getallquestions()  {
        
@@ -25,7 +25,8 @@ class questionVM {
 
                     let questions = try JSONDecoder().decode([Question].self, from: data)
                  
-                    questions.forEach { question in print(question.description!) }
+                    questions.forEach { question in self.listquestion.append(question) }
+                    
                     
          
                 } catch let jsonErr {
@@ -37,14 +38,15 @@ class questionVM {
     
     
    
-    func createquestion(){
+    func createquestion(description : String , subject :String, idClient : String){
             var request = URLRequest(url: URL(string: "http://localhost:3000/createquestion")!)
             request.httpMethod = "post"
             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             print("its working")
             let postString =
-           "description=create&" +
-           "datecreation=2020-12-12T08:00:00.000Z&"
+           "description="+description+"&" +
+           "subject="+subject+"&" +
+        "idClient="+idClient+"&"
             request.httpBody = postString.data(using: .utf8)
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data, error == nil else {                                                 // check for fundamental networking error
@@ -72,14 +74,15 @@ class questionVM {
         }
     
     
-     func updatequestion(){
-         var request = URLRequest(url: URL(string: "http://localhost:3000/updatequestion/61997ead612d99bb5c619913")!)
+    func updatequestion(id : String , description : String , subject :String, idClient : String){
+         var request = URLRequest(url: URL(string: "http://localhost:3000/updatequestion/"+id)!)
              request.httpMethod = "put"
              request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
              print("its working")
          let postString =
-        "description=update&" +
-        "datecreation=2020-12-12T08:00:00.000Z&"
+         "description="+description+"&" +
+         "subject="+subject+"&" +
+      "idClient="+idClient+"&"
              request.httpBody = postString.data(using: .utf8)
              let task = URLSession.shared.dataTask(with: request) { data, response, error in
                  guard let data = data, error == nil else {                                                 // check for fundamental networking error
@@ -106,8 +109,8 @@ class questionVM {
              task.resume()
          }
     
-    func deletequestion(){
-        var request = URLRequest(url: URL(string: "http://localhost:3000/deletequestion/61997ead612d99bb5c619913")!)
+    func deletequestion(id : String){
+        var request = URLRequest(url: URL(string: "http://localhost:3000/deletequestion/"+id)!)
             request.httpMethod = "delete"
             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             print("its working")

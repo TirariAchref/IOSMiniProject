@@ -12,11 +12,12 @@ struct Messagerie : Decodable{
     let _id : String?
     let message : String?
     let object : String?
-    let datecreation : String?
+    
     let from : String?
+    let to : String?
     private  enum CodingKeys: String, CodingKey {
      
-          case _id, message,object,datecreation,from
+          case _id, message,object,from,to
        }
     
 }

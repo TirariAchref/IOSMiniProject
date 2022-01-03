@@ -16,11 +16,17 @@ class confirmresetpasswordViewController: UIViewController {
         performSegue(withIdentifier: "change", sender: sender)
     }
     
+    @IBOutlet weak var username: UILabel!
     @IBOutlet weak var confpassword: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var image: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        sleep(1)
+        username.text = (userviewmodel.userByemail?.nom)!
+        image.image = UIImage(named: (userviewmodel.userByemail?.imageUrl)!)
+
+        
         image.layer.borderWidth = 1
         image.layer.masksToBounds = false
         image.layer.borderColor = UIColor.black.cgColor

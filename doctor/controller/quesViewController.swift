@@ -1,22 +1,22 @@
 //
-//  chercheViewController.swift
+//  quesViewController.swift
 //  doctor
 //
-//  Created by achref on 9/11/2021.
+//  Created by User on 01.01.2022.
 //
 
 import UIKit
-
-class chercheViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
-    @IBOutlet weak var profileimage: UIImageView!
-    
-    
-    var data = ["samir","achref","ahmed"]
+import Cosmos
+import TinyConstraints
+class quesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource  {
+    var userviewmodelm = userVM()
+    var question : Question?
+   
+    var filteredData = [Question]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
            
-           return data.count //6 elements
+        return filteredData.count//6 elements
        }
        
        
@@ -38,9 +38,10 @@ class chercheViewController: UIViewController,UITableViewDelegate,UITableViewDat
            imageView.layer.borderColor = UIColor.black.cgColor
            imageView.layer.cornerRadius = imageView.frame.height/2
            imageView.clipsToBounds = true
-           label.text = data[indexPath.row]
-           text.text = "hello hello hello put a question here hello hello hello put a question here hello hello hello put a question here hello hello hello put a question herehello hello hello put a question here"
-           imageView.image = UIImage(named: data[indexPath.row])
+           label.text = filteredData[indexPath.row].subject
+           text.text = filteredData[indexPath.row].description
+           
+           imageView.image = UIImage(named: "profile")
            
            
            
@@ -50,34 +51,38 @@ class chercheViewController: UIViewController,UITableViewDelegate,UITableViewDat
        
        
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           
-           
+         
        }
        
        
        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-           
-           let movie = data[indexPath.row]
-           performSegue(withIdentifier: "mSegue", sender: movie)
+      
            
        }
+
+    @IBOutlet weak var reponse: UIButton!
+    lazy var cosmosView : CosmosView = {
+            var view = CosmosView()
+            //maadch aandk l hak t modifi
+            //view.settings.updateOnTouch = false
+            view.settings.fillMode = .half
+            view.settings.starMargin = 4
+            return view
+        }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileimage.layer.borderWidth = 1
-        profileimage.layer.masksToBounds = false
-        profileimage.layer.borderColor = UIColor.black.cgColor
-        profileimage.layer.cornerRadius = profileimage.frame.height/2
-        profileimage.clipsToBounds = true
-        // Do any additional setup after loading the view.
+        filteredData.append(question!)
+        view.addSubview(cosmosView)
+        cosmosView.topToSuperview()
+        
+                cosmosView.didTouchCosmos = {rating in
+                    print("Rated: \(rating)")}
     }
     
-    @IBOutlet weak var search: UISearchBar!
-    
-   //action
-    
-  
-    @IBAction func donate(_ sender: Any) {
-        performSegue(withIdentifier: "donateSegue", sender: sender)
+
+   
+    @IBAction func reponsebutton(_ sender: Any) {
     }
     
 }
