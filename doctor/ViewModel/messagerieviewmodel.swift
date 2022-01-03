@@ -22,7 +22,7 @@ class messagerieVM {
                 guard let data =  data else{ return }
 
                 do {
-
+                    self.listmessagerie.removeAll()
                     let messageries = try JSONDecoder().decode([Messagerie].self, from: data)
                  
                     messageries.forEach { messagerie in self.listmessagerie.append(messagerie) }

@@ -10,6 +10,7 @@ import UIKit
 class listreponseViewController: UIViewController,UITableViewDelegate,UITableViewDataSource  {
 //var
     var userviewmodelm = userVM()
+    private let refreshControl = UIRefreshControl()
     var reponseviewmodel = reponseVM()
     var question : Question?
     var filteredData = [Reponse]()
@@ -57,6 +58,11 @@ class listreponseViewController: UIViewController,UITableViewDelegate,UITableVie
        
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          
+           if segue.identifier == "pass"{
+               let destination = segue.destination as! newreponseViewController
+               destination.userviewmodelm = userviewmodelm
+               destination.question = question
+           }
        }
        
        
@@ -78,13 +84,46 @@ class listreponseViewController: UIViewController,UITableViewDelegate,UITableVie
             listuser.append((userviewmodelm.userByid)!)
         }
        
+        if #available(iOS 10.0, *) {
+            listrepondre.refreshControl = refreshControl
+        } else {
+            listrepondre.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
+     
+        refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching Weather Data ...")
         
     }
     
+    @objc private func refreshWeatherData(_ sender: Any) {
+        // Fetch Weather Data
+        fetchWeatherData()
+    }
+    
+    private func fetchWeatherData() {
+        reponseviewmodel.getallreponses(idQuestion: (question?._id)!)
+        
+        usleep(500000)
+        filteredData = reponseviewmodel.AllReponse
+        filteredData.reverse()
+        for user in filteredData{
+            userviewmodelm.getbyId(id: user.idUser!)
+            usleep(500000)
+            listuser.append((userviewmodelm.userByid)!)
+        }
+        listrepondre.reloadData()
+                self.refreshControl.endRefreshing()
+                
+            
+        
+    }
+  
 
     //func
     
     @IBAction func repondre(_ sender: Any) {
+        performSegue(withIdentifier: "pass", sender: sender)
     }
     
 }

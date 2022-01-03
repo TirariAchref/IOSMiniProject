@@ -22,6 +22,7 @@ class reponseVM {
                 guard let data =  data else{ return }
 
                 do {
+                    self.AllReponse.removeAll()
 
                     let reponses = try JSONDecoder().decode([Reponse].self, from: data)
                  

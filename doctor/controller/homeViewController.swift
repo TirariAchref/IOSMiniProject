@@ -19,6 +19,7 @@ extension UIColor {
 class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource , UISearchBarDelegate{
     var userviewmodelm = userVM()
     var questionviewmodel = questionVM()
+    private let refreshControl = UIRefreshControl()
     @IBOutlet weak var profilpicture: UIImageView!
     var movie : Question?
     @IBOutlet weak var tableView: UITableView!
@@ -111,13 +112,38 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
             data = questionviewmodel.listquestion
          filteredData = data
         filteredData.reverse()
-   
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
      
-       
-      
+        refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching Weather Data ...")
     }
    
+    @objc private func refreshWeatherData(_ sender: Any) {
+        // Fetch Weather Data
+        fetchWeatherData()
+    }
     
+    private func fetchWeatherData() {
+        filteredData.removeAll()
+        data.removeAll()
+        tableView.reloadData()
+        questionviewmodel.getallquestions()
+        sleep(1)
+        data = questionviewmodel.listquestion
+     filteredData = data
+    filteredData.reverse()
+       
+        tableView.reloadData()
+                self.refreshControl.endRefreshing()
+                
+            
+        
+    }
   
 
    

@@ -12,6 +12,8 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
    //var
     var userviewmodelm = userVM()
     var messagerieviewmodel = messagerieVM()
+    var movie : Messagerie?
+    private let refreshControl = UIRefreshControl()
     @IBOutlet weak var profileimage: UIImageView!
     
  
@@ -35,15 +37,16 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
            let cell = tableView.dequeueReusableCell(withIdentifier: "mCell")
            let contentView = cell?.contentView
            
-           let label = contentView?.viewWithTag(1) as! UILabel
+           let subject = contentView?.viewWithTag(1) as! UILabel
            let text = contentView?.viewWithTag(3) as! UILabel
            let imageView = contentView?.viewWithTag(2) as! UIImageView
-           
+           let from = contentView?.viewWithTag(4) as! UILabel
            imageView.layer.masksToBounds = false
            imageView.layer.borderColor = UIColor.black.cgColor
            imageView.layer.cornerRadius = imageView.frame.height/2
            imageView.clipsToBounds = true
-           label.text = "From: "+filteredData[indexPath.row].from!
+           subject.text = "From: "+filteredData[indexPath.row].object!
+           from.text = "Subject: "+filteredData[indexPath.row].from!
            text.text = filteredData[indexPath.row].message
            imageView.image = UIImage(named: "profile")
            
@@ -58,16 +61,12 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
        
        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
            
-           let movie = filteredData[indexPath.row]
-           performSegue(withIdentifier: "mSegue", sender: movie)
+            movie = filteredData[indexPath.row]
+           performSegue(withIdentifier: "open", sender: movie)
            
        }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        // When there is no text, filteredData is the same as the original data
-        // When user has entered text into the search box
-        // Use the filter method to iterate over all items in the data array
-        // For each item, return true if the item should be included and false if the
-        // item should NOT be included
+       
         filteredData = searchText.isEmpty ? data : data.filter({(dataString: Messagerie) -> Bool in
             // If dataItem matches the searchText, return true to include it
             return dataString.from!.range(of: searchText, options: .caseInsensitive) != nil
@@ -87,13 +86,49 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         messagerieviewmodel.getallmessageries()
         sleep(1)
         data = messagerieviewmodel.listmessagerie
-        data.reverse()
+   
         data.forEach{ msg in if(msg.from == userviewmodelm.userToken?.email || msg.to == userviewmodelm.userToken?.email ){self.filteredData.append(msg)} }
      data = filteredData
+        filteredData.reverse()
+        data.reverse()
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
+     
+        refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching Weather Data ...")
     }
     
 
+    @objc private func refreshWeatherData(_ sender: Any) {
+        // Fetch Weather Data
+       
+        fetchWeatherData()
+    }
     
+    private func fetchWeatherData() {
+        self.data.removeAll()
+        self.filteredData.removeAll()
+        messagerieviewmodel.getallmessageries()
+        sleep(1)
+     
+        data = messagerieviewmodel.listmessagerie
+   
+        data.forEach{ msg in if(msg.from == userviewmodelm.userToken?.email || msg.to == userviewmodelm.userToken?.email ){self.filteredData.append(msg)} }
+     data = filteredData
+        filteredData.reverse()
+        data.reverse()
+        tableView.reloadData()
+                self.refreshControl.endRefreshing()
+                
+            
+        
+    }
+  
+
    //action
     
   
@@ -107,6 +142,10 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
             let destination = segue.destination as! newmailViewController
             destination.userviewmodelm = userviewmodelm
             
+        }else  if segue.identifier == "open"{
+            let destination = segue.destination as! emailcheckViewController
+            destination.userviewmodelm = userviewmodelm
+            destination.mail = movie
         }
         
     }
