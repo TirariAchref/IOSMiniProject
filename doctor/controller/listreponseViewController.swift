@@ -1,18 +1,23 @@
 //
-//  quesViewController.swift
+//  listreponseViewController.swift
 //  doctor
 //
-//  Created by User on 01.01.2022.
+//  Created by User on 03.01.2022.
 //
 
 import UIKit
-import Cosmos
-import TinyConstraints
-class quesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource  {
+
+class listreponseViewController: UIViewController,UITableViewDelegate,UITableViewDataSource  {
+//var
     var userviewmodelm = userVM()
+    var reponseviewmodel = reponseVM()
     var question : Question?
-   
-    var filteredData = [Question]()
+    var filteredData = [Reponse]()
+    var listuser = [User]()
+    //outlet
+    @IBOutlet weak var listrepondre: UITableView!
+    
+    //list
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
            
@@ -38,7 +43,7 @@ class quesViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
            imageView.layer.borderColor = UIColor.black.cgColor
            imageView.layer.cornerRadius = imageView.frame.height/2
            imageView.clipsToBounds = true
-           label.text = filteredData[indexPath.row].subject
+           label.text = listuser[indexPath.row].nom
            text.text = filteredData[indexPath.row].description
            
            imageView.image = UIImage(named: "profile")
@@ -51,12 +56,7 @@ class quesViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
        
        
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           
-           if segue.identifier == "reponsepass"{
-               let destination = segue.destination as! listreponseViewController
-               destination.userviewmodelm = userviewmodelm
-               destination.question = question
-           }
+         
        }
        
        
@@ -64,31 +64,27 @@ class quesViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
       
            return
        }
-
-    @IBOutlet weak var reponse: UIButton!
-    lazy var cosmosView : CosmosView = {
-            var view = CosmosView()
-            //maadch aandk l hak t modifi
-            //view.settings.updateOnTouch = false
-            view.settings.fillMode = .half
-            view.settings.starMargin = 4
-            return view
-        }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        filteredData.append(question!)
-        view.addSubview(cosmosView)
-        cosmosView.topToSuperview()
+        reponseviewmodel.getallreponses(idQuestion: (question?._id)!)
         
-                cosmosView.didTouchCosmos = {rating in
-                    print("Rated: \(rating)")}
+        usleep(500000)
+        filteredData = reponseviewmodel.AllReponse
+        filteredData.reverse()
+    
+        for user in filteredData{
+            userviewmodelm.getbyId(id: user.idUser!)
+            usleep(500000)
+            listuser.append((userviewmodelm.userByid)!)
+        }
+       
+        
     }
     
 
-   
-    @IBAction func reponsebutton(_ sender: Any) {
-        performSegue(withIdentifier: "reponsepass", sender: sender)
+    //func
+    
+    @IBAction func repondre(_ sender: Any) {
     }
     
 }

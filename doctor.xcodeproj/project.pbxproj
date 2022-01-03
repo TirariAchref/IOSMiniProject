@@ -42,6 +42,7 @@
 		9EB184F8273ADFE900BA2E1B /* donation2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184F7273ADFE900BA2E1B /* donation2ViewController.swift */; };
 		9EB184FA273ADFF600BA2E1B /* donation3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB184F9273ADFF600BA2E1B /* donation3ViewController.swift */; };
 		9ED275B427419959003DB378 /* confirmationmailViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED275B327419959003DB378 /* confirmationmailViewController2.swift */; };
+		CE0C22C82783480F0012DD72 /* listreponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C22C72783480F0012DD72 /* listreponseViewController.swift */; };
 		CE26AA5A2780C51600FB97CE /* quesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26AA592780C51600FB97CE /* quesViewController.swift */; };
 		CE36CA63278095140060AA9D /* QrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36CA62278095140060AA9D /* QrViewController.swift */; };
 		CEE693ED2780A61200FD7F9A /* facebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE693EC2780A61200FD7F9A /* facebookViewController.swift */; };
@@ -121,6 +122,7 @@
 		A1398FCAFAFFAA0335191E80 /* Pods_doctor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_doctor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9FC290E1D8A93B8F08EEEE4 /* Pods-doctor-doctorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor-doctorUITests.release.xcconfig"; path = "Target Support Files/Pods-doctor-doctorUITests/Pods-doctor-doctorUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C004B251BD811D053443A62C /* Pods-doctorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctorTests.debug.xcconfig"; path = "Target Support Files/Pods-doctorTests/Pods-doctorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CE0C22C72783480F0012DD72 /* listreponseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listreponseViewController.swift; sourceTree = "<group>"; };
 		CE26AA592780C51600FB97CE /* quesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quesViewController.swift; sourceTree = "<group>"; };
 		CE36CA62278095140060AA9D /* QrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrViewController.swift; sourceTree = "<group>"; };
 		CEE693EC2780A61200FD7F9A /* facebookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = facebookViewController.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				CEE693EC2780A61200FD7F9A /* facebookViewController.swift */,
 				CEE693F72780B72800FD7F9A /* navViewController.swift */,
 				CE26AA592780C51600FB97CE /* quesViewController.swift */,
+				CE0C22C72783480F0012DD72 /* listreponseViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				9E570C062739614500CBC622 /* welcomeViewController.swift in Sources */,
 				9E5D0C5B273894E1001C3AD0 /* LaunchViewController.swift in Sources */,
 				9E2F05D9273A705A00813E57 /* confirmationmailViewController.swift in Sources */,
+				CE0C22C82783480F0012DD72 /* listreponseViewController.swift in Sources */,
 				9EB184F0273AC72200BA2E1B /* mailViewController.swift in Sources */,
 				9E192019273B1FCD00B276EC /* chnagephotoViewController.swift in Sources */,
 				E12F8D18273804D8001E9F8D /* AppDelegate.swift in Sources */,

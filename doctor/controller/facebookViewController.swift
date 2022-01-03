@@ -37,8 +37,15 @@ class facebookViewController: UIViewController, LoginButtonDelegate {
             print( self.strID!)
             
             print( self.strName!)
+         
         }
-        
+            let loginButton = FBLoginButton()                                  //if resultat valide
+            loginButton.center = view.center
+            loginButton.delegate = self
+            
+            loginButton.permissions = ["public_profile", "email"]
+            
+            view.addSubview(loginButton)
         
     }else{
         let loginButton = FBLoginButton()                                  //if resultat valide
@@ -80,7 +87,7 @@ class facebookViewController: UIViewController, LoginButtonDelegate {
     }
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
         
-      
+      return
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "fb" {

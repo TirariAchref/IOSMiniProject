@@ -87,6 +87,7 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         messagerieviewmodel.getallmessageries()
         sleep(1)
         data = messagerieviewmodel.listmessagerie
+        data.reverse()
         data.forEach{ msg in if(msg.from == userviewmodelm.userToken?.email || msg.to == userviewmodelm.userToken?.email ){self.filteredData.append(msg)} }
      data = filteredData
     }
@@ -95,9 +96,7 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     
    //action
     
-    @IBAction func donate(_ sender: Any) {
-        performSegue(withIdentifier: "donateSegue", sender: sender)
-    }
+  
     
     @IBAction func newMessage(_ sender: Any) {
         performSegue(withIdentifier: "newMessege", sender: sender)

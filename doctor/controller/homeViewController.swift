@@ -110,6 +110,11 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
             sleep(1)
             data = questionviewmodel.listquestion
          filteredData = data
+        filteredData.reverse()
+   
+     
+       
+      
     }
    
     

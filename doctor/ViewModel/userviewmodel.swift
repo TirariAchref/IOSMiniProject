@@ -322,11 +322,10 @@ class userVM {
                 guard let data =  data else{ return }
 
                 do {
-
-                    let Allusers = try JSONDecoder().decode([User].self, from: data)
-                   
-                    Allusers.forEach { user in self.userByid = user }
-         
+                    self.userByid = try JSONDecoder().decode(User.self, from: data)
+                
+                    
+                    print((self.userByid)!)
          
                 } catch let jsonErr {
                     print("Error serializing json:", jsonErr)
