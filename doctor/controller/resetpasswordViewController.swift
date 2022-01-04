@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import AlamofireImage
 class resetpasswordViewController: UIViewController {
     var userviewmodel = userVM()
     
@@ -17,7 +17,7 @@ class resetpasswordViewController: UIViewController {
         super.viewDidLoad()
         sleep(1)
         username.text = (userviewmodel.userByemail?.nom)!
-        imageacchount.image = UIImage(named: (userviewmodel.userByemail?.imageUrl)!)
+      //  imageacchount.image = UIImage(named: (userviewmodel.userByemail?.imageUrl)!)
 
         imageacchount.layer.borderWidth = 1
         imageacchount.layer.masksToBounds = false
@@ -25,8 +25,15 @@ class resetpasswordViewController: UIViewController {
         imageacchount.layer.cornerRadius = imageacchount.frame.height/2
         imageacchount.clipsToBounds = true
         // Do any additional setup after loading the view.
+       
+            var path = String("http://localhost:3000/"+(self.userviewmodel.userByemail?.imageUrl)!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+
+                         path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
+                          let url = URL(string: path)!
+                          print(url)
+            imageacchount.af.setImage(withURL: url)
         
-      
+     
     }
     @IBAction func send(_ sender: Any) {
         performSegue(withIdentifier: "password", sender: sender)

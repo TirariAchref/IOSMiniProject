@@ -4,7 +4,10 @@
 target 'doctor' do
 pod 'Cosmos'
 pod 'TinyConstraints'
-
+pod 'Braintree', '~> 4.22.0'
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
+pod 'AlamofireImage', '~> 4.1'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 

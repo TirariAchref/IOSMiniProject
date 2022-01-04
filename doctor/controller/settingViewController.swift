@@ -29,7 +29,12 @@ class settingViewController: UIViewController{
         grandimage.layer.cornerRadius = grandimage.frame.height/2
         grandimage.clipsToBounds = true
         // Do any additional setup after loading the view.
-        grandimage.image = UIImage(named: (userviewmodelm.userToken?.imageUrl)!)
+        var path = String("http://localhost:3000/"+(self.userviewmodelm.userToken?.imageUrl)!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+
+              path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
+               let url = URL(string: path)!
+               print(url)
+        grandimage.af.setImage(withURL: url)
            }
     
 
@@ -41,6 +46,17 @@ class settingViewController: UIViewController{
             
         }else    if segue.identifier == "QR"{
             let destination = segue.destination as! QrViewController
+            destination.userviewmodelm = userviewmodelm
+     
+            
+        }else    if segue.identifier == "map"{
+            let destination = segue.destination as! mapkitViewController
+            destination.userviewmodelm = userviewmodelm
+     
+            
+        }
+        else    if segue.identifier == "photo"{
+            let destination = segue.destination as! chnagephotoViewController
             destination.userviewmodelm = userviewmodelm
      
             
@@ -65,5 +81,8 @@ class settingViewController: UIViewController{
         performSegue(withIdentifier: "config", sender: sender)
     }
     
-   
+    @IBAction func googlemap(_ sender: Any) {
+        performSegue(withIdentifier: "map", sender: sender)
+    }
+    
 }

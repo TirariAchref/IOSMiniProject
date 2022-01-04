@@ -11,6 +11,8 @@ class newmailViewController: UIViewController {
 
     var userviewmodelm = userVM()
     var messagerieviewmodel = messagerieVM()
+    var bool = false
+    var mail : Messagerie?
     @IBOutlet weak var submit: UIButton!
    
     @IBOutlet weak var subject: UITextField!
@@ -19,6 +21,9 @@ class newmailViewController: UIViewController {
     @IBOutlet weak var message: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if(bool == true){
+            to.text = mail?.from
+        }
        
     }
     

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 extension UIColor {
     convenience init(hex: UInt, alpha: CGFloat = 1) {
         self.init(
@@ -19,12 +20,14 @@ extension UIColor {
 class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource , UISearchBarDelegate{
     var userviewmodelm = userVM()
     var questionviewmodel = questionVM()
+    private let refreshControl = UIRefreshControl()
     @IBOutlet weak var profilpicture: UIImageView!
     var movie : Question?
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     var data = [Question]()
     var filteredData = [Question]()
+    var usertable : User?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
            
@@ -52,11 +55,20 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
            imageView.clipsToBounds = true
            label.text = filteredData[indexPath.row].subject
            text.text = filteredData[indexPath.row].description
-           
-           imageView.image = UIImage(named: "profile")
-           
-           
-           
+           userviewmodelm.getOwnerToy(OwnerId: (filteredData[indexPath.row].idClient)! , successHandler: {anomalyList in
+               self.usertable = anomalyList
+               print("alamofire :")
+               print(self.usertable!)
+               var path = String("http://localhost:3000/"+(self.usertable?.imageUrl)!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+               path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
+                      let url = URL(string: path)!
+                      print(url)
+               imageView.af.setImage(withURL: url)
+                   }, errorHandler: {
+                       print("errorororoor")
+                   })
+          
+      
            return cell!
            
        }
@@ -104,15 +116,61 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
      sleep(1)
         print("///////////////////////")
           print(userviewmodelm.tokenString!)
-          profilpicture.image = UIImage(named: (userviewmodelm.userToken?.imageUrl)!)
+               var path = String("http://localhost:3000/"+(self.userviewmodelm.userToken?.imageUrl)!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+
+                     path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
+                      let url = URL(string: path)!
+                      print(url)
+        profilpicture.af.setImage(withURL: url)
+          
+        questionviewmodel.getOwnerToy(successHandler: {anomalyList in
+                    self.data = anomalyList
+            self.filteredData = self.data
+            self.filteredData.reverse()
+            self.tableView.reloadData()
+                }, errorHandler: {
+                    print("errorororoor")
+                })
+           
+  
+        //
         
-            questionviewmodel.getallquestions()
-            sleep(1)
-            data = questionviewmodel.listquestion
-         filteredData = data
+       
+        //
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
+     
+        refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching Weather Data ...")
     }
    
+    @objc private func refreshWeatherData(_ sender: Any) {
+        // Fetch Weather Data
+        fetchWeatherData()
+    }
     
+    private func fetchWeatherData() {
+        filteredData.removeAll()
+        data.removeAll()
+        tableView.reloadData()
+        questionviewmodel.getOwnerToy(successHandler: {anomalyList in
+                    self.data = anomalyList
+            self.filteredData = self.data
+            self.filteredData.reverse()
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+                }, errorHandler: {
+                    print("errorororoor")
+                })
+              
+                
+            
+        
+    }
   
 
    

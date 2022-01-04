@@ -6,14 +6,41 @@
 //
 
 import Foundation
-
+import Alamofire
 class reponseVM {
   
+    var AllReponse = [Reponse]()
+    func getOwnerToy(OwnerId:String, successHandler: @escaping (_ anomalyList: [Reponse]) -> (),errorHandler: @escaping () -> ())
+        {
+            let url = "http://localhost:3000/getreponsesid/"+OwnerId
+            print("getOwnerToy : "+url)
+            
+            AF.request(url, method: .get).validate().responseDecodable(of: [Reponse].self, decoder: JSONDecoder()) { apiResponse in
+                guard apiResponse.response != nil else{
+                    errorHandler()
+                    return
+                }
+                
+                switch apiResponse.response?.statusCode {
+                    
+                    case 200:
+                    successHandler(try! apiResponse.result.get())
 
-    func getallreponses()  {
+                    case 500:
+                    errorHandler()
+               
+                default:
+                  errorHandler()
+                    
+                }
+                
+            }
+            
+        }
+    func getallreponses(idQuestion:String)  {
        
         
-        let jsonUrlString = "http://localhost:3000/allreponses"
+        let jsonUrlString = "http://localhost:3000/getreponsesid/"+idQuestion
             guard let url = URL(string: jsonUrlString) else
             { return }
 
@@ -22,10 +49,11 @@ class reponseVM {
                 guard let data =  data else{ return }
 
                 do {
+                    self.AllReponse.removeAll()
 
                     let reponses = try JSONDecoder().decode([Reponse].self, from: data)
                  
-                    reponses.forEach { reponse in print(reponse.description!) }
+                    reponses.forEach { user in self.AllReponse.append(user) }
                     
          
                 } catch let jsonErr {
@@ -37,14 +65,13 @@ class reponseVM {
     
     
    
-    func createreponse(){
+    func createreponse(description:String,idUser:String,idQuestion:String){
             var request = URLRequest(url: URL(string: "http://localhost:3000/createreponse")!)
             request.httpMethod = "post"
             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             print("its working")
-            let postString =
-           "description=create&" +
-           "datecreation=2020-12-12T08:00:00.000Z&"
+            let postString = "description="+description+"&"+"idUser="+idUser+"&"+"idQuestion="+idQuestion+"&"
+          
             request.httpBody = postString.data(using: .utf8)
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data, error == nil else {                                                 // check for fundamental networking error
