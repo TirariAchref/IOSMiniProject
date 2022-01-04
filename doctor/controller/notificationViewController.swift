@@ -70,7 +70,12 @@ class notificationViewController: UIViewController,UITableViewDelegate,UITableVi
         profileimage.layer.cornerRadius = profileimage.frame.height/2
         profileimage.clipsToBounds = true
         // Do any additional setup after loading the view.
-        profileimage.image = UIImage(named: (userviewmodelm.userToken?.imageUrl)!)
+        var path = String("http://localhost:3000/"+(self.userviewmodelm.userToken?.imageUrl)!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+
+              path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
+               let url = URL(string: path)!
+               print(url)
+        profileimage.af.setImage(withURL: url)
     }
     
 

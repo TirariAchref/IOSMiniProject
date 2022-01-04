@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import AlamofireImage
 class securitycodeViewController: UIViewController {
     var randomInt : Int = 0
     var userviewmodel = userVM()
@@ -27,13 +27,19 @@ class securitycodeViewController: UIViewController {
         super.viewDidLoad()
         sleep(1)
         username.text = (userviewmodel.userByemail?.nom)!
-        image.image = UIImage(named: (userviewmodel.userByemail?.imageUrl)!)
+        //image.image = UIImage(named: (userviewmodel.userByemail?.imageUrl)!)
 
         image.layer.borderWidth = 1
         image.layer.masksToBounds = false
         image.layer.borderColor = UIColor.black.cgColor
         image.layer.cornerRadius = image.frame.height/2
         image.clipsToBounds = true
+        var path = String("http://localhost:3000/"+(self.userviewmodel.userByemail?.imageUrl)!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+
+                     path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
+                      let url = URL(string: path)!
+                      print(url)
+        image.af.setImage(withURL: url)
         
     }
     override func viewDidAppear(_ animated: Bool) {

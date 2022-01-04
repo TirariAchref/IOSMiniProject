@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import AlamofireImage
 class confirmresetpasswordViewController: UIViewController {
     var userviewmodel = userVM()
     @IBAction func `continue`(_ sender: Any) {
@@ -24,7 +24,7 @@ class confirmresetpasswordViewController: UIViewController {
         super.viewDidLoad()
         sleep(1)
         username.text = (userviewmodel.userByemail?.nom)!
-        image.image = UIImage(named: (userviewmodel.userByemail?.imageUrl)!)
+       // image.image = UIImage(named: (userviewmodel.userByemail?.imageUrl)!)
 
         
         image.layer.borderWidth = 1
@@ -33,6 +33,12 @@ class confirmresetpasswordViewController: UIViewController {
         image.layer.cornerRadius = image.frame.height/2
         image.clipsToBounds = true
         // Do any additional setup after loading the view.
+        var path = String("http://localhost:3000/"+(self.userviewmodel.userByemail?.imageUrl)!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+
+                     path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
+                      let url = URL(string: path)!
+                      print(url)
+        image.af.setImage(withURL: url)
     }
     
 

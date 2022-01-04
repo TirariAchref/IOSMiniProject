@@ -6,10 +6,11 @@
 //
 
 import UIKit
-
+import Alamofire
 class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate{
 
    //var
+    var usertable = [User]()
     var userviewmodelm = userVM()
     var messagerieviewmodel = messagerieVM()
     var movie : Messagerie?
@@ -45,11 +46,23 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
            imageView.layer.borderColor = UIColor.black.cgColor
            imageView.layer.cornerRadius = imageView.frame.height/2
            imageView.clipsToBounds = true
-           subject.text = "From: "+filteredData[indexPath.row].object!
-           from.text = "Subject: "+filteredData[indexPath.row].from!
+           subject.text = "From: "+filteredData[indexPath.row].from!
+           from.text = "Subject: "+filteredData[indexPath.row].object!
            text.text = filteredData[indexPath.row].message
-           imageView.image = UIImage(named: "profile")
+         
            
+           userviewmodelm.getOwnermail(OwnerId: (filteredData[indexPath.row].from)! , successHandler: {anomalyList in
+               self.usertable = anomalyList
+               print("alamofire :")
+              
+               var path = String("http://localhost:3000/"+(self.usertable[0].imageUrl)!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+               path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
+                      let url = URL(string: path)!
+                      print(url)
+               imageView.af.setImage(withURL: url)
+                   }, errorHandler: {
+                       print("errorororoor")
+                   })
            
            
            return cell!
@@ -82,15 +95,31 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
         profileimage.layer.cornerRadius = profileimage.frame.height/2
         profileimage.clipsToBounds = true
         // Do any additional setup after loading the view.
-        profileimage.image = UIImage(named: (userviewmodelm.userToken?.imageUrl)!)
-        messagerieviewmodel.getallmessageries()
-        sleep(1)
-        data = messagerieviewmodel.listmessagerie
+        var path = String("http://localhost:3000/"+(self.userviewmodelm.userToken?.imageUrl)!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+
+              path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
+               let url = URL(string: path)!
+               print(url)
+        profileimage.af.setImage(withURL: url)
+        
+        messagerieviewmodel.getOwnerToy(successHandler: {anomalyList in
+                  self.data = anomalyList
+            self.data.forEach{ msg in if(msg.from == self.userviewmodelm.userToken?.email || msg.to == self.userviewmodelm.userToken?.email ){self.filteredData.append(msg)} }
+            self.data = self.filteredData
+            self.filteredData.reverse()
+            self.data.reverse()
+          self.tableView.reloadData()
+              }, errorHandler: {
+                  print("errorororoor")
+              })
+         
+        
+      
+ 
    
-        data.forEach{ msg in if(msg.from == userviewmodelm.userToken?.email || msg.to == userviewmodelm.userToken?.email ){self.filteredData.append(msg)} }
-     data = filteredData
-        filteredData.reverse()
-        data.reverse()
+     
+  
+        
         if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl
         } else {
@@ -112,17 +141,23 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     private func fetchWeatherData() {
         self.data.removeAll()
         self.filteredData.removeAll()
-        messagerieviewmodel.getallmessageries()
-        sleep(1)
-     
-        data = messagerieviewmodel.listmessagerie
+        
+        messagerieviewmodel.getOwnerToy(successHandler: {anomalyList in
+                  self.data = anomalyList
+            self.data.forEach{ msg in if(msg.from == self.userviewmodelm.userToken?.email || msg.to == self.userviewmodelm.userToken?.email ){self.filteredData.append(msg)} }
+            self.data = self.filteredData
+            self.filteredData.reverse()
+            self.data.reverse()
+          self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+              }, errorHandler: {
+                  print("errorororoor")
+              })
+         
+      
    
-        data.forEach{ msg in if(msg.from == userviewmodelm.userToken?.email || msg.to == userviewmodelm.userToken?.email ){self.filteredData.append(msg)} }
-     data = filteredData
-        filteredData.reverse()
-        data.reverse()
-        tableView.reloadData()
-                self.refreshControl.endRefreshing()
+       
+                
                 
             
         

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 extension String {
     func toJSON() -> Any? {
         guard let data = self.data(using: .utf8, allowLossyConversion: false) else { return nil }
@@ -22,6 +23,62 @@ class userVM {
     var userByid : User?
     var regestirUser : User?
     @Published var isAuthenticated : Bool = false
+    
+    func getOwnerToy(OwnerId:String, successHandler: @escaping (_ anomalyList: User) -> (),errorHandler: @escaping () -> ())
+        {
+            let url = "http://localhost:3000/getuser/"+OwnerId
+            print("getOwnerToy : "+url)
+            
+            AF.request(url, method: .get).validate().responseDecodable(of: User.self, decoder: JSONDecoder()) { apiResponse in
+                guard apiResponse.response != nil else{
+                    errorHandler()
+                    return
+                }
+                
+                switch apiResponse.response?.statusCode {
+                    
+                    case 200:
+                    successHandler(try! apiResponse.result.get())
+
+                    case 500:
+                    errorHandler()
+               
+                default:
+                  errorHandler()
+                    
+                }
+                
+            }
+            
+        }
+    
+    func getOwnermail(OwnerId:String, successHandler: @escaping (_ anomalyList: [User]) -> (),errorHandler: @escaping () -> ())
+        {
+            let url = "http://localhost:3000/getuserEmail/"+OwnerId
+            print("getOwnerToy : "+url)
+            
+            AF.request(url, method: .get).validate().responseDecodable(of: [User].self, decoder: JSONDecoder()) { apiResponse in
+                guard apiResponse.response != nil else{
+                    errorHandler()
+                    return
+                }
+                
+                switch apiResponse.response?.statusCode {
+                    
+                    case 200:
+                    successHandler(try! apiResponse.result.get())
+
+                    case 500:
+                    errorHandler()
+               
+                default:
+                  errorHandler()
+                    
+                }
+                
+            }
+            
+        }
     func getallusers(){
        
         

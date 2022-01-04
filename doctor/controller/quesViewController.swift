@@ -11,7 +11,7 @@ import TinyConstraints
 class quesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource  {
     var userviewmodelm = userVM()
     var question : Question?
-   
+    var usertable : User?
     var filteredData = [Question]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,8 +40,18 @@ class quesViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
            imageView.clipsToBounds = true
            label.text = filteredData[indexPath.row].subject
            text.text = filteredData[indexPath.row].description
-           
-           imageView.image = UIImage(named: "profile")
+           userviewmodelm.getOwnerToy(OwnerId: (filteredData[indexPath.row].idClient)! , successHandler: {anomalyList in
+               self.usertable = anomalyList
+               print("alamofire :")
+               print(self.usertable!)
+               var path = String("http://localhost:3000/"+(self.usertable?.imageUrl)!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+               path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
+                      let url = URL(string: path)!
+                      print(url)
+               imageView.af.setImage(withURL: url)
+                   }, errorHandler: {
+                       print("errorororoor")
+                   })
            
            
            

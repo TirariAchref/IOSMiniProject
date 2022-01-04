@@ -6,10 +6,37 @@
 //
 
 import Foundation
-
+import Alamofire
 class reponseVM {
   
     var AllReponse = [Reponse]()
+    func getOwnerToy(OwnerId:String, successHandler: @escaping (_ anomalyList: [Reponse]) -> (),errorHandler: @escaping () -> ())
+        {
+            let url = "http://localhost:3000/getreponsesid/"+OwnerId
+            print("getOwnerToy : "+url)
+            
+            AF.request(url, method: .get).validate().responseDecodable(of: [Reponse].self, decoder: JSONDecoder()) { apiResponse in
+                guard apiResponse.response != nil else{
+                    errorHandler()
+                    return
+                }
+                
+                switch apiResponse.response?.statusCode {
+                    
+                    case 200:
+                    successHandler(try! apiResponse.result.get())
+
+                    case 500:
+                    errorHandler()
+               
+                default:
+                  errorHandler()
+                    
+                }
+                
+            }
+            
+        }
     func getallreponses(idQuestion:String)  {
        
         

@@ -6,10 +6,37 @@
 //
 
 import Foundation
-
+import Alamofire
 class questionVM {
   var listquestion = [Question]()
+    func getOwnerToy(successHandler: @escaping (_ anomalyList: [Question] ) -> (),errorHandler: @escaping () -> ())
+        {
+            let url = "http://localhost:3000/allquestions"
+            print("getOwnerToy : "+url)
+            
+            AF.request(url, method: .get).validate().responseDecodable(of:  [Question].self, decoder: JSONDecoder()) { apiResponse in
+                guard apiResponse.response != nil else{
+                    errorHandler()
+                    return
+                }
+                
+                switch apiResponse.response?.statusCode {
+                    
+                    case 200:
+                    successHandler(try! apiResponse.result.get())
 
+                    
+                    case 500:
+                    errorHandler()
+               
+                default:
+                  errorHandler()
+                    
+                }
+                
+            }
+            
+        }
     func getallquestions()  {
        
         

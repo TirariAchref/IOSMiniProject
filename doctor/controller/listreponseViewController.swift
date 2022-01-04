@@ -6,9 +6,10 @@
 //
 
 import UIKit
-
+import Alamofire
 class listreponseViewController: UIViewController,UITableViewDelegate,UITableViewDataSource  {
 //var
+    var usertable : User?
     var userviewmodelm = userVM()
     private let refreshControl = UIRefreshControl()
     var reponseviewmodel = reponseVM()
@@ -44,10 +45,22 @@ class listreponseViewController: UIViewController,UITableViewDelegate,UITableVie
            imageView.layer.borderColor = UIColor.black.cgColor
            imageView.layer.cornerRadius = imageView.frame.height/2
            imageView.clipsToBounds = true
-           label.text = listuser[indexPath.row].nom
+         
            text.text = filteredData[indexPath.row].description
            
-           imageView.image = UIImage(named: "profile")
+           userviewmodelm.getOwnerToy(OwnerId: (filteredData[indexPath.row].idUser)! , successHandler: {anomalyList in
+               self.usertable = anomalyList
+               print("alamofire :")
+               print(self.usertable!)
+               label.text = self.usertable?.nom
+               var path = String("http://localhost:3000/"+(self.usertable?.imageUrl)!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+               path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
+                      let url = URL(string: path)!
+                      print(url)
+               imageView.af.setImage(withURL: url)
+                   }, errorHandler: {
+                       print("errorororoor")
+                   })
            
            
            
@@ -72,17 +85,19 @@ class listreponseViewController: UIViewController,UITableViewDelegate,UITableVie
        }
     override func viewDidLoad() {
         super.viewDidLoad()
-        reponseviewmodel.getallreponses(idQuestion: (question?._id)!)
+       
+        reponseviewmodel.getOwnerToy(OwnerId: (question?._id)!,successHandler: {anomalyList in
+                    self.filteredData = anomalyList
+            self.filteredData.reverse()
+           
+            self.listrepondre.reloadData()
+                }, errorHandler: {
+                    print("errorororoor")
+                })
+           
         
-        usleep(500000)
-        filteredData = reponseviewmodel.AllReponse
-        filteredData.reverse()
+  
     
-        for user in filteredData{
-            userviewmodelm.getbyId(id: user.idUser!)
-            usleep(500000)
-            listuser.append((userviewmodelm.userByid)!)
-        }
        
         if #available(iOS 10.0, *) {
             listrepondre.refreshControl = refreshControl
@@ -102,18 +117,17 @@ class listreponseViewController: UIViewController,UITableViewDelegate,UITableVie
     }
     
     private func fetchWeatherData() {
-        reponseviewmodel.getallreponses(idQuestion: (question?._id)!)
-        
-        usleep(500000)
-        filteredData = reponseviewmodel.AllReponse
-        filteredData.reverse()
-        for user in filteredData{
-            userviewmodelm.getbyId(id: user.idUser!)
-            usleep(500000)
-            listuser.append((userviewmodelm.userByid)!)
-        }
-        listrepondre.reloadData()
-                self.refreshControl.endRefreshing()
+        reponseviewmodel.getOwnerToy(OwnerId: (question?._id)!,successHandler: {anomalyList in
+                    self.filteredData = anomalyList
+            self.filteredData.reverse()
+           
+            self.listrepondre.reloadData()
+            self.refreshControl.endRefreshing()
+                }, errorHandler: {
+                    print("errorororoor")
+                })
+      
+               
                 
             
         
