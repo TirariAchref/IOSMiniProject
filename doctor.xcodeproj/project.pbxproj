@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		090F804DA07428C8CCE5BDEF /* Pods_doctorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A0EA5DACA8EF399BE3BB3A2 /* Pods_doctorTests.framework */; };
+		3744A73327847B7500EB00B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3744A73527847B7500EB00B1 /* Localizable.strings */; };
 		89348B6E2AB018CFE9543C6F /* Pods_doctor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1398FCAFAFFAA0335191E80 /* Pods_doctor.framework */; };
 		9E192008273B0FF800B276EC /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E192007273B0FF800B276EC /* user.swift */; };
 		9E19200F273B167900B276EC /* reponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E19200E273B167900B276EC /* reponse.swift */; };
@@ -90,6 +91,10 @@
 /* Begin PBXFileReference section */
 		27B4E9D8300188E286682F7F /* Pods_doctor_doctorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_doctor_doctorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B6C967D42089972AEAD80C8 /* Pods-doctorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctorTests.release.xcconfig"; path = "Target Support Files/Pods-doctorTests/Pods-doctorTests.release.xcconfig"; sourceTree = "<group>"; };
+		3744A72F27847A4000EB00B1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		3744A73027847A4100EB00B1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3744A73427847B7500EB00B1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3744A73627847B8600EB00B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		919A39254EAD7DB0A2E89F96 /* Pods-doctor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-doctor.release.xcconfig"; path = "Target Support Files/Pods-doctor/Pods-doctor.release.xcconfig"; sourceTree = "<group>"; };
 		9A0EA5DACA8EF399BE3BB3A2 /* Pods_doctorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_doctorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E192007273B0FF800B276EC /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
@@ -321,6 +326,7 @@
 				E12F8D25273804D9001E9F8D /* LaunchScreen.storyboard */,
 				E12F8D28273804D9001E9F8D /* Info.plist */,
 				E12F8D20273804D8001E9F8D /* doctor.xcdatamodeld */,
+				3744A73527847B7500EB00B1 /* Localizable.strings */,
 			);
 			path = doctor;
 			sourceTree = "<group>";
@@ -439,6 +445,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = E12F8D0B273804D8001E9F8D;
 			packageReferences = (
@@ -461,6 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E12F8D27273804D9001E9F8D /* LaunchScreen.storyboard in Resources */,
+				3744A73327847B7500EB00B1 /* Localizable.strings in Resources */,
 				E12F8D24273804D9001E9F8D /* Assets.xcassets in Resources */,
 				E12F8D1F273804D8001E9F8D /* Main.storyboard in Resources */,
 			);
@@ -674,10 +682,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3744A73527847B7500EB00B1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3744A73427847B7500EB00B1 /* fr */,
+				3744A73627847B8600EB00B1 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		E12F8D1D273804D8001E9F8D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E12F8D1E273804D8001E9F8D /* Base */,
+				3744A72F27847A4000EB00B1 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -686,6 +704,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E12F8D26273804D9001E9F8D /* Base */,
+				3744A73027847A4100EB00B1 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -697,6 +716,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -758,6 +778,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

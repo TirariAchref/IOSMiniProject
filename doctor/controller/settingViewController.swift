@@ -74,4 +74,10 @@ class settingViewController: UIViewController{
         performSegue(withIdentifier: "map", sender: sender)
     }
     
+    @IBAction func changeLangaue(_ sender: UIButton) {
+        
+        
+        
+        
+    }
 }
