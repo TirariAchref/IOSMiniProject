@@ -22,24 +22,28 @@ PODS:
     - Braintree/Card
     - Braintree/Core
   - Cosmos (23.0.0)
+  - MOLH (1.4.3)
   - TinyConstraints (4.0.2)
 
 DEPENDENCIES:
   - Braintree (~> 4.22.0)
   - Cosmos
+  - MOLH
   - TinyConstraints
 
 SPEC REPOS:
   trunk:
     - Braintree
     - Cosmos
+    - MOLH
     - TinyConstraints
 
 SPEC CHECKSUMS:
   Braintree: e814ec196208d3e961c488cf4071de043f399cf9
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
+  MOLH: e45827d200aeb1310641090fd8cd03ad2b42ae72
   TinyConstraints: 7b7ccc0c485bb3bb47082138ff28bc33cd49897f
 
-PODFILE CHECKSUM: c2a4c55ec5f1bf12639195b95aa7bfd79d0d0f06
+PODFILE CHECKSUM: b6fc95acd23e334b702192d186ae0c2cb25238a0
 
 COCOAPODS: 1.11.2

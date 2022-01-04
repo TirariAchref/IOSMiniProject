@@ -9,8 +9,12 @@ import UIKit
 import Braintree
 import CoreData
 import FBSDKCoreKit
+import MOLH
     @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, MOLHResetable  {
+    
+    
+    
 
 
 
@@ -22,11 +26,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application,
             didFinishLaunchingWithOptions: launchOptions)
 
-      
+      //chqnge langague
+        MOLH.shared.activate(true)
+
 
         return true
     }
-
+    //reste qpp
+    func reset() {
+        let rootViewController: UIWindow = ((UIApplication.shared.delegate?.window)!)!
+               let story = UIStoryboard(name: "Main", bundle: nil)
+               rootViewController.rootViewController = story.instantiateViewController(withIdentifier: "StartView")
+          
+    }
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

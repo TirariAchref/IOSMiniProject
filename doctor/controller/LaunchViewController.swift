@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import MOLH
 
 class LaunchViewController: UIViewController {
 
@@ -41,5 +41,13 @@ class LaunchViewController: UIViewController {
     }
     
     
-
+    @IBAction func changeLANG(_ sender: UIButton) {
+        
+        
+        MOLH.setLanguageTo(MOLHLanguage.currentAppleLanguage() == "en" ? "fr" : "en")
+        MOLH.reset()
+        
+        
+    }
+    
 }

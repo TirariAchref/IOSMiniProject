@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-doctor/Pods-doctor-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Braintree/Braintree.framework
 ${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework
+${BUILT_PRODUCTS_DIR}/MOLH/MOLH.framework
 ${BUILT_PRODUCTS_DIR}/TinyConstraints/TinyConstraints.framework

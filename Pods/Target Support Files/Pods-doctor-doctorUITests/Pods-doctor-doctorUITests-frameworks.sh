@@ -178,11 +178,13 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Braintree/Braintree.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MOLH/MOLH.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TinyConstraints/TinyConstraints.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Braintree/Braintree.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MOLH/MOLH.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TinyConstraints/TinyConstraints.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

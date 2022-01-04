@@ -5,6 +5,8 @@ target 'doctor' do
 pod 'Cosmos'
 pod 'TinyConstraints'
 pod 'Braintree', '~> 4.22.0'
+pod 'MOLH'
+
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 

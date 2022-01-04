@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MOLH
 
 class settingViewController: UIViewController{
     var userviewmodelm = userVM()
@@ -75,7 +76,10 @@ class settingViewController: UIViewController{
     }
     
     @IBAction func changeLangaue(_ sender: UIButton) {
+       
         
+        MOLH.setLanguageTo(MOLHLanguage.currentAppleLanguage() == "en" ? "fr" : "en")
+        MOLH.reset()
         
         
         
