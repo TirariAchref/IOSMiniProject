@@ -51,7 +51,38 @@ class userVM {
             }
             
         }
-    
+    //alomofire update toy
+        func updateToys(Image:UIImage,toy:User?,successHandler: @escaping (_ toy: User?) -> (),errorHandler: @escaping () -> ())
+        {
+            let urlApi = "http://localhost:3000/updateImageClient/"+(toy?._id)!
+            print(urlApi)
+            let headers: HTTPHeaders = ["Content-type": "multipart/form-data"]
+
+            
+        AF.upload(multipartFormData: { multipartFormData in
+                multipartFormData.append(Image.jpegData(compressionQuality: 0.5)!, withName: "Image" , fileName: "Image.jpeg", mimeType: "Image/jpeg")
+
+              
+        },to: urlApi, method: .post , headers: headers).responseDecodable(of: User.self, decoder: JSONDecoder()) { apiResponse in
+
+                guard apiResponse.response != nil else{
+                    errorHandler()
+                    return
+                }
+        
+                switch apiResponse.response?.statusCode {
+                    case 200:
+                        successHandler(try! apiResponse.result.get())
+                    case 500:
+                    print("Error 500 update toy")
+                        errorHandler()
+                default:
+                    errorHandler()
+                }
+            }
+        
+        }
+
     func getOwnermail(OwnerId:String, successHandler: @escaping (_ anomalyList: [User]) -> (),errorHandler: @escaping () -> ())
         {
             let url = "http://localhost:3000/getuserEmail/"+OwnerId

@@ -55,6 +55,12 @@ class settingViewController: UIViewController{
      
             
         }
+        else    if segue.identifier == "photo"{
+            let destination = segue.destination as! chnagephotoViewController
+            destination.userviewmodelm = userviewmodelm
+     
+            
+        }
     }
     
     // action
