@@ -16,6 +16,8 @@ class mapkitViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     let locationManager = CLLocationManager()
        let myPin = MKPointAnnotation()
        private var currentCoordinate: CLLocationCoordinate2D?
+    var logmap : String?
+    var latmap : String?
     var userviewmodelm = userVM()
        //outlet
     
@@ -113,8 +115,9 @@ class mapkitViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                
                myPin.coordinate = locationCoordinate
                
-               myPin.title = "Lattitude: " + String(locationCoordinate.latitude) + ", Longitude: " + String(locationCoordinate.longitude)
-               
+               myPin.title = userviewmodelm.userToken?.nom
+               latmap =  String(locationCoordinate.latitude)
+               logmap = String(locationCoordinate.longitude)
                mapView.addAnnotation(myPin)
            }
        }
@@ -122,75 +125,22 @@ class mapkitViewController: UIViewController, MKMapViewDelegate, CLLocationManag
        
        
        
+      
+    @IBAction func upd(_ sender: Any) {
+        userviewmodelm.updatemap(id: (userviewmodelm.userToken?._id)!, log: logmap!, lat: latmap!)
+        prompt(title: "Succes", message: "Updated Location !!")
+    }
+    
        
-       // actions
-       @IBAction func addUserLocation(_ sender: Any) {
+    func prompt(title: String, message: String) {
            
+           let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
            
-          /* UserViewModel().getUserFromToken(userToken: UserDefaults.standard.string(forKey: "userToken")!) { [self] success, user in
-               if success {
-                   UserViewModel().setLocation(email: (user?.email)!, latitude: myPin.coordinate.latitude, longitude: myPin.coordinate.longitude, clear: false) { success in
-                       if success {
-                           let action = UIAlertAction(title: "Proceed", style: .default) { uiAction in
-                               self.dismiss(animated: true, completion: nil)
-                           }
-                           self.present(Alert.makeSingleActionAlert(titre: "Success", message: "Location saved !", action: action),animated: true)
-                       } else {
-                           self.present(Alert.makeAlert(titre: "Error", message: "Could not save location"),animated: true)
-                       }
-                   }
-               } else {
-                   self.present(Alert.makeAlert(titre: "Error", message: "Could not retrieve user from token"),animated: true)
-               }
-           }
+           let action = UIAlertAction(title: "Got it", style: .default, handler: nil)
            
+           alert.addAction(action)
+           self.present(alert, animated: true, completion: nil)
            
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-       
-           
-           
-           
-           
-           
-           
-           
-       }*/
-       
-           
-           //hedhi khedmti
-           /* userVM().getuserfromtoken(token:(json!["token"] as? String)!)   // yhz l user courant
-               if(responseString?.contains("true"))!{
-               
-                   userVM().setLocation(email: (user?.email)!, latitude: myPin.coordinate.latitude, longitude:   myPin.coordinate.longitude, clear: false) { success in
-                       if success {
-                           
-                           
-                           // lhna l'alert
-                           let action = UIAlertAction(title: "DOCTOR", style: .default) { uiAction in
-                               self.dismiss(animated: true, completion: nil)
-                           }
-                           self.present(Alert.makeSingleActionAlert(titre: "Success", message: "Location saved !", action: action),animated: true)
-                       } else {
-                           self.present(Alert.makeAlert(titre: "Error", message: "Could not save location"),animated: true)
-                       }
-                   }
-               } else {
-                   self.present(Alert.makeAlert(titre: "Error", message: "Could not retrieve user from token"),animated: true)
-               }*/
-           
-       
        }
-
-       
-       
 
 }

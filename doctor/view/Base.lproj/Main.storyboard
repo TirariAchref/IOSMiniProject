@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1082,7 +1081,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="changephoto:" destination="D11-Cb-bqj" eventType="touchUpInside" id="SQe-Tt-K5E"/>
-                                    <segue destination="JLh-mx-RaS" kind="show" identifier="photo" id="s4Y-k0-zgP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vV3-MM-sAI">
@@ -1108,6 +1106,7 @@
                         <segue destination="Snl-Mu-Pfb" kind="show" identifier="QR" id="a9s-Xh-tN3"/>
                         <segue destination="0XW-do-SGd" kind="show" identifier="map" id="iC5-vn-ASg"/>
                         <segue destination="w0r-B2-Uh0" kind="show" identifier="language" id="gCE-s1-NJS"/>
+                        <segue destination="JLh-mx-RaS" kind="show" identifier="photo" id="iEt-gZ-EMj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAp-D6-mt1" sceneMemberID="firstResponder"/>
@@ -1440,7 +1439,7 @@
             <objects>
                 <viewController id="mwL-lj-bhI" customClass="donation2ViewController" customModule="doctor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JD1-i9-dgP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbt-tY-MSe">
@@ -1482,7 +1481,7 @@
             <objects>
                 <viewController id="udV-6m-pfO" customClass="donation3ViewController" customModule="doctor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lqB-T7-qUQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="16" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3G-OA-EY7">
@@ -2244,7 +2243,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mv1-8j-YhZ">
-                                <rect key="frame" x="20" y="69" width="374" height="592"/>
+                                <rect key="frame" x="20" y="109" width="374" height="552"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="0XW-do-SGd" id="IS9-wm-d2b"/>
@@ -2260,6 +2259,7 @@
                                     <color key="baseBackgroundColor" red="0.59215686270000001" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="upd:" destination="0XW-do-SGd" eventType="touchUpInside" id="PYf-Px-0Th"/>
                                     <action selector="update:" destination="7xu-qr-9LX" eventType="touchUpInside" id="35I-fU-pz9"/>
                                 </connections>
                             </button>
@@ -2361,7 +2361,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yS3-fC-AXT"/>
         <segue reference="Qve-NA-C3a"/>
         <segue reference="O96-wv-T7U"/>
         <segue reference="e7Q-EM-WZo"/>
