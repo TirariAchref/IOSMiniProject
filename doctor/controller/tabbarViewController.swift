@@ -31,10 +31,12 @@ class tabbarViewController: UITabBarController {
         let navController3 = self.viewControllers![3] as! UINavigationController
         let vc3 = navController3.topViewController as! notificationViewController
         vc3.userviewmodelm = userviewmodelm
-        
-        let navController4 = self.viewControllers![4] as! settingViewController
+        let navController4 = self.viewControllers![4] as! senavViewController
         navController4.userviewmodelm = userviewmodelm
         
+        let vc4 = navController4.topViewController as! settingViewController
+        vc4.userviewmodelm = userviewmodelm
+   
       
     }
     
