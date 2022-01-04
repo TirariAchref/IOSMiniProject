@@ -71,6 +71,22 @@ class notificationViewController: UIViewController,UITableViewDelegate,UITableVi
             destination.question = movie
         }
     }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+                    //film.remove(at: indexPath.row)
+            self.present(Alert.makeActionAlert(titre: "Success", message:  "Do you want to Delete Question ", action: UIAlertAction(title: "Delete", style: .default, handler: { action in
+        
+                self.questionviewmodel.deletequestion(id: (self.filteredData[indexPath.row]._id)!)
+              
+                        self.tableView.reloadData()
+                
+               
+            })),animated: true)
+           
+                }
+        
+        
+    }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -91,6 +107,19 @@ class notificationViewController: UIViewController,UITableViewDelegate,UITableVi
 
      tableView.reloadData()
  }
+    
+    
+    func prompt(title: String, message: String) {
+           
+           let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+           
+           let action = UIAlertAction(title: "Got it", style: .default, handler: nil)
+           
+           alert.addAction(action)
+           self.present(alert, animated: true, completion: nil)
+           
+       }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         profileimage.layer.borderWidth = 1
@@ -158,6 +187,5 @@ class notificationViewController: UIViewController,UITableViewDelegate,UITableVi
             
         
     }
-  
-    
+   
 }

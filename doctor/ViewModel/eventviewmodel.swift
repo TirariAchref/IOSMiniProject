@@ -6,9 +6,36 @@
 //
 
 import Foundation
-
+import Alamofire
 class eventVM {
-  
+    func getOwnerToy(successHandler: @escaping (_ anomalyList: [Event] ) -> (),errorHandler: @escaping () -> ())
+        {
+            let url = "http://localhost:3000/allevent"
+            print("getOwnerToy : "+url)
+            
+            AF.request(url, method: .get).validate().responseDecodable(of:  [Event].self, decoder: JSONDecoder()) { apiResponse in
+                guard apiResponse.response != nil else{
+                    errorHandler()
+                    return
+                }
+                
+                switch apiResponse.response?.statusCode {
+                    
+                    case 200:
+                    successHandler(try! apiResponse.result.get())
+
+                    
+                    case 500:
+                    errorHandler()
+               
+                default:
+                  errorHandler()
+                    
+                }
+                
+            }
+            
+        }
 
     func getallevents()  {
        
@@ -46,8 +73,8 @@ class eventVM {
           "name=Create&" +
           "description=Create&" +
           "money=String&" +
-          "moneyreached=String&" +
-          "datefin=2020-12-12T08:00:00.000Z&"
+          "moneyreached=String&"
+       
            
          
             request.httpBody = postString.data(using: .utf8)
@@ -77,17 +104,13 @@ class eventVM {
         }
     
     
-     func updateevent(){
-         var request = URLRequest(url: URL(string: "http://localhost:3000/updateevent/6199846c612d99bb5c619929")!)
+    func updateevent(e : Event , money : String){
+        var request = URLRequest(url: URL(string: "http://localhost:3000/updateevent/"+(e._id)!)!)
              request.httpMethod = "put"
              request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
              print("its working")
-         let postString =
-       "name=Update&" +
-       "description=Update&" +
-       "money=String&" +
-       "moneyreached=String&" +
-       "datefin=2020-12-12T08:00:00.000Z&"
+        let postString = "name="+(e.name)!+"&"+"description="+(e.description)!+"&"+"money="+(e.money)!+"&"+"moneyreached="+money+"&"
+       
         
              request.httpBody = postString.data(using: .utf8)
              let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -124,9 +147,8 @@ class eventVM {
       "name=Create&" +
       "description=Create&" +
       "money=String&" +
-      "moneyreached=String&" +
-      "datefin=2020-12-12T08:00:00.000Z&"
-       
+      "moneyreached=String&"
+             
             request.httpBody = postString.data(using: .utf8)
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data, error == nil else {                                                 // check for fundamental networking error

@@ -9,10 +9,11 @@ import UIKit
 
 class donation3ViewController: UIViewController {
 
+    @IBOutlet var thank: UIView!
     var userviewmodelm = userVM()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

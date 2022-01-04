@@ -85,4 +85,13 @@ class settingViewController: UIViewController{
         performSegue(withIdentifier: "map", sender: sender)
     }
     
+    @IBAction func onoff(_ sender: UISwitch) {
+        if (sender.isOn){
+               print("on")
+           }
+           else{
+               print("off")
+           }
+    }
+    
 }

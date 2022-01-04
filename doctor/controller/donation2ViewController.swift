@@ -24,7 +24,8 @@ import Braintree
 // AVG0bmX-MM640bmZMTiy22lP2C2h7UxTI1BIq5CV6jccbsBBi3dXHQkUgKSKCfip1Nr2XA5UyopzKU6U
 class donation2ViewController: UIViewController {
     var userviewmodelm = userVM()
-   
+    var eventviewmodel = eventVM()
+    var dataevent = [Event]()
     var user: User?
         var braintreeClient: BTAPIClient!
         var amount = "10"
@@ -76,6 +77,9 @@ class donation2ViewController: UIViewController {
                       
                       self.present(Alert.makeActionAlert(titre: "Success", message:  message, action: UIAlertAction(title: "Proceed", style: .default, handler: { action in
                           self.performSegue(withIdentifier: "pass", sender: sender)
+                          var x =  Int((self.dataevent[0].moneyreached)!)! + Int((self.money.text)!)!
+                          
+                          self.eventviewmodel.updateevent(e: self.dataevent[0] , money: String(x))
                       })),animated: true)
                       
                      
