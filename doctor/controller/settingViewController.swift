@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import MOLH
 class settingViewController: UIViewController{
     var userviewmodelm = userVM()
 
@@ -21,7 +21,7 @@ class settingViewController: UIViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+     
         
         grandimage.layer.borderWidth = 1
         grandimage.layer.masksToBounds = false
@@ -36,8 +36,7 @@ class settingViewController: UIViewController{
                print(url)
         grandimage.af.setImage(withURL: url)
            }
-    
-
+   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "config"{
             let destination = segue.destination as! accountconfigViewController
@@ -60,11 +59,19 @@ class settingViewController: UIViewController{
             destination.userviewmodelm = userviewmodelm
      
             
+        }  else    if segue.identifier == "language"{
+            let destination = segue.destination as! changelanguageViewController
+            destination.userviewmodelm = userviewmodelm
+     
+            
         }
     }
     
     // action
     
+    @IBAction func lanbu(_ sender: Any) {
+        performSegue(withIdentifier: "language", sender: sender)
+    }
     @IBAction func qrcode(_ sender: Any) {
         performSegue(withIdentifier: "QR", sender: sender)
     }
@@ -85,4 +92,5 @@ class settingViewController: UIViewController{
         performSegue(withIdentifier: "map", sender: sender)
     }
     
+  
 }

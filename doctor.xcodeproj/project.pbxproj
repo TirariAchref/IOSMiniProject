@@ -49,6 +49,9 @@
 		CE0C22D027839D4C0012DD72 /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C22CF27839D4C0012DD72 /* PinAnnotation.swift */; };
 		CE0C22D227839EA60012DD72 /* SecondModalTransitionListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C22D127839EA60012DD72 /* SecondModalTransitionListener.swift */; };
 		CE0C22D42783A7E80012DD72 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C22D32783A7E80012DD72 /* Alert.swift */; };
+		CE1552AA2784BE25003DAFE1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE1552A92784BE25003DAFE1 /* Localizable.strings */; };
+		CE1552AE2784C45A003DAFE1 /* senavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1552AD2784C45A003DAFE1 /* senavViewController.swift */; };
+		CE1552B02784C8E9003DAFE1 /* changelanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1552AF2784C8E9003DAFE1 /* changelanguageViewController.swift */; };
 		CE26AA5A2780C51600FB97CE /* quesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26AA592780C51600FB97CE /* quesViewController.swift */; };
 		CE36CA63278095140060AA9D /* QrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36CA62278095140060AA9D /* QrViewController.swift */; };
 		CEE693ED2780A61200FD7F9A /* facebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE693EC2780A61200FD7F9A /* facebookViewController.swift */; };
@@ -135,6 +138,12 @@
 		CE0C22CF27839D4C0012DD72 /* PinAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
 		CE0C22D127839EA60012DD72 /* SecondModalTransitionListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondModalTransitionListener.swift; sourceTree = "<group>"; };
 		CE0C22D32783A7E80012DD72 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		CE1552A72784AFAF003DAFE1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		CE1552A82784AFAF003DAFE1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		CE1552A92784BE25003DAFE1 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		CE1552AC2784BE7D003DAFE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		CE1552AD2784C45A003DAFE1 /* senavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = senavViewController.swift; sourceTree = "<group>"; };
+		CE1552AF2784C8E9003DAFE1 /* changelanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changelanguageViewController.swift; sourceTree = "<group>"; };
 		CE26AA592780C51600FB97CE /* quesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quesViewController.swift; sourceTree = "<group>"; };
 		CE36CA62278095140060AA9D /* QrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrViewController.swift; sourceTree = "<group>"; };
 		CEE693EC2780A61200FD7F9A /* facebookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = facebookViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +270,8 @@
 				CE0C22CF27839D4C0012DD72 /* PinAnnotation.swift */,
 				CE0C22D127839EA60012DD72 /* SecondModalTransitionListener.swift */,
 				CE0C22D32783A7E80012DD72 /* Alert.swift */,
+				CE1552AD2784C45A003DAFE1 /* senavViewController.swift */,
+				CE1552AF2784C8E9003DAFE1 /* changelanguageViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -321,6 +332,7 @@
 				E12F8D25273804D9001E9F8D /* LaunchScreen.storyboard */,
 				E12F8D28273804D9001E9F8D /* Info.plist */,
 				E12F8D20273804D8001E9F8D /* doctor.xcdatamodeld */,
+				CE1552A92784BE25003DAFE1 /* Localizable.strings */,
 			);
 			path = doctor;
 			sourceTree = "<group>";
@@ -439,6 +451,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = E12F8D0B273804D8001E9F8D;
 			packageReferences = (
@@ -461,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E12F8D27273804D9001E9F8D /* LaunchScreen.storyboard in Resources */,
+				CE1552AA2784BE25003DAFE1 /* Localizable.strings in Resources */,
 				E12F8D24273804D9001E9F8D /* Assets.xcassets in Resources */,
 				E12F8D1F273804D8001E9F8D /* Main.storyboard in Resources */,
 			);
@@ -612,6 +626,7 @@
 				9EB184F0273AC72200BA2E1B /* mailViewController.swift in Sources */,
 				9E192019273B1FCD00B276EC /* chnagephotoViewController.swift in Sources */,
 				E12F8D18273804D8001E9F8D /* AppDelegate.swift in Sources */,
+				CE1552AE2784C45A003DAFE1 /* senavViewController.swift in Sources */,
 				9E19201F273B30E800B276EC /* newmailViewController.swift in Sources */,
 				9E570C0C27396D1800CBC622 /* securitycodeViewController.swift in Sources */,
 				CE0C22D227839EA60012DD72 /* SecondModalTransitionListener.swift in Sources */,
@@ -623,6 +638,7 @@
 				CE0C22D42783A7E80012DD72 /* Alert.swift in Sources */,
 				9E192013273B16A000B276EC /* messagerie.swift in Sources */,
 				CE0C22D027839D4C0012DD72 /* PinAnnotation.swift in Sources */,
+				CE1552B02784C8E9003DAFE1 /* changelanguageViewController.swift in Sources */,
 				9EB184F8273ADFE900BA2E1B /* donation2ViewController.swift in Sources */,
 				CE0C22CC27836DF00012DD72 /* emailcheckViewController.swift in Sources */,
 				9E570C0A273965E800CBC622 /* resetpasswordViewController.swift in Sources */,
@@ -678,6 +694,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				E12F8D1E273804D8001E9F8D /* Base */,
+				CE1552A72784AFAF003DAFE1 /* fr */,
+				CE1552AC2784BE7D003DAFE1 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -686,6 +704,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E12F8D26273804D9001E9F8D /* Base */,
+				CE1552A82784AFAF003DAFE1 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -697,6 +716,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -758,6 +778,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

@@ -117,6 +117,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.6.0):
     - GoogleUtilities/Logger
+  - MOLH (1.4.3)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
@@ -131,6 +132,7 @@ DEPENDENCIES:
   - Cosmos
   - Firebase/Core
   - Firebase/Messaging
+  - MOLH
   - TinyConstraints
 
 SPEC REPOS:
@@ -148,6 +150,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
+    - MOLH
     - nanopb
     - PromisesObjC
     - TinyConstraints
@@ -166,10 +169,11 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: a3311dbcf3ea651e5a070fe8559b57c174ada081
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
+  MOLH: e45827d200aeb1310641090fd8cd03ad2b42ae72
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   TinyConstraints: 7b7ccc0c485bb3bb47082138ff28bc33cd49897f
 
-PODFILE CHECKSUM: 6b408e543c2e97c27aa06836c56f2a793d0c6d6f
+PODFILE CHECKSUM: 20c877d5983859e99ffa92be3f7d8863874696c7
 
 COCOAPODS: 1.11.2

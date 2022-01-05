@@ -14,10 +14,10 @@ struct Event : Decodable {
     let description : String?
     let money : String?
     let moneyreached : String?
-    let datefin : String?
+  
   
     private  enum CodingKeys: String, CodingKey {
      
-          case _id, name,description,money,moneyreached,datefin
+          case _id, name,description,money,moneyreached
        }
 }

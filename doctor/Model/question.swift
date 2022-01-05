@@ -15,9 +15,12 @@ struct Question : Decodable{
     let subject : String?
     let description : String?
     let idClient : String?
+    let nbrrate : String?
+    let nbruser : String?
+    
     private  enum CodingKeys: String, CodingKey {
      
-          case _id, subject,description,idClient
+          case _id, subject,description,idClient,nbruser,nbrrate
        }
       
    
