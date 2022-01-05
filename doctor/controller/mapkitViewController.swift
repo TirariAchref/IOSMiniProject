@@ -60,7 +60,7 @@ class mapkitViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         sleep(1)
       
         userviewmodelm.userdata.forEach{ msg in
-            var myPin3 = MKPointAnnotation()
+            let myPin3 = MKPointAnnotation()
             locValue?.longitude = CLLocationDegrees(Float80((msg.log)!)!)
             locValue?.latitude =  CLLocationDegrees(Float80((msg.lat)!)!)
            
@@ -135,7 +135,7 @@ class mapkitViewController: UIViewController, MKMapViewDelegate, CLLocationManag
            
            if gestureRecognizer.state != UITapGestureRecognizer.State.began{
                let touchLocation = gestureRecognizer.location(in: mapView)
-               var locationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: mapView)
+               let locationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: mapView)
                
                saveLocationButton.isEnabled = true
                
