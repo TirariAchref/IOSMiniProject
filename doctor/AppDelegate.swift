@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  doctor
 //
-//  Created by Med Wajdi BRAHEM on 7/11/2021.
+//
 //
 
 import UIKit
