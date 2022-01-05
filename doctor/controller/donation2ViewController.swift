@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Braintree
+//import Braintree
 
 // compte samir paypal busines
 //
@@ -27,14 +27,14 @@ class donation2ViewController: UIViewController {
     var eventviewmodel = eventVM()
     var dataevent = [Event]()
     var user: User?
-        var braintreeClient: BTAPIClient!
+      //  var braintreeClient: BTAPIClient!
         var amount = "10"
     @IBOutlet weak var money: UITextField!
    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-             braintreeClient = BTAPIClient(authorization: "sandbox_gpgsv2y8_twyv2x893jbftsnw")
+           //  braintreeClient = BTAPIClient(authorization: "sandbox_gpgsv2y8_twyv2x893jbftsnw")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,21 +45,21 @@ class donation2ViewController: UIViewController {
         }
     }
     @IBAction func donate(_ sender: Any) {
-        let payPalDriver = BTPayPalDriver(apiClient: braintreeClient)
-              payPalDriver.viewControllerPresentingDelegate = self
-              payPalDriver.appSwitchDelegate = self // Optional
+      //  let payPalDriver = BTPayPalDriver(apiClient: braintreeClient)
+           //   payPalDriver.viewControllerPresentingDelegate = self
+           ///   payPalDriver.appSwitchDelegate = self // Optional
               
               // Specify the transaction amount here. "2.32" is used in this example.
-              let request = BTPayPalRequest(amount: amount)
-              request.currencyCode = "USD" // Optional; see BTPayPalRequest.h for more options
+         //     let request = BTPayPalRequest(amount: amount)
+            //  request.currencyCode = "USD" // Optional; see BTPayPalRequest.h for more options
               
-              payPalDriver.requestOneTimePayment(request) { (tokenizedPayPalAccount, error) in
-                  if let tokenizedPayPalAccount = tokenizedPayPalAccount {
-                      print("Got a nonce: \(tokenizedPayPalAccount.nonce)")
+            //  payPalDriver.requestOneTimePayment(request) { (tokenizedPayPalAccount, error) in
+             //     if let tokenizedPayPalAccount = tokenizedPayPalAccount {
+               //       print("Got a nonce: \(tokenizedPayPalAccount.nonce)")
                       
                       // Access additional information
                       
-                      let email = tokenizedPayPalAccount.email
+                //      let email = tokenizedPayPalAccount.email
                       
                       /*let firstName = tokenizedPayPalAccount.firstName
                        let lastName = tokenizedPayPalAccount.lastName
@@ -69,55 +69,55 @@ class donation2ViewController: UIViewController {
                        let shippingAddress = tokenizedPayPalAccount.shippingAddress*/
                       
                       
-                      let message =
-                      "You have successfuly paid "
-                      + (self.money.text)!
-                      + " USD using the paypal account : "
-                      + email!
+                 //     let message =
+                  //    "You have successfuly paid "/
+        //    + (self.money.text)!
+        //     + " USD using the paypal account : "//     + email!
                       
-                      self.present(Alert.makeActionAlert(titre: "Success", message:  message, action: UIAlertAction(title: "Proceed", style: .default, handler: { action in
-                          self.performSegue(withIdentifier: "pass", sender: sender)
-                          var x =  Int((self.dataevent[0].moneyreached)!)! + Int((self.money.text)!)!
+        //      self.present(Alert.makeActionAlert(titre: "Success", message:  message, action: UIAlertAction(title: "Proceed", style: .default, handler: { action in
+        //           self.performSegue(withIdentifier: "pass", sender: sender)
+        //            var x =  Int((self.dataevent[0].moneyreached)!)! + Int((self.money.text)!)!
                           
-                          self.eventviewmodel.updateevent(e: self.dataevent[0] , money: String(x))
-                      })),animated: true)
+        //             self.eventviewmodel.updateevent(e: self.dataevent[0] , money: String(x))
+        //         })),animated: true)
                       
                      
-                  } else if let error = error {
-                      print(error)
-                  } else {
+        //      } else if let error = error {
+        //           print(error)
+        //       } else {
                       // Buyer canceled payment approval
-                  }
-              }
+        //          }
+        //      }
               
           
-    }
+        //    }
 
 }
-extension donation2ViewController : BTViewControllerPresentingDelegate{
-       func paymentDriver(_ driver: Any, requestsPresentationOf viewController: UIViewController) {
+//extension donation2ViewController : BTViewControllerPresentingDelegate{
+ //      func paymentDriver(_ driver: Any, requestsPresentationOf viewController: UIViewController) {
            
-       }
+    //   }
        
-       func paymentDriver(_ driver: Any, requestsDismissalOf viewController: UIViewController) {
-           
-       }
+//func paymentDriver(_ driver: Any, requestsDismissalOf viewController: UIViewController) {
+    //
+    //   }
        
        
-   }
+  // }
 
-   extension donation2ViewController : BTAppSwitchDelegate{
-       func appSwitcherWillPerformAppSwitch(_ appSwitcher: Any) {
+ //  extension donation2ViewController : BTAppSwitchDelegate{
+  //     func appSwitcherWillPerformAppSwitch(_ appSwitcher: Any) {
            
-       }
+   //    }
        
-       func appSwitcher(_ appSwitcher: Any, didPerformSwitchTo target: BTAppSwitchTarget) {
+      // func appSwitcher(_ appSwitcher: Any, didPerformSwitchTo target: BTAppSwitchTarget) {
            
-       }
+     //  }
        
-       func appSwitcherWillProcessPaymentInfo(_ appSwitcher: Any) {
+    //   func appSwitcherWillProcessPaymentInfo(_ appSwitcher: Any) {
            
-       }
+     //  }
        
        
-   }
+ //  }
+}

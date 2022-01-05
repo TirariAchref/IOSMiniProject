@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Braintree
+//import Braintree
 import CoreData
 import FBSDKCoreKit
 import MOLH
@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MOLHResetable {
           Crashes.self
         ])
         // paypal
-             BTAppSwitch.setReturnURLScheme("com.example.apple-samplecode.doctor.payments")
+           //  BTAppSwitch.setReturnURLScheme("com.example.apple-samplecode.doctor.payments")
         
         ApplicationDelegate.shared.application(
             application,
@@ -108,12 +108,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MOLHResetable {
         open url: URL,
         options: [UIApplication.OpenURLOptionsKey : Any] = [:]
     ) -> Bool {
-        var braintreeHandle = false
+       // var braintreeHandle = false
               // badil
-              if url.scheme?.localizedCaseInsensitiveCompare("com.example.apple-samplecode.doctor.payments") == .orderedSame {
-                  braintreeHandle = BTAppSwitch.handleOpen(url, options: options)
-              }
-              return braintreeHandle ||
+       //       if url.scheme?.localizedCaseInsensitiveCompare("com.example.apple-samplecode.doctor.payments") == .orderedSame {
+          //        braintreeHandle = BTAppSwitch.handleOpen(url, options: options)
+        //      }
+         //     return braintreeHandle ||
         ApplicationDelegate.shared.application(
             app,
             open: url,
