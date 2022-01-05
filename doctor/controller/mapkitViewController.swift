@@ -61,8 +61,7 @@ class mapkitViewController: UIViewController, MKMapViewDelegate, CLLocationManag
       
         userviewmodelm.userdata.forEach{ msg in
             let myPin3 = MKPointAnnotation()
-            locValue?.longitude = CLLocationDegrees(Float80((msg.log)!)!)
-            locValue?.latitude =  CLLocationDegrees(Float80((msg.lat)!)!)
+          
            
             
             myPin3.coordinate =   locValue!
