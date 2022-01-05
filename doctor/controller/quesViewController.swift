@@ -88,11 +88,8 @@ class quesViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         filteredData.append(question!)
-        view.addSubview(cosmosView)
-        cosmosView.topToSuperview()
-        
-                cosmosView.didTouchCosmos = {rating in
-                    print("Rated: \(rating)")}
+       
+     
     }
     
 
@@ -101,4 +98,22 @@ class quesViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         performSegue(withIdentifier: "reponsepass", sender: sender)
     }
     
+    @IBAction func rateme(_ sender: Any) {
+        prompt(title: "Rate me", message: "")
+    }
+    func prompt(title: String, message: String) {
+           
+           let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+           
+           let action = UIAlertAction(title: "Got it", style: .default, handler: nil)
+        
+           alert.addAction(action)
+        alert.view.addSubview(cosmosView)
+        cosmosView.centerInSuperview()
+        
+                cosmosView.didTouchCosmos = {rating in
+                    print("Rated: \(rating)")}
+           self.present(alert, animated: true, completion: nil)
+           
+       }
 }
