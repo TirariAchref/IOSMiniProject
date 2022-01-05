@@ -10,6 +10,7 @@ import Cosmos
 import TinyConstraints
 class quesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource  {
     var userviewmodelm = userVM()
+    var questionviewmodel = questionVM()
     var question : Question?
     var usertable : User?
     var filteredData = [Question]()
@@ -106,13 +107,25 @@ class quesViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
            
            let action = UIAlertAction(title: "Got it", style: .default, handler: nil)
-        
+        var n1 = Double((question?.nbrrate)!)
+        var n2 = Double((question?.nbruser)!)
            alert.addAction(action)
         alert.view.addSubview(cosmosView)
         cosmosView.centerInSuperview()
-        
+        if(n2 == 0){
+            
+        }else{
+            cosmosView.rating = n1! / n2!
+        }
+       
                 cosmosView.didTouchCosmos = {rating in
-                    print("Rated: \(rating)")}
+                    print("Rated: \(rating)")
+                  
+                    n1 = n1! + rating
+                    n2 = n2! + 1
+                    self.questionviewmodel.updatequestion(id: (self.question?._id)!, nbrrate: String(n1!), nbruser: String(n2!))
+                    self.cosmosView.rating = n1! / n2!
+                }
            self.present(alert, animated: true, completion: nil)
            
        }

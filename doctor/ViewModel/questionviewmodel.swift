@@ -74,7 +74,9 @@ class questionVM {
             let postString =
            "description="+description+"&" +
            "subject="+subject+"&" +
-        "idClient="+idClient+"&"
+        "idClient="+idClient+"&" +
+        "nbrrate="+"0"+"&" +
+        "nbruser="+"0"+"&"
             request.httpBody = postString.data(using: .utf8)
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data, error == nil else {                                                 // check for fundamental networking error
@@ -102,15 +104,15 @@ class questionVM {
         }
     
     
-    func updatequestion(id : String , description : String , subject :String, idClient : String){
+    func updatequestion(id : String , nbrrate : String , nbruser :String){
          var request = URLRequest(url: URL(string: "http://localhost:3000/updatequestion/"+id)!)
              request.httpMethod = "put"
              request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
              print("its working")
          let postString =
-         "description="+description+"&" +
-         "subject="+subject+"&" +
-      "idClient="+idClient+"&"
+         "nbrrate="+nbrrate+"&" +
+         "nbruser="+nbruser+"&"
+ 
              request.httpBody = postString.data(using: .utf8)
              let task = URLSession.shared.dataTask(with: request) { data, response, error in
                  guard let data = data, error == nil else {                                                 // check for fundamental networking error
