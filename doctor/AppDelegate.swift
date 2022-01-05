@@ -10,6 +10,9 @@ import Braintree
 import CoreData
 import FBSDKCoreKit
 import MOLH
+import AppCenter
+import AppCenterAnalytics
+import AppCenterCrashes
     @main
 class AppDelegate: UIResponder, UIApplicationDelegate, MOLHResetable {
   
@@ -17,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MOLHResetable {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        AppCenter.start(withAppSecret: "d00a064a-8515-4975-8218-51481cab7582", services:[
+          Analytics.self,
+          Crashes.self
+        ])
         // paypal
              BTAppSwitch.setReturnURLScheme("com.example.apple-samplecode.doctor.payments")
         

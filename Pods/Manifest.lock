@@ -2,6 +2,14 @@ PODS:
   - Alamofire (5.5.0)
   - AlamofireImage (4.2.0):
     - Alamofire (~> 5.4)
+  - AppCenter (4.4.1):
+    - AppCenter/Analytics (= 4.4.1)
+    - AppCenter/Crashes (= 4.4.1)
+  - AppCenter/Analytics (4.4.1):
+    - AppCenter/Core
+  - AppCenter/Core (4.4.1)
+  - AppCenter/Crashes (4.4.1):
+    - AppCenter/Core
   - Braintree (4.22.0):
     - Braintree/Card (= 4.22.0)
     - Braintree/Core (= 4.22.0)
@@ -128,6 +136,7 @@ PODS:
 
 DEPENDENCIES:
   - AlamofireImage (~> 4.1)
+  - AppCenter
   - Braintree (~> 4.22.0)
   - Cosmos
   - Firebase/Core
@@ -139,6 +148,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireImage
+    - AppCenter
     - Braintree
     - Cosmos
     - Firebase
@@ -158,6 +168,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
+  AppCenter: b0b6f1190215b5f983c42934db718f3b46fff3c0
   Braintree: e814ec196208d3e961c488cf4071de043f399cf9
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   Firebase: 44213362f1dcc52555b935dc925ed35ac55f1b20
@@ -174,6 +185,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   TinyConstraints: 7b7ccc0c485bb3bb47082138ff28bc33cd49897f
 
-PODFILE CHECKSUM: 20c877d5983859e99ffa92be3f7d8863874696c7
+PODFILE CHECKSUM: e11fe1b1facde1639676ea031cf545337b33ae1c
 
 COCOAPODS: 1.11.2
