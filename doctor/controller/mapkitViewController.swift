@@ -13,8 +13,13 @@ import MapKit
 
 class mapkitViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 //var
+    var listuser = [User]()
+    var locValue:CLLocationCoordinate2D?
+    var newCoordinate : CLLocationCoordinate2D?
     let locationManager = CLLocationManager()
        let myPin = MKPointAnnotation()
+    var myPin2 = MKPointAnnotation()
+   
        private var currentCoordinate: CLLocationCoordinate2D?
     var logmap : String?
     var latmap : String?
@@ -27,6 +32,7 @@ class mapkitViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         saveLocationButton.isEnabled = false
                
                self.locationManager.requestAlwaysAuthorization()
@@ -45,6 +51,28 @@ class mapkitViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                
                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(mapkitViewController.handleTap(gestureRecognizer:)))
                self.mapView.addGestureRecognizer(tapGesture)
+        let ll = Double.init((userviewmodelm.userToken?.log)!)
+        let lat = Double.init((userviewmodelm.userToken?.lat)!)
+      
+         locValue = CLLocationCoordinate2DMake(ll!,lat!);
+        
+        userviewmodelm.getallusers()
+        sleep(1)
+      
+        userviewmodelm.userdata.forEach{ msg in
+            var myPin3 = MKPointAnnotation()
+            locValue?.longitude = CLLocationDegrees(Float80((msg.log)!)!)
+            locValue?.latitude =  CLLocationDegrees(Float80((msg.lat)!)!)
+           
+            
+            myPin3.coordinate =   locValue!
+            myPin3.title = msg.nom
+         
+            mapView.addAnnotation(myPin3)
+            
+        }
+      
+
                
     }
     
@@ -107,11 +135,12 @@ class mapkitViewController: UIViewController, MKMapViewDelegate, CLLocationManag
            
            if gestureRecognizer.state != UITapGestureRecognizer.State.began{
                let touchLocation = gestureRecognizer.location(in: mapView)
-               let locationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: mapView)
+               var locationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: mapView)
                
                saveLocationButton.isEnabled = true
                
                print("Tapped at Lattitude: " + String(locationCoordinate.latitude) + ", Longitude: " + String(locationCoordinate.longitude))
+               
                
                myPin.coordinate = locationCoordinate
                
@@ -119,6 +148,10 @@ class mapkitViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                latmap =  String(locationCoordinate.latitude)
                logmap = String(locationCoordinate.longitude)
                mapView.addAnnotation(myPin)
+              
+               
+             
+               
            }
        }
        
