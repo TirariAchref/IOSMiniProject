@@ -15,7 +15,7 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     var messagerieviewmodel = messagerieVM()
     var movie : Messagerie?
     private let refreshControl = UIRefreshControl()
-    @IBOutlet weak var profileimage: UIImageView!
+   
     
  
     @IBOutlet weak var searchBar: UISearchBar!
@@ -89,18 +89,14 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileimage.layer.borderWidth = 1
-        profileimage.layer.masksToBounds = false
-        profileimage.layer.borderColor = UIColor.black.cgColor
-        profileimage.layer.cornerRadius = profileimage.frame.height/2
-        profileimage.clipsToBounds = true
+       
         // Do any additional setup after loading the view.
         var path = String("http://localhost:3000/"+(self.userviewmodelm.userToken?.imageUrl)!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
 
               path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
                let url = URL(string: path)!
                print(url)
-        profileimage.af.setImage(withURL: url)
+     
         
         messagerieviewmodel.getOwnerToy(successHandler: {anomalyList in
                   self.data = anomalyList

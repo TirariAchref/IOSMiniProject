@@ -12,7 +12,7 @@ class notificationViewController: UIViewController,UITableViewDelegate,UITableVi
     var userviewmodelm = userVM()
     var questionviewmodel = questionVM()
     private let refreshControl = UIRefreshControl()
-    @IBOutlet weak var profileimage: UIImageView!
+   
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -122,18 +122,14 @@ class notificationViewController: UIViewController,UITableViewDelegate,UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileimage.layer.borderWidth = 1
-        profileimage.layer.masksToBounds = false
-        profileimage.layer.borderColor = UIColor.black.cgColor
-        profileimage.layer.cornerRadius = profileimage.frame.height/2
-        profileimage.clipsToBounds = true
+     
         // Do any additional setup after loading the view.
         var path = String("http://localhost:3000/"+(self.userviewmodelm.userToken?.imageUrl)!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
 
               path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
                let url = URL(string: path)!
                print(url)
-        profileimage.af.setImage(withURL: url)
+    
         questionviewmodel.getOwnerToy(successHandler: {anomalyList in
                     
             anomalyList.forEach{ msg in if(msg.idClient == self.userviewmodelm.userToken?._id  ){self.data.append(msg)} }

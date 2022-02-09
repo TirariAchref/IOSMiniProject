@@ -21,7 +21,7 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     var userviewmodelm = userVM()
     var questionviewmodel = questionVM()
     private let refreshControl = UIRefreshControl()
-    @IBOutlet weak var profilpicture: UIImageView!
+   
     var movie : Question?
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -107,11 +107,7 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        profilpicture.layer.borderWidth = 1
-        profilpicture.layer.masksToBounds = false
-        profilpicture.layer.borderColor = UIColor.black.cgColor
-        profilpicture.layer.cornerRadius = profilpicture.frame.height/2
-        profilpicture.clipsToBounds = true
+       
         // Do any additional setup after loading the view.
      sleep(1)
         print("///////////////////////")
@@ -121,7 +117,7 @@ class homeViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
                      path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
                       let url = URL(string: path)!
                       print(url)
-        profilpicture.af.setImage(withURL: url)
+       
           
         questionviewmodel.getOwnerToy(successHandler: {anomalyList in
                     self.data = anomalyList
