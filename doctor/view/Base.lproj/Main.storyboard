@@ -1023,7 +1023,7 @@
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ebi-Vy-OeJ">
-                                <rect key="frame" x="0.0" y="97" width="414" height="51"/>
+                                <rect key="frame" x="0.0" y="110" width="414" height="38"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="LD4-eF-TFq" id="rDu-We-GYP"/>
@@ -1046,7 +1046,7 @@
                             <constraint firstItem="mPF-UN-V2A" firstAttribute="bottom" secondItem="tUd-Au-cyJ" secondAttribute="bottom" id="bmI-ks-cqi"/>
                             <constraint firstItem="m6f-lZ-KRG" firstAttribute="leading" secondItem="mPF-UN-V2A" secondAttribute="leading" constant="290" id="e48-8I-xLi"/>
                             <constraint firstItem="m6f-lZ-KRG" firstAttribute="width" secondItem="tUd-Au-cyJ" secondAttribute="width" multiplier="0.299517" id="faB-qd-ENe"/>
-                            <constraint firstItem="ebi-Vy-OeJ" firstAttribute="top" secondItem="mPF-UN-V2A" secondAttribute="top" constant="9" id="ld8-y1-WWD"/>
+                            <constraint firstItem="ebi-Vy-OeJ" firstAttribute="top" secondItem="mPF-UN-V2A" secondAttribute="top" constant="22" id="ld8-y1-WWD"/>
                             <constraint firstItem="m6f-lZ-KRG" firstAttribute="top" secondItem="iqG-ub-7Oo" secondAttribute="top" id="uab-4m-rDc"/>
                         </constraints>
                     </view>

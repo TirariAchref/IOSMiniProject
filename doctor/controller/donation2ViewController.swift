@@ -77,7 +77,7 @@ class donation2ViewController: UIViewController {
                       
                       self.present(Alert.makeActionAlert(titre: "Success", message:  message, action: UIAlertAction(title: "Proceed", style: .default, handler: { action in
                           self.performSegue(withIdentifier: "pass", sender: sender)
-                          var x =  Int((self.dataevent[0].moneyreached)!)! + Int((self.money.text)!)!
+                          let x =  Int((self.dataevent[0].moneyreached)!)! + Int((self.money.text)!)!
                           
                           self.eventviewmodel.updateevent(e: self.dataevent[0] , money: String(x))
                       })),animated: true)
