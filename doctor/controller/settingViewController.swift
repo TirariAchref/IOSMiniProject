@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import MOLH
+
 class settingViewController: UIViewController{
     var userviewmodelm = userVM()
 
@@ -29,7 +29,7 @@ class settingViewController: UIViewController{
         grandimage.layer.cornerRadius = grandimage.frame.height/2
         grandimage.clipsToBounds = true
         // Do any additional setup after loading the view.
-        var path = String("http://localhost:3000/"+(self.userviewmodelm.userToken?.imageUrl)!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        var path = String("https://backnodeios.herokuapp.com/"+(self.userviewmodelm.userToken?.imageUrl)!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
 
               path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
                let url = URL(string: path)!

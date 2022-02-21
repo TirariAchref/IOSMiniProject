@@ -11,7 +11,7 @@ class questionVM {
   var listquestion = [Question]()
     func getOwnerToy(successHandler: @escaping (_ anomalyList: [Question] ) -> (),errorHandler: @escaping () -> ())
         {
-            let url = "http://localhost:3000/allquestions"
+            let url = "https://backnodeios.herokuapp.com/allquestions"
             print("getOwnerToy : "+url)
             
             AF.request(url, method: .get).validate().responseDecodable(of:  [Question].self, decoder: JSONDecoder()) { apiResponse in
@@ -40,7 +40,7 @@ class questionVM {
     func getallquestions()  {
        
         
-        let jsonUrlString = "http://localhost:3000/allquestions"
+        let jsonUrlString = "https://backnodeios.herokuapp.com/allquestions"
             guard let url = URL(string: jsonUrlString) else
             { return }
 
@@ -67,7 +67,7 @@ class questionVM {
     
    
     func createquestion(description : String , subject :String, idClient : String){
-            var request = URLRequest(url: URL(string: "http://localhost:3000/createquestion")!)
+            var request = URLRequest(url: URL(string: "https://backnodeios.herokuapp.com/createquestion")!)
             request.httpMethod = "post"
             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             print("its working")
@@ -105,7 +105,7 @@ class questionVM {
     
     
     func updatequestion(id : String , nbrrate : String , nbruser :String){
-         var request = URLRequest(url: URL(string: "http://localhost:3000/updatequestion/"+id)!)
+         var request = URLRequest(url: URL(string: "https://backnodeios.herokuapp.com/updatequestion/"+id)!)
              request.httpMethod = "put"
              request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
              print("its working")
@@ -140,7 +140,7 @@ class questionVM {
          }
     
     func deletequestion(id : String){
-        var request = URLRequest(url: URL(string: "http://localhost:3000/deletequestion/"+id)!)
+        var request = URLRequest(url: URL(string: "https://backnodeios.herokuapp.com/deletequestion/"+id)!)
             request.httpMethod = "delete"
             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             print("its working")

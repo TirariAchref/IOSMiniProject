@@ -10,7 +10,7 @@ import Alamofire
 class eventVM {
     func getOwnerToy(successHandler: @escaping (_ anomalyList: [Event] ) -> (),errorHandler: @escaping () -> ())
         {
-            let url = "http://localhost:3000/allevent"
+            let url = "https://backnodeios.herokuapp.com/allevent"
             print("getOwnerToy : "+url)
             
             AF.request(url, method: .get).validate().responseDecodable(of:  [Event].self, decoder: JSONDecoder()) { apiResponse in
@@ -40,7 +40,7 @@ class eventVM {
     func getallevents()  {
        
         
-        let jsonUrlString = "http://localhost:3000/allevent"
+        let jsonUrlString = "https://backnodeios.herokuapp.com/allevent"
             guard let url = URL(string: jsonUrlString) else
             { return }
 
@@ -65,7 +65,7 @@ class eventVM {
     
    
     func createevent(){
-            var request = URLRequest(url: URL(string: "http://localhost:3000/createevent")!)
+            var request = URLRequest(url: URL(string: "https://backnodeios.herokuapp.com/createevent")!)
             request.httpMethod = "post"
             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             print("its working")
@@ -105,7 +105,7 @@ class eventVM {
     
     
     func updateevent(e : Event , money : String){
-        var request = URLRequest(url: URL(string: "http://localhost:3000/updateevent/"+(e._id)!)!)
+        var request = URLRequest(url: URL(string: "https://backnodeios.herokuapp.com/updateevent/"+(e._id)!)!)
              request.httpMethod = "put"
              request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
              print("its working")
@@ -139,7 +139,7 @@ class eventVM {
          }
     
     func deleteevent(){
-        var request = URLRequest(url: URL(string: "http://localhost:3000/deleteevent/6199846c612d99bb5c619929")!)
+        var request = URLRequest(url: URL(string: "https://backnodeios.herokuapp.com/deleteevent/6199846c612d99bb5c619929")!)
             request.httpMethod = "delete"
             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             print("its working")

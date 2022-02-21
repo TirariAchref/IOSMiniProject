@@ -12,7 +12,7 @@ class messagerieVM {
     var listmessagerie = [Messagerie]()
     func getOwnerToy(successHandler: @escaping (_ anomalyList: [Messagerie] ) -> (),errorHandler: @escaping () -> ())
         {
-            let url = "http://localhost:3000/allmessagerie"
+            let url = "https://backnodeios.herokuapp.com/allmessagerie"
             print("getOwnerToy : "+url)
             
             AF.request(url, method: .get).validate().responseDecodable(of:  [Messagerie].self, decoder: JSONDecoder()) { apiResponse in
@@ -41,7 +41,7 @@ class messagerieVM {
     func getallmessageries()  {
        
         
-        let jsonUrlString = "http://localhost:3000/allmessagerie"
+        let jsonUrlString = "https://backnodeios.herokuapp.com/allmessagerie"
             guard let url = URL(string: jsonUrlString) else
             { return }
 
@@ -66,7 +66,7 @@ class messagerieVM {
     
    
     func createmessagerie(message:String ,object:String ,from:String , to:String  ){
-            var request = URLRequest(url: URL(string: "http://localhost:3000/createmessagerie")!)
+            var request = URLRequest(url: URL(string: "https://backnodeios.herokuapp.com/createmessagerie")!)
             request.httpMethod = "post"
             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             print("its working")
@@ -100,7 +100,7 @@ class messagerieVM {
     
    
     func deletemessagerie(id:String){
-        var request = URLRequest(url: URL(string: "http://localhost:3000/deletemessagerie/"+id)!)
+        var request = URLRequest(url: URL(string: "https://backnodeios.herokuapp.com/deletemessagerie/"+id)!)
             request.httpMethod = "delete"
             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             print("its working")

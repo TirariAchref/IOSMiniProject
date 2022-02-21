@@ -22,7 +22,7 @@ class chnagephotoViewController: UIViewController,UINavigationControllerDelegate
         grandimage.layer.borderColor = UIColor.black.cgColor
         grandimage.layer.cornerRadius = grandimage.frame.height/2
         grandimage.clipsToBounds = true
-        var path = String("http://localhost:3000/"+(self.userviewmodelm.userToken?.imageUrl)!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        var path = String("https://backnodeios.herokuapp.com/"+(self.userviewmodelm.userToken?.imageUrl)!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
 
               path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
                let url = URL(string: path)!

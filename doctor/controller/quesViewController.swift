@@ -45,7 +45,7 @@ class quesViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                self.usertable = anomalyList
                print("alamofire :")
                print(self.usertable!)
-               var path = String("http://localhost:3000/"+(self.usertable?.imageUrl)!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+               var path = String("https://backnodeios.herokuapp.com/"+(self.usertable?.imageUrl)!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
                path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
                       let url = URL(string: path)!
                       print(url)

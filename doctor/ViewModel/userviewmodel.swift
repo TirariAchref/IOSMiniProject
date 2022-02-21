@@ -26,7 +26,7 @@ class userVM {
     
     func getOwnerToy(OwnerId:String, successHandler: @escaping (_ anomalyList: User) -> (),errorHandler: @escaping () -> ())
         {
-            let url = "http://localhost:3000/getuser/"+OwnerId
+            let url = "https://backnodeios.herokuapp.com/getuser/"+OwnerId
             print("getOwnerToy : "+url)
             
             AF.request(url, method: .get).validate().responseDecodable(of: User.self, decoder: JSONDecoder()) { apiResponse in
@@ -54,7 +54,7 @@ class userVM {
     //alomofire update toy
         func updateToys(Image:UIImage,toy:User?,successHandler: @escaping (_ toy: User?) -> (),errorHandler: @escaping () -> ())
         {
-            let urlApi = "http://localhost:3000/updateImageClient/"+(toy?._id)!
+            let urlApi = "https://backnodeios.herokuapp.com/"+(toy?._id)!
             print(urlApi)
             let headers: HTTPHeaders = ["Content-type": "multipart/form-data"]
 
@@ -85,7 +85,7 @@ class userVM {
 
     func getOwnermail(OwnerId:String, successHandler: @escaping (_ anomalyList: [User]) -> (),errorHandler: @escaping () -> ())
         {
-            let url = "http://localhost:3000/getuserEmail/"+OwnerId
+            let url = "https://backnodeios.herokuapp.com/"+OwnerId
             print("getOwnerToy : "+url)
             
             AF.request(url, method: .get).validate().responseDecodable(of: [User].self, decoder: JSONDecoder()) { apiResponse in
@@ -113,7 +113,7 @@ class userVM {
     func getallusers(){
        
         
-        let jsonUrlString = "http://localhost:3000/allusers"
+        let jsonUrlString = "https://backnodeios.herokuapp.com/allusers"
             guard let url = URL(string: jsonUrlString) else
             { return }
 
@@ -142,7 +142,7 @@ class userVM {
        
         print("Token : ----------------------")
         print(token)
-        let jsonUrlString = "http://localhost:3000/tokenaccount"
+        let jsonUrlString = "https://backnodeios.herokuapp.com/tokenaccount"
             guard let url = URL(string: jsonUrlString) else
             { return }
         var request = URLRequest(url: url)
@@ -176,7 +176,7 @@ class userVM {
     
     func createtoken(email:String,password:String) {
         let defaults = UserDefaults.standard
-            var request = URLRequest(url: URL(string: "http://localhost:3000/loginClient")!)
+            var request = URLRequest(url: URL(string: "https://backnodeios.herokuapp.com/loginClient")!)
             request.httpMethod = "post"
             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             print("its working")
@@ -232,7 +232,7 @@ class userVM {
            }
    
     func createuser(nom : String,prenom:String,email:String,password:String,phone:String,categorieclient:String,imageUrl:String){
-            var request = URLRequest(url: URL(string: "http://localhost:3000/createuser")!)
+            var request = URLRequest(url: URL(string: "https://backnodeios.herokuapp.com/createuser")!)
             request.httpMethod = "post"
             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             print("its working")
@@ -269,7 +269,7 @@ class userVM {
     
     
     func updateuser(id:String,nom : String,prenom:String,email:String,password:String,phone:String,categorieclient:String){
-         var request = URLRequest(url: URL(string: "http://localhost:3000/updateuser/"+id)!)
+         var request = URLRequest(url: URL(string: "https://backnodeios.herokuapp.com/"+id)!)
              request.httpMethod = "put"
              request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
              print("its working")
@@ -300,7 +300,7 @@ class userVM {
              task.resume()
          }
     func updateuserpass(id:String,nom : String,prenom:String,email:String,phone:String,categorieclient:String){
-         var request = URLRequest(url: URL(string: "http://localhost:3000/updateuserpass/"+id)!)
+         var request = URLRequest(url: URL(string: "https://backnodeios.herokuapp.com/updateuserpass/"+id)!)
              request.httpMethod = "put"
              request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
              print("its working")
@@ -332,7 +332,7 @@ class userVM {
          }
     
     func updatemap(id:String,log : String,lat:String){
-         var request = URLRequest(url: URL(string: "http://localhost:3000/updatemap/"+id)!)
+         var request = URLRequest(url: URL(string: "https://backnodeios.herokuapp.com/updatemap/"+id)!)
              request.httpMethod = "put"
              request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
              print("its working")
@@ -364,7 +364,7 @@ class userVM {
          }
     
     func deleteuser(id:String){
-        var request = URLRequest(url: URL(string: "http://localhost:3000/deleteuser/"+id)!)
+        var request = URLRequest(url: URL(string: "https://backnodeios.herokuapp.com/deleteuser/"+id)!)
             request.httpMethod = "delete"
             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             print("its working")
@@ -403,7 +403,7 @@ class userVM {
     func getbyemail(email : String){
        
         
-        let jsonUrlString = "http://localhost:3000/getuserEmail/"+email
+        let jsonUrlString = "https://backnodeios.herokuapp.com/getuserEmail/"+email
             guard let url = URL(string: jsonUrlString) else
             { return }
 
@@ -433,7 +433,7 @@ class userVM {
     func getbyId(id : String){
        
         
-        let jsonUrlString = "http://localhost:3000/getuser/"+id
+        let jsonUrlString = "https://backnodeios.herokuapp.com/getuser/"+id
             guard let url = URL(string: jsonUrlString) else
             { return }
 
@@ -458,7 +458,7 @@ class userVM {
     }
     
     func sendmail(email:String,code:String){
-         var request = URLRequest(url: URL(string: "http://localhost:3000/sendmail")!)
+         var request = URLRequest(url: URL(string: "https://backnodeios.herokuapp.com/sendmail")!)
              request.httpMethod = "post"
              request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
              print("its working")
@@ -489,7 +489,7 @@ class userVM {
              task.resume()
          }
     func sendsms(code:String){
-         var request = URLRequest(url: URL(string: "http://localhost:3000/sendsms")!)
+         var request = URLRequest(url: URL(string: "https://backnodeios.herokuapp.com/sendsms")!)
              request.httpMethod = "post"
              request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
              print("its working")
