@@ -170,7 +170,8 @@ class notificationViewController: UIViewController,UITableViewDelegate,UITableVi
         data.removeAll()
         tableView.reloadData()
         questionviewmodel.getOwnerToy(successHandler: {anomalyList in
-                    self.data = anomalyList
+                    
+            anomalyList.forEach{ msg in if(msg.idClient == self.userviewmodelm.userToken?._id  ){self.data.append(msg)} }
             self.filteredData = self.data
             self.filteredData.reverse()
             self.tableView.reloadData()
@@ -178,6 +179,7 @@ class notificationViewController: UIViewController,UITableViewDelegate,UITableVi
                 }, errorHandler: {
                     print("errorororoor")
                 })
+       
               
                 
             

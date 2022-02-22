@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import Braintree
+//import Braintree
 import CoreData
-import FBSDKCoreKit
+//import FBSDKCoreKit
 import MOLH
     @main
 class AppDelegate: UIResponder, UIApplicationDelegate, MOLHResetable {
@@ -18,12 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MOLHResetable {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // paypal
-             BTAppSwitch.setReturnURLScheme("com.example.apple-samplecode.doctor.payments")
+           //  BTAppSwitch.setReturnURLScheme("com.example.apple-samplecode.doctor.payments")
         
-        ApplicationDelegate.shared.application(
-            application,
-            didFinishLaunchingWithOptions: launchOptions)
-        MOLH.shared.activate(true)
+       // ApplicationDelegate.shared.application(application,didFinishLaunchingWithOptions:launchOptions)MOLH.shar.activate(true)
 
       
 
@@ -39,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MOLHResetable {
 
     // MARK: UISceneSession Lifecycle
 
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+    /*func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
@@ -49,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MOLHResetable {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
+    }*/
 
     // MARK: - Core Data stack
 
@@ -96,7 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MOLHResetable {
         }
     }
     
-    func application(
+    /* func application(
         _ app: UIApplication,
         open url: URL,
         options: [UIApplication.OpenURLOptionsKey : Any] = [:]
@@ -113,6 +110,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MOLHResetable {
             sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
             annotation: options[UIApplication.OpenURLOptionsKey.annotation]
         )
-    }
+    }*/
 }
 

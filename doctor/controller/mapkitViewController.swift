@@ -51,10 +51,8 @@ class mapkitViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                
                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(mapkitViewController.handleTap(gestureRecognizer:)))
                self.mapView.addGestureRecognizer(tapGesture)
-        let ll = Double.init((userviewmodelm.userToken?.log)!)
-        let lat = Double.init((userviewmodelm.userToken?.lat)!)
-      
-         locValue = CLLocationCoordinate2DMake(ll!,lat!);
+       
+         
         
         userviewmodelm.getallusers()
        

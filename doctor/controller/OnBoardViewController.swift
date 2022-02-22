@@ -76,7 +76,18 @@ class OnBoardViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
         }else{
             if validateEmail(enteredEmail: email.text!) {
                 if(password.text == conpassword.text){
-                    performSegue(withIdentifier: "register", sender: sender)
+                   
+                    userviewmodelm.createuser(nom: name.text!, prenom: name.text!, email: email.text!, password: password.text!, phone: number.text!, categorieclient: txtTitle.text! ,imageUrl: "profile")
+                        sleep(1)
+                    
+                    userviewmodelm.createtoken(email: email.text!, password: password.text!)
+                            sleep(1)
+                        
+                        
+                      
+                      
+                        performSegue(withIdentifier: "login", sender: sender)
+                   
                 }else{
                     prompt(title: "warning", message: "password don't match")
                 }
@@ -92,25 +103,17 @@ class OnBoardViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
     }
     
  
-    @IBAction func facebook(_ sender: Any) {
-        performSegue(withIdentifier: "facebook", sender: sender)
- 
-    }
+   
+    
     
     @IBAction func sign(_ sender: Any) {
         performSegue(withIdentifier: "signin", sender: sender)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "register" {
-            let destination = segue.destination as! confirmationmailViewController
+        if segue.identifier == "login" {
+            let destination = segue.destination as! tabbarViewController
             destination.userviewmodelm = userviewmodelm
-            destination.email = email.text
-            destination.name = name.text
-            destination.password = password.text
-            destination.phone = number.text
-            destination.role =  txtTitle.text
-        
-            
+           
         }
     }
     func prompt(title: String, message: String) {

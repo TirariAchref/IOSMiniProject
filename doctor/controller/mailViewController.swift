@@ -130,14 +130,14 @@ class mailViewController: UIViewController ,UITableViewDelegate,UITableViewDataS
 
     @objc private func refreshWeatherData(_ sender: Any) {
         // Fetch Weather Data
-       
+      
         fetchWeatherData()
     }
     
     private func fetchWeatherData() {
         self.data.removeAll()
         self.filteredData.removeAll()
-        
+        tableView.reloadData()
         messagerieviewmodel.getOwnerToy(successHandler: {anomalyList in
                   self.data = anomalyList
             self.data.forEach{ msg in if(msg.from == self.userviewmodelm.userToken?.email || msg.to == self.userviewmodelm.userToken?.email ){self.filteredData.append(msg)} }

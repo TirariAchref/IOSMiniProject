@@ -18,9 +18,7 @@ class tabbarViewController: UITabBarController {
         vc.userviewmodelm = userviewmodelm
        
         
-        let navController1 = self.viewControllers![2] as! UINavigationController
-        let vc1 = navController1.topViewController as! donation1ViewController
-        vc1.userviewmodelm = userviewmodelm
+        
        
         
         let navController2 = self.viewControllers![1] as! UINavigationController
@@ -28,10 +26,10 @@ class tabbarViewController: UITabBarController {
         vc2.userviewmodelm = userviewmodelm
        
         
-        let navController3 = self.viewControllers![3] as! UINavigationController
+        let navController3 = self.viewControllers![2] as! UINavigationController
         let vc3 = navController3.topViewController as! notificationViewController
         vc3.userviewmodelm = userviewmodelm
-        let navController4 = self.viewControllers![4] as! senavViewController
+        let navController4 = self.viewControllers![3] as! senavViewController
         navController4.userviewmodelm = userviewmodelm
         
         let vc4 = navController4.topViewController as! settingViewController

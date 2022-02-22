@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Braintree
+//import Braintree
 
 // compte samir paypal busines
 //
@@ -27,14 +27,14 @@ class donation2ViewController: UIViewController {
     var eventviewmodel = eventVM()
     var dataevent = [Event]()
     var user: User?
-        var braintreeClient: BTAPIClient!
+      //  var braintreeClient: BTAPIClient!
         var amount = "10"
     @IBOutlet weak var money: UITextField!
    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-             braintreeClient = BTAPIClient(authorization: "sandbox_gpgsv2y8_twyv2x893jbftsnw")
+            // braintreeClient = BTAPIClient(authorization: "sandbox_gpgsv2y8_twyv2x893jbftsnw")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,7 +45,7 @@ class donation2ViewController: UIViewController {
         }
     }
     @IBAction func donate(_ sender: Any) {
-        let payPalDriver = BTPayPalDriver(apiClient: braintreeClient)
+        /*let payPalDriver = BTPayPalDriver(apiClient: braintreeClient)
               payPalDriver.viewControllerPresentingDelegate = self
               payPalDriver.appSwitchDelegate = self // Optional
               
@@ -88,13 +88,13 @@ class donation2ViewController: UIViewController {
                   } else {
                       // Buyer canceled payment approval
                   }
-              }
+              }*/
               
           
     }
 
 }
-extension donation2ViewController : BTViewControllerPresentingDelegate{
+/*extension donation2ViewController : BTViewControllerPresentingDelegate{
        func paymentDriver(_ driver: Any, requestsPresentationOf viewController: UIViewController) {
            
        }
@@ -120,4 +120,4 @@ extension donation2ViewController : BTViewControllerPresentingDelegate{
        }
        
        
-   }
+   }*/
