@@ -30,14 +30,17 @@ class welcomeViewController: UIViewController {
             prompt(title: "warning", message: "password is empty")
         }else{
         
-                 userviewmodel.createtoken(email: email.text!, password: password.text!)
-                sleep(1)
-            if((userviewmodel.tokenString) != nil){
-                self.insertToken(token: userviewmodel.tokenString!)
-                performSegue(withIdentifier: "login", sender: sender)
-            }else{
-                prompt(title: "warning", message: "Email or Mot de passe incorrect")
+            userviewmodel.getuserconec(Owneruser: (email.text)!, Ownerpass: (password.text)!)
+            { anomalyList in
+                
+                self.insertToken(token: self.userviewmodel.tokenString!)
+                self.performSegue(withIdentifier: "login", sender: sender)
+            } errorHandler: {
+                self.prompt(title: "warning", message: "Email or Mot de passe incorrect")
             }
+
+                
+           
              
           
        

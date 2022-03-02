@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Description</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Description</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Description</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -17,10 +11,10 @@
 			</array>
 		</dict>
 		<dict>
-			<key>CFBundleURLName</key>
-			<string>com.example.apple-samplecode.doctor</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.example.apple-samplecode.doctor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.example.apple-samplecode.doctor.payments</string>

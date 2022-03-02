@@ -51,6 +51,7 @@ class userVM {
             }
             
         }
+    
     //alomofire update toy
         func updateToys(Image:UIImage,toy:User?,successHandler: @escaping (_ toy: User?) -> (),errorHandler: @escaping () -> ())
         {
@@ -173,13 +174,93 @@ class userVM {
 
        
     }
+    func getOwnerToken(OwnerId:String, successHandler: @escaping (_ anomalyList: User) -> (),errorHandler: @escaping () -> ())
+        {
+            let jsonUrlString = "https://backnodeios.herokuapp.com/tokenaccount"
+                guard let url = URL(string: jsonUrlString) else
+                { return }
+            var request = URLRequest(url: url)
+                 request.addValue(OwnerId, forHTTPHeaderField: "authorization")
+            AF.request(request).validate().responseDecodable(of: User.self, decoder: JSONDecoder()) { apiResponse in
+                guard apiResponse.response != nil else{
+                    errorHandler()
+                    return
+                }
+                
+                switch apiResponse.response?.statusCode {
+                    
+                    case 200:
+                    let responseString = String(data: apiResponse.data!, encoding: .utf8)
+                    print(responseString as Any)
+                    successHandler(try! apiResponse.result.get())
+
+                    case 500:
+                    errorHandler()
+               
+                default:
+                  errorHandler()
+                    
+                }
+                
+            }
+            
+        }
+    func getuserconec(Owneruser:String,Ownerpass:String, successHandler: @escaping (_ anomalyList: User) -> (),errorHandler: @escaping () -> ())
+        { var request = URLRequest(url: URL(string: "https://backnodeios.herokuapp.com/loginClient")!)
+            request.httpMethod = "post"
+            request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            
+            let postString = "email="+Owneruser+"&"+"password="+Ownerpass+"&"
+            request.httpBody = postString.data(using: .utf8)
+            AF.request(request).validate().responseDecodable(of: User.self, decoder: JSONDecoder()) { apiResponse in
+                guard apiResponse.response != nil else{
+                    errorHandler()
+                    return
+                }
+                
+                switch apiResponse.response?.statusCode {
+                    
+                    case 200:
+                
+                        let responseString = String(data: apiResponse.data!, encoding: .utf8)
+                       
+
+                        let json = responseString!.toJSON() as? [String:AnyObject]
+                        let tt = json!["token"] as? String
+                        self.tokenString = json!["token"] as? String
+                       
+                        print(tt as Any)
+                        if((tt) != nil){
+                            self.getOwnerToken(OwnerId: (json!["token"] as? String)!) { anomalyList in
+                                self.userToken = anomalyList
+                                successHandler(anomalyList)
+                            } errorHandler: {
+                                print("errorororoor")
+                            }
+
+                        
+                        }
+                    
+                    
+
+                    case 500:
+                    errorHandler()
+               
+                default:
+                  errorHandler()
+                    
+                }
+                
+            }
+           
+        }
     
     func createtoken(email:String,password:String) {
         let defaults = UserDefaults.standard
             var request = URLRequest(url: URL(string: "https://backnodeios.herokuapp.com/loginClient")!)
             request.httpMethod = "post"
             request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
-            print("its working")
+            
             let postString = "email="+email+"&"+"password="+password+"&"
             request.httpBody = postString.data(using: .utf8)
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -200,10 +281,7 @@ class userVM {
                 let tt = json!["token"] as? String
                 self.tokenString = json!["token"] as? String
                 defaults.setValue(self.tokenString, forKey: "jsonwebtoken")
-                DispatchQueue.main.async {
-                    self.isAuthenticated = true
-                    print(self.isAuthenticated)
-                }
+              
                 if((tt) != nil){
                     self.getuserfromtoken(token:(json!["token"] as? String)!)
                 }

@@ -1,6 +1,6 @@
 
-/* Class = "UILabel"; text = "We are MEDTECK We are a community of doctors and patient. We are here to help  you and make you feel like home."; ObjectID = "08n-xi-kEZ"; */
-"08n-xi-kEZ.text" = "We are MEDTECK We are a community of doctors and patient. We are here to help  you and make you feel like home.";
+/* Class = "UILabel"; text = "We are TbibMak We are a community of doctors and patient. We are here to help  you and make you feel like home."; ObjectID = "08n-xi-kEZ"; */
+"08n-xi-kEZ.text" = "We are TbibMak We are a community of doctors and patient. We are here to help  you and make you feel like home.";
 
 /* Class = "UILabel"; text = "Just Sign In to be a part of our communnity."; ObjectID = "0xb-Y8-Zxv"; */
 "0xb-Y8-Zxv.text" = "Just Sign In to be a part of our communnity.";
@@ -185,8 +185,8 @@
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "OM0-9Y-KcO"; */
 "OM0-9Y-KcO.normalTitle" = "Button";
 
-/* Class = "UILabel"; text = "welcome to MEDTECK  Thank you for chossing us    you will find our best doctors  in our platform."; ObjectID = "OMT-Ar-495"; */
-"OMT-Ar-495.text" = "welcome to MEDTECK  Thank you for chossing us    you will find our best doctors  in our platform.";
+/* Class = "UILabel"; text = "welcome to TbibMak  Thank you for chossing us    you will find our best doctors  in our platform."; ObjectID = "OMT-Ar-495"; */
+"OMT-Ar-495.text" = "welcome to TbibMak  Thank you for chossing us    you will find our best doctors  in our platform.";
 
 /* Class = "UILabel"; text = "Please enter your email or mobile number to search for your account."; ObjectID = "POM-IS-fMT"; */
 "POM-IS-fMT.text" = "Please enter your email or mobile number to search for your account.";
@@ -275,8 +275,8 @@
 /* Class = "UITextField"; placeholder = "Enter Your Code"; ObjectID = "cxP-q6-BbM"; */
 "cxP-q6-BbM.placeholder" = "Enter Your Code";
 
-/* Class = "UILabel"; text = "MEDTECK User"; ObjectID = "e4r-3P-6XL"; */
-"e4r-3P-6XL.text" = "MEDTECK User";
+/* Class = "UILabel"; text = "TbibMak User"; ObjectID = "e4r-3P-6XL"; */
+"e4r-3P-6XL.text" = "TbibMak User";
 
 /* Class = "UITextField"; placeholder = "Enter your Code"; ObjectID = "e5f-Io-AtI"; */
 "e5f-Io-AtI.placeholder" = "Enter your Code";
@@ -284,8 +284,8 @@
 /* Class = "UILabel"; text = "want to join US ?"; ObjectID = "eRD-uA-Csi"; */
 "eRD-uA-Csi.text" = "want to join US ?";
 
-/* Class = "UILabel"; text = "MEDTECK User"; ObjectID = "ebE-Ir-2IX"; */
-"ebE-Ir-2IX.text" = "MEDTECK User";
+/* Class = "UILabel"; text = "TbibMak User"; ObjectID = "ebE-Ir-2IX"; */
+"ebE-Ir-2IX.text" = "TbibMak User";
 
 /* Class = "UIButton"; configuration.title = "Select New Photo"; ObjectID = "evG-qr-WB6"; */
 "evG-qr-WB6.configuration.title" = "Select New Photo";
@@ -362,8 +362,8 @@
 /* Class = "UILabel"; text = "30,000 DT"; ObjectID = "pBU-ep-lCl"; */
 "pBU-ep-lCl.text" = "30,000 DT";
 
-/* Class = "UILabel"; text = "MEDTECK User"; ObjectID = "qGD-1b-0Je"; */
-"qGD-1b-0Je.text" = "MEDTECK User";
+/* Class = "UILabel"; text = "TbibMak User"; ObjectID = "qGD-1b-0Je"; */
+"qGD-1b-0Je.text" = "TbibMak User";
 
 /* Class = "UILabel"; text = "Put your reponse here :"; ObjectID = "qTb-86-FF8"; */
 "qTb-86-FF8.text" = "Put your reponse here :";

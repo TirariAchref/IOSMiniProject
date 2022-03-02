@@ -53,6 +53,7 @@
 		CE26AA5A2780C51600FB97CE /* quesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26AA592780C51600FB97CE /* quesViewController.swift */; };
 		CE36CA63278095140060AA9D /* QrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36CA62278095140060AA9D /* QrViewController.swift */; };
 		CEE693F82780B72800FD7F9A /* navViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE693F72780B72800FD7F9A /* navViewController.swift */; };
+		D642930127C6AD0A00ECA03C /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D642930027C6AD0A00ECA03C /* IQKeyboardManagerSwift */; };
 		E12F8D18273804D8001E9F8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F8D17273804D8001E9F8D /* AppDelegate.swift */; };
 		E12F8D1A273804D8001E9F8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F8D19273804D8001E9F8D /* SceneDelegate.swift */; };
 		E12F8D1C273804D8001E9F8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F8D1B273804D8001E9F8D /* ViewController.swift */; };
@@ -156,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89348B6E2AB018CFE9543C6F /* Pods_doctor.framework in Frameworks */,
+				D642930127C6AD0A00ECA03C /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +344,9 @@
 			dependencies = (
 			);
 			name = doctor;
+			packageProductDependencies = (
+				D642930027C6AD0A00ECA03C /* IQKeyboardManagerSwift */,
+			);
 			productName = doctor;
 			productReference = E12F8D14273804D8001E9F8D /* doctor.app */;
 			productType = "com.apple.product-type.application";
@@ -415,6 +420,9 @@
 				fr,
 			);
 			mainGroup = E12F8D0B273804D8001E9F8D;
+			packageReferences = (
+				D64292FF27C6AD0A00ECA03C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = E12F8D15273804D8001E9F8D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -732,16 +740,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PM62T7CRC2;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = G96V29LG5G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = doctor/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Description;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = Description;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Description;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -752,7 +764,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -763,16 +775,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PM62T7CRC2;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = G96V29LG5G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = doctor/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = Description;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = Description;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Description;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -783,7 +799,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -923,6 +939,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D64292FF27C6AD0A00ECA03C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D642930027C6AD0A00ECA03C /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D64292FF27C6AD0A00ECA03C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E12F8D20273804D8001E9F8D /* doctor.xcdatamodeld */ = {
