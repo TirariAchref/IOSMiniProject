@@ -2,7 +2,7 @@
 
 IOS MiniProjet, This is a IOS Project for our school ESPRIT. <br />
 
-Medteck is an innovative platform that provides the user with <br />
+Tbibi is an innovative platform that provides the user with <br />
 ask questions online directly while respecting <br />
 the terms of confidentiality. <br />
 
